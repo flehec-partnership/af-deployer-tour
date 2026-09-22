@@ -21,9 +21,9 @@ const PRODUCTS = [
 
 /* ============ PRICING (public direct-sales grid, base column: 36 months) ============ */
 const PRICE = [[5000,3500],[7500,4900],[10000,6000],[12500,7100],[15000,8200],[17500,9200],[20000,10200],[25000,12100],[30000,13950],[35000,15700],[40000,17400],[45000,19050],[50000,20650],[75000,26500],[100000,33200],[125000,39500],[150000,45500],[175000,51200],[200000,56500],[225000,61650],[250000,66700],[275000,71600],[300000,76350],[325000,81050],[350000,85650],[375000,90150],[400000,94550],[425000,98900],[450000,103200],[475000,107450],[500000,111600]];
-const DUR = { 12: 0.2, 24: 0.1, 36: 0 };
+const DUR = { 12: 0.2, 24: 0.1, 36: 0, 48: -0.1 };
 const SIZE = { "<250": 0, "250-1000": 0.25, ">1000": 0.5 };
-const PARTNER_SIZE = ">1000"; // channel grid: partners buy on the >1,000-employee column
+const PARTNER_SIZE = "250-1000"; // channel grid: partners buy on the 250–1,000-employee column (+25%), all order types
 const DISC = { reseller: [30, 35, 40], distributor: [40, 45, 50] };
 const TIER_NAMES = ["Core", "Premier", "Elite"];
 const tierFor = (tk) => { let t = PRICE[0]; for (const p of PRICE) if (p[0] <= tk) t = p; return t; };
@@ -78,17 +78,27 @@ const Seg = ({ options, value, onChange }) => (
     {options.map(([v, l]) => <span key={v} onClick={() => onChange(v)} style={{ padding: "6px 12px", fontSize: 11, fontWeight: 700, cursor: "pointer", background: value === v ? AF.black : "#fff", color: value === v ? "#fff" : AF.grayMid }}>{l}</span>)}
   </div>
 );
-const ProductTile = ({ p, big }) => {
+const PROD_FR = {
+  CVS: ["Analyse de CV", "Analyse automatique · 1 min · Extrait compétences, expériences et formation de chaque CV et classe les candidatures par rapport au poste."],
+  SCAN: ["Préqualification IA", "Agent vocal IA · 5 min · Appelle les candidats et valide les critères clés du poste — expérience, salaire, disponibilité, mobilité — avec un score d'adéquation immédiat."],
+  SWIPE: ["Personnalité", "Questionnaire visuel · 5 min · Mesure 20 traits de personnalité (Big Five) — comment une personne travaille, collabore et progresse."],
+  DRIVE: ["Motivations", "Énoncés par paires · 8 min · Mesure 20 leviers de motivation — ce qui entretient l'engagement. Un prédicteur de la fidélisation."],
+  BRAIN: ["Raisonnement", "Test adaptatif · 8 min · S'ajuste au candidat en temps réel. Évalue le raisonnement, la résolution de problèmes et l'agilité d'apprentissage."],
+  VOICE: ["Compétences & langues", "Entretien vocal IA · ~3 min par compétence · Des mises en situation propres au poste valident toute compétence technique ou langue parlée, avec un certificat CECR."],
+};
+const prodTxt = (p, lang) => lang === "fr" ? { short: PROD_FR[p.id][0], info: PROD_FR[p.id][1] } : { short: p.short, info: p.info };
+const ProductTile = ({ p, big, lang = "en" }) => {
   const [hover, setHover] = useState(false);
+  const tx = prodTxt(p, lang);
   return (
     <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} style={{ position: "relative", background: AF.grayLight, borderRadius: 10, padding: big ? 16 : 12, minHeight: big ? 96 : 64 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <span style={{ width: big ? 42 : 34, height: big ? 42 : 34, borderRadius: 9, background: p.grad, display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: big ? 18 : 15, color: "#fff", flexShrink: 0 }}>{p.icon}</span>
-        <div><div style={{ fontSize: big ? 15 : 13, fontWeight: 700, color: AF.black }}>{p.label}</div><div style={{ fontSize: big ? 11 : 10, color: AF.grayMid }}>{p.short}</div></div>
+        <div><div style={{ fontSize: big ? 15 : 13, fontWeight: 700, color: AF.black }}>{p.label}</div><div style={{ fontSize: big ? 11 : 10, color: AF.grayMid }}>{tx.short}</div></div>
         <span style={{ marginLeft: "auto", fontSize: 10, fontWeight: 600, color: AF.pink, whiteSpace: "nowrap" }}>{p.cost} tk</span>
       </div>
-      {big && <div style={{ fontSize: 11, color: AF.grayMid, lineHeight: 1.45, marginTop: 10 }}>{p.info.split(" · ").slice(2).join(" ")}</div>}
-      {hover && <div style={{ position: "absolute", zIndex: 5, inset: 0, background: "rgba(29,29,31,0.96)", color: "#fff", borderRadius: 10, padding: "10px 14px", fontSize: 11, lineHeight: 1.5, display: "flex", alignItems: "center" }}>{p.info}</div>}
+      {big && <div style={{ fontSize: 11, color: AF.grayMid, lineHeight: 1.45, marginTop: 10 }}>{tx.info.split(" · ").slice(2).join(" ")}</div>}
+      {hover && <div style={{ position: "absolute", zIndex: 5, inset: 0, background: "rgba(29,29,31,0.96)", color: "#fff", borderRadius: 10, padding: "10px 14px", fontSize: 11, lineHeight: 1.5, display: "flex", alignItems: "center" }}>{tx.info}</div>}
     </div>
   );
 };
@@ -103,7 +113,7 @@ en: {
   welcome: {
     h: "Add a talent intelligence layer to everything you deliver for your clients.",
     p: "AssessFirst helps organisations understand people at work and make better decisions. Behavioural science and AI build a complete picture of each person — personality, motivations, reasoning, skills, languages, job fit. As a partner, you deploy it across your own clients, run it from your own back-office and turn it into a recurring revenue line.",
-    pickT: "Choose your profile — examples adapt to your business",
+    pickT: "Choose your profile", pickSub: "The journey is the same for everyone; your choice adapts the use cases in “Why now”, the client data in the back-office demo and the default assumptions of the simulator.",
     chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, discounts and market development funds."], ["What you sell", "Six tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Deployer: order, create client accounts, allocate, track, renew — without waiting for us."], ["How you buy", "Per-client order or Credit Pool, two clocks, the public price grid."], ["Your opportunity", "A margin simulator built on your portfolio and your project mix."], ["Your first 90 days", "From contract to first client — and how to book a call."]],
     start: "Start the journey →", skip: "Skip to the simulator →",
   },
@@ -126,7 +136,7 @@ en: {
     p: "Two programmes, one back-office. The difference is who onboards and supports your clients — and therefore your discount level.",
     cards: { reseller: ["Reseller", "You sell and renew. AssessFirst trains and onboards your clients.", "Recruitment firms, HR consultancies", "30 → 40 % off the public grid"], distributor: ["Distributor", "You own the full client lifecycle: sale, onboarding, training, level-1 support.", "RPOs, HR service groups, country distributors", "40 → 50 % off the public grid"] },
     compareT: "Who does what", rows: ["Lead generation, demo, closing", "Renewals & upsell", "Client onboarding & training", "Customer success", "Level-1 support (functional)", "Level-2 support (technical)", "Client accounts, allocation, renewals", "Billing", "Discount on public grid"],
-    m: { reseller: ["You", "You", "AssessFirst", "AssessFirst", "Shared", "AssessFirst", "You — in your back-office", "AssessFirst invoices you · you invoice your client", "30–40 % by tier"], distributor: ["You", "You", "You", "You", "You", "AssessFirst", "You — in your back-office", "AssessFirst invoices you · you invoice your client", "40–50 % by tier"] },
+    m: { reseller: ["You", "You", "AssessFirst", "AssessFirst", "Shared", "AssessFirst", "You — in your back-office", "AssessFirst invoices you; you invoice your client", "30–40 % by tier"], distributor: ["You", "You", "You", "You", "You", "AssessFirst", "You — in your back-office", "AssessFirst invoices you; you invoice your client", "40–50 % by tier"] },
     you: "You", af: "AssessFirst", shared: "Shared",
     tH: "Tiers & market development funds", tP: "Three tiers reward the recurring revenue you manage across your portfolio (managed ARR, reviewed annually). Higher tier, higher discount — plus market development funds to co-finance events, webinars, content and local campaigns (approved activities, 50% co-investment).",
     tCols: ["Tier", "Managed ARR", "Discount", "MDF / year"],
@@ -149,9 +159,9 @@ fr: {
     acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous achetez", 6: "Estimez votre opportunité", 7: "Vos 90 premiers jours" } },
   profiles: [["rpo", "RPO & staffing", "Recrutement en volume, préqualification, qualité d'embauche"], ["recruit", "Cabinet de recrutement", "Shortlists, time-to-hire, expérience candidat"], ["consult", "Conseil RH", "Assessment centers, mobilité, développement"]],
   welcome: {
-    h: "Ajoutez une couche d'intelligence des talents à tout ce que vous délivrez pour vos clients.",
+    h: "Ajoutez une couche d'intelligence des talents à toutes les prestations que vous délivrez à vos clients.",
     p: "AssessFirst aide les organisations à comprendre les personnes au travail et à prendre de meilleures décisions. Sciences comportementales et IA construisent une compréhension complète de chaque individu — personnalité, motivations, raisonnement, compétences, langues, adéquation au poste. En tant que partenaire, vous la déployez chez vos propres clients, la pilotez depuis votre back-office et en faites une ligne de revenus récurrents.",
-    pickT: "Choisissez votre profil — les exemples s'adaptent à votre activité",
+    pickT: "Choisissez votre profil", pickSub: "Le parcours est le même pour tous ; votre choix adapte les cas d'usage de « Pourquoi maintenant », les données clients de la démo back-office et les hypothèses par défaut du simulateur.",
     chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, remises et fonds de développement marché."], ["Ce que vous vendez", "Six outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Deployer : commander, créer les comptes clients, allouer, suivre, renouveler — sans nous attendre."], ["Comment vous achetez", "Commande par client ou Credit Pool, deux horloges, la grille tarifaire publique."], ["Votre opportunité", "Un simulateur de marge construit sur votre portefeuille et votre mix de projets."], ["Vos 90 premiers jours", "Du contrat au premier client — et comment prendre rendez-vous."]],
     start: "Démarrer le parcours →", skip: "Aller au simulateur →",
   },
@@ -160,21 +170,21 @@ fr: {
     cols: [["Ce qui se passe", [["Le CV a ses limites", "Moins de 15 % de validité prédictive, et pourtant la plupart des décisions s'appuient encore dessus."], ["Les erreurs coûtent cher", "Un mauvais recrutement coûte ~1,5× le salaire annuel ; une promotion ratée coûte une équipe."], ["La réglementation se durcit", "L'EU AI Act impose transparence et équité dans les décisions basées sur l'IA."]]],
       ["L'approche AssessFirst", [["Comprendre la personne entière", "Personnalité, motivations, raisonnement, compétences et langues — un profil, six outils."], ["L'IA là où elle fait gagner du temps", "SCAN et VOICE automatisent la préqualification et les entretiens de compétences."], ["Conçu pour la conformité", "Modèles auditables, testés anti-biais, RGPD-ready, alignés avec l'EU AI Act."]]],
       ["Ce que voient les clients", [["-30 %", "d'erreurs de recrutement dans les 6 mois"], ["+25 %", "de performance sur les postes clés dans les 12 mois"], ["4,9/5", "expérience candidats & collaborateurs · 2 700+ avis Google"], ["39", "langues · 3 500+ clients dans 40+ pays"]]]],
-    h2: "Les partenaires qui possèdent déjà leurs clients gagnent.",
-    p2: "Ce programme est conçu pour les cabinets qui ont déjà la confiance des DRH. Aucune prospection à froid : vous ajoutez AssessFirst à ce que vous délivrez déjà.",
+    h2: "Les partenaires qui ont déjà leurs clients gagnent.",
+    p2: "Ce programme est conçu pour les cabinets qui ont déjà la confiance des directions RH. Aucune prospection à froid : vous ajoutez AssessFirst aux prestations que vous délivrez déjà.",
     use: {
       rpo: [["Préqualification à grande échelle", "SCAN appelle chaque candidat et valide les critères clés — vos recruteurs ne traitent que des profils qualifiés."], ["Recrutement en volume, sécurisé", "SWIPE, DRIVE et BRAIN sur chaque shortlist : adéquation objective, moins de départs précoces."], ["Prouvez la qualité des embauches", "Données de consommation et d'adéquation par client — le KPI qu'attendent vos account managers en revue."]],
       recruit: [["Des shortlists plus justes", "Des données objectives sur la personnalité, la motivation et le raisonnement, avant l'entretien client."], ["Un time-to-hire plus court", "Préqualification et entretiens de compétences sans recruteur au téléphone."], ["Une expérience candidat mémorable", "Chaque candidat reçoit son propre profil — une signature de votre cabinet."]],
       consult: [["Des assessment centers à l'échelle", "Le même socle scientifique pour chaque candidat, en 39 langues, en jours plutôt qu'en semaines."], ["Mobilité interne & développement", "Rapprochez les personnes des postes cibles ; alimentez revues, coaching et entretiens de carrière."], ["Leadership & outplacement", "Des profils complets comme point de départ de chaque programme individuel."]],
     },
-    pts: [["Vendez à votre base existante", "Un complément immédiat à vos services, pas une nouvelle motion commerciale."], ["Vous fixez le prix de revente", "Achetez au prix partenaire, revendez au vôtre — et facturez vos services autour."], ["Pas de concurrence sur vos comptes", "Vous possédez la relation. Notre équipe vous appuie et ne vend jamais à votre place."]],
+    pts: [["Vendez à vos clients existants", "Un complément immédiat à vos prestations, pas un nouveau cycle de vente à construire."], ["Vous fixez le prix de revente", "Achetez au prix partenaire, revendez au vôtre — et facturez vos services autour."], ["Aucune concurrence sur vos comptes", "La relation client est la vôtre. Notre équipe vous appuie et ne vend jamais à votre place."]],
   },
   prog: {
     h: "Revendeur ou Distributeur — choisissez votre programme",
-    p: "Deux programmes, un seul back-office. La différence : qui onboarde et supporte vos clients — et donc votre niveau de remise.",
-    cards: { reseller: ["Revendeur", "Vous vendez et renouvelez. AssessFirst forme et onboarde vos clients.", "Cabinets de recrutement, conseils RH", "30 → 40 % sur la grille publique"], distributor: ["Distributeur", "Vous portez tout le cycle client : vente, onboarding, formation, support niveau 1.", "RPO, groupes de services RH, distributeurs pays", "40 → 50 % sur la grille publique"] },
-    compareT: "Qui fait quoi", rows: ["Génération de leads, démo, closing", "Renouvellements & upsell", "Onboarding & formation client", "Customer success", "Support niveau 1 (fonctionnel)", "Support niveau 2 (technique)", "Comptes clients, allocation, renouvellements", "Facturation", "Remise sur la grille publique"],
-    m: { reseller: ["Vous", "Vous", "AssessFirst", "AssessFirst", "Partagé", "AssessFirst", "Vous — dans votre back-office", "AssessFirst vous facture · vous facturez votre client", "30–40 % selon le tier"], distributor: ["Vous", "Vous", "Vous", "Vous", "Vous", "AssessFirst", "Vous — dans votre back-office", "AssessFirst vous facture · vous facturez votre client", "40–50 % selon le tier"] },
+    p: "Deux programmes, un seul back-office. Ce qui change : qui prend en charge le démarrage et le support de vos clients — et donc votre niveau de remise.",
+    cards: { reseller: ["Revendeur", "Vous vendez et renouvelez ; AssessFirst forme vos clients et les accompagne au démarrage.", "Cabinets de recrutement, cabinets de conseil RH", "30 → 40 % sur la grille publique"], distributor: ["Distributeur", "Vous prenez en charge tout le cycle client : vente, démarrage, formation, support de niveau 1.", "RPO, groupes de services RH, distributeurs pays", "40 → 50 % sur la grille publique"] },
+    compareT: "Qui fait quoi", rows: ["Prospection, démo, signature", "Renouvellements & ventes additionnelles", "Démarrage & formation des clients", "Suivi de la satisfaction client", "Support de niveau 1 (fonctionnel)", "Support de niveau 2 (technique)", "Comptes clients, allocation, renouvellements", "Facturation", "Remise sur la grille publique"],
+    m: { reseller: ["Vous", "Vous", "AssessFirst", "AssessFirst", "Partagé", "AssessFirst", "Vous — dans votre back-office", "AssessFirst vous facture ; vous facturez votre client", "30–40 % selon le tier"], distributor: ["Vous", "Vous", "Vous", "Vous", "Vous", "AssessFirst", "Vous — dans votre back-office", "AssessFirst vous facture ; vous facturez votre client", "40–50 % selon le tier"] },
     you: "Vous", af: "AssessFirst", shared: "Partagé",
     tH: "Tiers & fonds de développement marché", tP: "Trois tiers récompensent le revenu récurrent que vous gérez sur votre portefeuille (ARR géré, révisé chaque année). Plus le tier est élevé, plus la remise l'est — avec des fonds de développement marché pour cofinancer événements, webinaires, contenus et campagnes locales (activités approuvées, co-investissement 50 %).",
     tCols: ["Tier", "ARR géré", "Remise", "MDF / an"],
@@ -182,10 +192,10 @@ fr: {
     tNote: "Structure de programme indicative — les conditions finales sont fixées dans votre contrat de partenariat.",
   },
   sell: {
-    h: "Six outils. Un seul token.", p: "Vos clients achètent un abonnement annuel avec un nombre de tokens ; chaque évaluation consomme des tokens. Survolez un outil pour voir ce qu'il fait.",
+    h: "Six outils. Un seul token.", p: "Vos clients souscrivent un abonnement annuel incluant un volume de tokens ; chaque évaluation en consomme. Survolez un outil pour en savoir plus.",
     note: "Chaque source enrichit les autres : combinées, elles donnent aux recruteurs et aux managers une vision fiable et actionnable de chaque personne. Chaque candidat ou collaborateur reçoit son propre profil.",
-    h2: "Votre marge : les tokens que vous revendez, les services que vous délivrez.",
-    p2: "Vous achetez des tokens au prix partenaire et revendez un abonnement annuel au prix que vous décidez. Autour, vous vendez ce que vous savez faire — cette seconde ligne est souvent la plus importante.",
+    h2: "Votre marge : les tokens que vous revendez et les services que vous facturez.",
+    p2: "Vous achetez les tokens au prix partenaire et revendez un abonnement annuel au prix que vous décidez. Autour, vous vendez ce que vous savez faire — cette seconde ligne de revenus est souvent la plus importante.",
     tokT: "Revente des tokens", tok: ["Prix partenaire = grille publique − remise de votre tier", "Prix de revente = le vôtre, par client", "Les renouvellements se cumulent année après année"],
     servT: "Services facturés en plus", serv: ["Paramétrage & modèles de postes", "Formation des recruteurs et managers", "Restitutions candidats et collaborateurs", "Assessment centers & programmes de mobilité", "Coaching, référentiels de compétences, conduite du changement"],
     foot: "Les chiffres viennent plus tard, dans le simulateur — construit sur votre propre portefeuille.",
@@ -201,16 +211,17 @@ const S_Welcome = ({ goto, lang, profile, setProfile, steps }) => {
       <AfMark size={54} />
       <div style={{ height: 4, width: 120, background: AF.gradient, borderRadius: 2, margin: "16px 0" }} />
       <h2 style={{ fontSize: 26, fontWeight: 700, color: AF.black, letterSpacing: "-0.02em", margin: "0 0 10px", maxWidth: 680 }}>{T.h}</h2>
-      <p style={{ fontSize: 13, color: AF.grayMid, lineHeight: 1.6, margin: "0 0 6px", maxWidth: 720 }}>{T.p}</p>
-      <Kicker>{T.pickT}</Kicker>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, maxWidth: 720, marginBottom: 18 }}>
+      <p style={{ fontSize: 13, color: AF.grayMid, lineHeight: 1.65, margin: "0 0 28px", maxWidth: 740 }}>{T.p}</p>
+      <div style={{ borderTop: `1px solid ${AF.border}`, paddingTop: 22, marginBottom: 6 }}><Kicker>{T.pickT}</Kicker></div>
+      <p style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5, margin: "0 0 12px", maxWidth: 740 }}>{T.pickSub}</p>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, maxWidth: 740, marginBottom: 28 }}>
         {L[lang].profiles.map(([id, t, d]) => { const on = profile === id; return (
           <div key={id} onClick={() => setProfile(id)} style={{ border: on ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", borderRadius: 12, padding: "12px 15px", cursor: "pointer" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ width: 15, height: 15, borderRadius: "50%", border: on ? `5px solid ${AF.pink}` : `2px solid ${AF.border}`, flexShrink: 0 }} /><b style={{ fontSize: 13.5, color: AF.black }}>{t}</b></div>
             <p style={{ fontSize: 10.5, color: AF.grayMid, margin: "6px 0 0 23px", lineHeight: 1.45 }}>{d}</p>
           </div>); })}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 8, marginBottom: 22 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 8, marginBottom: 26 }}>
         {T.chapters.map(([t, d], k) => (
           <div key={t} onClick={() => goto(steps.findIndex((st) => st.act === k + 1))} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: 12, cursor: "pointer" }}>
             <span style={{ width: 22, height: 22, borderRadius: "50%", background: AF.pink, color: "#fff", fontSize: 11, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", marginBottom: 8 }}>{k + 1}</span>
@@ -280,12 +291,12 @@ const S_Programme = ({ lang, prog, setProg }) => {
       </div>
       {open && <div style={{ border: `1px solid ${AF.border}`, borderTop: "none", borderRadius: "0 0 10px 10px", overflow: "hidden" }}>
         {T.rows.map((r, i) => { const a = T.m.reseller[i], b = T.m.distributor[i]; return (
-          <div key={r} style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr 1fr", padding: "9px 14px", borderTop: i ? `1px solid ${AF.border}` : "none", fontSize: 12, alignItems: "center" }}>
+          <div key={r} style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", columnGap: 24, padding: "9px 14px", borderTop: i ? `1px solid ${AF.border}` : "none", fontSize: 12, lineHeight: 1.4, alignItems: "center" }}>
             <span style={{ color: AF.grayMid }}>{r}</span>
             <span style={{ fontWeight: 600, color: col(a), opacity: prog === "reseller" ? 1 : 0.45 }}>{a}</span>
             <span style={{ fontWeight: 600, color: col(b), opacity: prog === "distributor" ? 1 : 0.45 }}>{b}</span>
           </div>); })}
-        <div style={{ display: "grid", gridTemplateColumns: "1.3fr 1fr 1fr", padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}><span /><span>{T.cards.reseller[0]}</span><span>{T.cards.distributor[0]}</span></div>
+        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", columnGap: 24, padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}><span /><span>{T.cards.reseller[0]}</span><span>{T.cards.distributor[0]}</span></div>
       </div>}
     </Frame>
   );
@@ -312,7 +323,7 @@ const S_Products = ({ lang }) => {
   const T = L[lang].sell;
   return (
     <Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, marginBottom: 14 }}>{PRODUCTS.map((p) => <ProductTile key={p.id} p={p} big />)}</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, marginBottom: 14 }}>{PRODUCTS.map((p) => <ProductTile key={p.id} p={p} big lang={lang} />)}</div>
       <p style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.55, margin: 0, maxWidth: 760 }}>{T.note}</p>
     </Frame>
   );
@@ -343,9 +354,9 @@ const BO_INTRO = {
   fr: { h: "Deployer — pilotez votre activité AssessFirst sans nous attendre", p: "Commander, créer les comptes clients, allouer les tokens, suivre la consommation, renouveler. C'est le back-office partenaire que nous construisons — la démo ci-dessous est interactive.", spec: "Spécification produit" },
 };
 const SEED_BY_PROFILE = {
-  rpo: [["Nordwind Retail", "FR", 20000, 14200, "2026-01-12", 9, "", 4200], ["Bergmann Logistics", "DE", 15000, 11800, "2025-11-20", 7, "TalentLab", 6500], ["Kestrel Contact Centres", "UK", 12500, 5100, "2026-05-02", 5, "", 1800], ["Altura Hospitality", "ES", 7500, 6900, "2025-10-15", 4, "", 950], ["Cielo Fintech", "IT", 10000, 3200, "2026-07-01", 6, "TalentLab", 2400]],
+  rpo: [["Nordwind Retail", "FR", 20000, 14200, "2026-01-12", 9, "", 4200], ["Bergmann Logistics", "DE", 15000, 11800, "2025-11-20", 7, "Regional partner", 6500], ["Kestrel Contact Centres", "UK", 12500, 5100, "2026-05-02", 5, "", 1800], ["Altura Hospitality", "ES", 7500, 6900, "2025-10-15", 4, "", 950], ["Cielo Fintech", "IT", 10000, 3200, "2026-07-01", 6, "Regional partner", 2400]],
   recruit: [["Maison Verdier", "FR", 5000, 3100, "2026-02-03", 3, "", 180], ["Orbis Consulting", "BE", 2500, 2300, "2025-10-20", 2, "", 240], ["Helix Biotech", "CH", 7500, 2600, "2026-06-15", 4, "", 420], ["Northgate Real Estate", "UK", 1000, 400, "2026-08-01", 1, "", 60], ["Solano Energy", "ES", 5000, 1200, "2026-08-20", 3, "", 700]],
-  consult: [["Groupe Amarante", "FR", 10000, 6400, "2026-01-20", 5, "", 3200], ["Steinberg Industries", "DE", 7500, 7100, "2025-11-05", 4, "", 2100], ["Lumen Insurance", "NL", 5000, 1900, "2026-05-12", 3, "", 1500], ["Vantage Public Sector", "UK", 12500, 4300, "2026-04-01", 6, "Partner X", 3800], ["Aurora Pharma", "IT", 5000, 800, "2026-08-25", 2, "", 900]],
+  consult: [["Groupe Amarante", "FR", 10000, 6400, "2026-01-20", 5, "", 3200], ["Steinberg Industries", "DE", 7500, 7100, "2025-11-05", 4, "", 2100], ["Lumen Insurance", "NL", 5000, 1900, "2026-05-12", 3, "", 1500], ["Vantage Public Sector", "UK", 12500, 4300, "2026-04-01", 6, "Regional partner", 3800], ["Aurora Pharma", "IT", 5000, 800, "2026-08-25", 2, "", 900]],
 };
 const POOL = { total: 100000, start: "2026-01-01", end: "2026-12-31" };
 const addYear = (d) => { const x = new Date(d); x.setFullYear(x.getFullYear() + 1); return x.toISOString().slice(0, 10); };
@@ -362,7 +373,8 @@ const SPEC = {
   Team: { story: "As a partner admin, I manage my own team's access to the back-office.", rules: ["Roles: admin (orders, allocation), manager (clients, users), consultant (delegated access to assigned clients only)", "Every action logged with user identity (audit log)"], data: ["partner_user_id, email, role, assigned_companies, last_login; audit_log"], rights: ["Admin only"], out: ["SSO / SCIM"] },
   "Client workspace": { story: "As a partner consultant, I open a client's AssessFirst account with delegated access to configure campaigns and read results.", rules: ["Delegation granted by client admin at creation (checkbox) — revocable anytime", "Every action logged with partner user identity", "Scoped to assigned companies"], data: ["delegation (partner_user_id, company_id, granted_at, revoked_at)"], rights: ["Distributor: default on", "Reseller: on client consent"], out: ["Impersonation of individual client users"] },
 };
-const TABS = ["Overview", "Clients", "Create client", "Users & renewals", "Consumption", "Orders", "Team", "Client workspace"];
+const TABS_ALL = ["Overview", "Clients", "Create client", "Users & renewals", "Consumption", "Orders", "Team", "Client workspace"];
+const TABS = TABS_ALL;
 const BoBtn = ({ children, onClick, primary }) => <button onClick={onClick} style={{ background: primary ? AF.pink : "#fff", color: primary ? "#fff" : AF.black, border: primary ? "none" : `1px solid ${AF.border}`, borderRadius: 7, padding: "7px 13px", fontSize: 11, fontWeight: 600, fontFamily: AF.font, cursor: "pointer", whiteSpace: "nowrap" }}>{children}</button>;
 const Kpi = ({ t, v, s }) => <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t}</div><div style={{ fontSize: 20, fontWeight: 800, color: AF.black, margin: "3px 0 1px" }}>{v}</div>{s && <div style={{ fontSize: 10, color: AF.grayMid }}>{s}</div>}</div>;
 const Input = (props) => <input {...props} style={{ width: "100%", padding: "8px 10px", border: `1px solid ${AF.border}`, borderRadius: 7, fontFamily: AF.font, fontSize: 12, color: AF.black, boxSizing: "border-box", ...props.style }} />;
@@ -427,7 +439,7 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
     </div>
     <div style={{ marginTop: 12 }}><Slider label={form.mode === "pool" ? `Tokens to allocate (${fmtN(free)} available in pool)` : "Tokens to order for this client"} value={form.tk} onChange={(v) => setForm({ ...form, tk: v })} min={500} max={form.mode === "pool" ? Math.max(500, free) : 100000} step={500} suffix=" tk" /></div>
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: AF.grayLight, borderRadius: 8, padding: "10px 14px" }}>
-      <span style={{ fontSize: 11.5, color: AF.grayMid }}>{form.mode === "pool" ? `Client subscription: 12 months from today, independent of your pool. Remaining in pool after allocation: ${fmtN(free - form.tk)} tk.` : `Public grid (1,000+ column) × ${form.months} months − ${disc}% partner discount = €${fmtN(cost)} · AssessFirst invoices you, tokens credited to this client on payment.`}</span>
+      <span style={{ fontSize: 11.5, color: AF.grayMid }}>{form.mode === "pool" ? `Client subscription: 12 months from today, independent of your pool. Remaining in pool after allocation: ${fmtN(free - form.tk)} tk.` : `Public grid × ${form.months} months − ${disc}% partner discount = €${fmtN(cost)} · AssessFirst invoices you, tokens credited to this client on payment.`}</span>
       <BoBtn primary onClick={() => { if (!form.n) { flash("Give the company a name first."); return; } setClients([...clients, { n: form.n, c: form.c || "—", a: form.tk, u: 0, s: "2026-09-22", users: 1, by: form.by, m: 0, hc: form.hc }]); if (form.mode === "order") setOrders([{ id: `PO-2026-0${orders.length + 20}`, type: `Per-client order · ${form.n}`, tk: form.tk, amt: cost, st: "Pending", d: "2026-09-22" }, ...orders]); flash(`${form.n} created — 12-month subscription active, admin invited.`); setForm({ ...form, n: "", c: "", e: "", by: "" }); setTab(1); }}>{form.mode === "pool" ? "Create & allocate" : "Create & send order"}</BoBtn>
     </div>
   </div>); }
@@ -473,7 +485,7 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
       <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 12, overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 18, padding: "0 16px", height: 48, borderBottom: `1px solid ${AF.border}` }}>
           <AfLogo size={13} /><span style={{ fontSize: 12, fontWeight: 700, color: AF.pink, marginLeft: -8 }}>Deployer</span>
-          <div style={{ display: "flex", gap: 2, flex: 1, overflowX: "auto" }}>{TABS.map((x, i) => <span key={x} onClick={() => { setTab(i); setWs(null); }} style={{ fontSize: 11.5, padding: "14px 9px", cursor: "pointer", whiteSpace: "nowrap", color: tab === i ? AF.black : AF.grayMid, fontWeight: tab === i ? 700 : 400, borderBottom: tab === i ? `2px solid ${AF.pink}` : "2px solid transparent" }}>{x}</span>)}</div>
+          <div style={{ display: "flex", gap: 2, flex: 1, overflowX: "auto" }}>{TABS.map((x, i) => (internal || !["Orders", "Team"].includes(x)) && <span key={x} onClick={() => { setTab(i); setWs(null); }} style={{ fontSize: 11.5, padding: "14px 9px", cursor: "pointer", whiteSpace: "nowrap", color: tab === i ? AF.black : AF.grayMid, fontWeight: tab === i ? 700 : 400, borderBottom: tab === i ? `2px solid ${AF.pink}` : "2px solid transparent" }}>{x}</span>)}</div>
           <span style={{ fontSize: 11, fontWeight: 600, border: `1px solid ${AF.border}`, borderRadius: 20, padding: "4px 10px", display: "inline-flex", gap: 6, alignItems: "center" }}><span style={{ width: 9, height: 9, borderRadius: 5, background: AF.gradient, display: "inline-block" }} />{fmtN(free)} tk free</span>
           <span style={{ fontSize: 10.5, color: AF.grayMid }}>{L[lang].prog.cards[prog][0]}</span>
         </div>
@@ -487,25 +499,25 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
 /* ============ I18N — buy / simulator / roadmap ============ */
 L.en.buy = {
   h: "Two ways to order", p: "Choose per order — most partners use both. In both cases you buy at the public grid minus your partner discount, and AssessFirst invoices you.",
-  modes: [["Per-client order", ["You order the exact tokens one client needs", "Priced on the public grid (1,000+ employee column) × the client's commitment (12 / 24 / 36 months) − your discount", "Best for large accounts and multi-year deals", "Tokens are booked to that client"]],
-          ["Credit Pool", ["You order a pool of tokens for your own portfolio", "One price on the same grid, with volume degressivity — the bigger the pool, the higher your margin on every client", "Reallocate freely across clients: small accounts, one-shot projects, pilots", "Best for growing a base of small and mid-size clients"]]],
+  modes: [["Per-client order", ["You order the exact tokens one client needs", "Priced on the public grid × the client's commitment (12 to 48 months) − your discount", "Best for large accounts and multi-year deals", "Tokens are booked to that client"]],
+          ["Credit Pool", ["You order a pool of tokens for your own portfolio", "One price on the same grid, with volume degressivity — the bigger the pool, the higher your margin on every client", "Reallocate freely across clients: small accounts, one-shot projects, pilots", "Tokens valid 12 months from your order; once allocated, 12 months for the client"]]],
   cH: "Two clocks. Allocate before the pool ends.", cP: "Your pool has its own clock — 12 months by default, 24 or 36 on request. Every allocation to a client starts a separate 12-month client subscription, independent of your pool.",
   pool: "Your pool", client: "Client", months: "months",
   rules: [["Tokens are valid 12 months from your order", "The pool clock starts at the AssessFirst invoice. Tokens still unallocated at the end of the pool expire."], ["Allocated tokens are valid 12 months for your client", "Once allocated, the client subscription runs its full 12 months — even past the end of your pool."], ["Top up any time", "Add tokens to a running pool at the volume tier you have reached; the pool end date does not change."]],
-  gH: "Public price grid", gP: "The public grid from 5,000 to 500,000 tokens — partners buy on the 1,000+ employee column, whatever the end client. Above 500,000: custom terms. Your partner price applies your tier discount.",
-  tokens: "Tokens", commit: "Commitment", tier: "Your tier", pub: "Public price · 1,000+ grid", part: "Your partner price", perTk: "per token", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public 12 m", "Public 36 m", "Partner 12 m", "Partner 36 m"],
+  gH: "Public price grid", gP: "One grid, from 5,000 to 500,000 tokens; above that, custom terms. Your partner price applies your tier discount — the difference with the public price is your margin if you resell at list price.",
+  tokens: "Tokens", commit: "Commitment", tier: "Your tier", pub: "Public price", part: "Your partner price", perTk: "per token", mLbl: "margin", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public price", "Your partner price", "Your margin at public price"],
   convT: "What does that buy?", convP: "Tick the tools your clients would use on each person — the grid shows how many people you can assess with this volume.", people: "people assessed", perPerson: "tokens per person",
 };
 L.fr.buy = {
-  h: "Deux façons de commander", p: "Au choix à chaque commande — la plupart des partenaires utilisent les deux. Dans les deux cas vous achetez sur la grille publique moins votre remise partenaire, et AssessFirst vous facture.",
-  modes: [["Commande par client", ["Vous commandez exactement les tokens dont un client a besoin", "Prix : grille publique (colonne 1 000+ salariés) × engagement du client (12 / 24 / 36 mois) − votre remise", "Idéal pour les grands comptes et les deals pluriannuels", "Les tokens sont réservés à ce client"]],
-          ["Credit Pool", ["Vous commandez un pool de tokens pour votre portefeuille", "Un seul prix sur la même grille, dégressif au volume — plus le pool est gros, plus votre marge est élevée sur chaque client", "Réallocation libre entre clients : petits comptes, projets ponctuels, pilotes", "Idéal pour développer une base de PME et d'ETI"]]],
+  h: "Deux façons de commander", p: "Au choix à chaque commande — la plupart des partenaires utilisent les deux. Dans les deux cas, vous achetez au prix de la grille publique moins votre remise partenaire, et AssessFirst vous facture.",
+  modes: [["Commande par client", ["Vous commandez exactement les tokens dont un client a besoin", "Prix : grille publique × engagement du client (12 à 48 mois) − votre remise", "Idéal pour les grands comptes et les deals pluriannuels", "Les tokens sont réservés à ce client"]],
+          ["Credit Pool", ["Vous commandez un pool de tokens pour votre portefeuille", "Un seul prix sur la même grille, dégressif au volume — plus le pool est gros, plus votre marge est élevée sur chaque client", "Réallocation libre entre clients : petits comptes, projets ponctuels, pilotes", "Tokens valables 12 mois à partir de la commande ; une fois alloués, 12 mois pour le client"]]],
   cH: "Deux horloges. Allouez avant la fin du pool.", cP: "Votre pool a sa propre horloge — 12 mois par défaut, 24 ou 36 sur demande. Chaque allocation à un client démarre un abonnement client de 12 mois, indépendant de votre pool.",
   pool: "Votre pool", client: "Client", months: "mois",
   rules: [["Les tokens sont valables 12 mois à partir de votre commande", "L'horloge du pool démarre à la facture AssessFirst. Les tokens encore non alloués à la fin du pool expirent."], ["Les tokens alloués sont valables 12 mois pour votre client", "Une fois alloués, l'abonnement client court ses 12 mois complets — même au-delà de la fin de votre pool."], ["Rechargez à tout moment", "Ajoutez des tokens à un pool en cours au palier de volume atteint ; la date de fin du pool ne change pas."]],
-  gH: "Grille tarifaire publique", gP: "La grille publique de 5 000 à 500 000 tokens — les partenaires achètent sur la colonne 1 000+ salariés, quel que soit le client final. Au-delà : conditions sur mesure. Votre prix partenaire applique la remise de votre tier.",
-  tokens: "Tokens", commit: "Engagement", tier: "Votre tier", pub: "Prix public · grille 1 000+", part: "Votre prix partenaire", perTk: "par token", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Public 12 m", "Public 36 m", "Partenaire 12 m", "Partenaire 36 m"],
-  convT: "Ça représente quoi ?", convP: "Cochez les outils que vos clients utiliseraient sur chaque personne — la grille indique combien de personnes vous pouvez évaluer avec ce volume.", people: "personnes évaluées", perPerson: "tokens par personne",
+  gH: "Grille tarifaire publique", gP: "Une seule grille, de 5 000 à 500 000 tokens ; au-delà, conditions sur mesure. Votre prix partenaire applique la remise de votre tier — l'écart avec le prix public est votre marge si vous revendez au tarif public.",
+  tokens: "Tokens", commit: "Engagement", tier: "Votre tier", pub: "Prix public", part: "Votre prix partenaire", perTk: "par token", mLbl: "de marge", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Prix public", "Votre prix partenaire", "Votre marge au prix public"],
+  convT: "Ça représente quoi ?", convP: "Cochez les outils que vos clients utiliseraient pour chaque personne : vous voyez combien de personnes ce volume permet d'évaluer.", people: "personnes évaluées", perPerson: "tokens par personne",
 };
 L.en.sim = {
   h: "Estimate your partner opportunity", p: "Built on your portfolio: how many client projects a year, what each one assesses, which tools. Every figure is an assumption you can change.",
@@ -514,7 +526,8 @@ L.en.sim = {
   s3: "3 · Your pool", commit: "Pool commitment", tier: "Your tier",
   vol: "Your estimated volume", volu: "tokens / year", people: "people assessed", perPerson: "tk per person",
   tCols: ["Tier", "Discount", "Partner cost / year", "Gross profit / year", "Margin"], best: "Selected",
-  refSize: "Typical client size", resale: "Resale / token", resaleHint: "Default resale = AssessFirst public price for each client's own volume, 12 months, at the selected client size. Type your own to test another positioning.",
+  resale: "Your resale price per token", resaleHint: "Default = AssessFirst public price for each client's own volume, 12 months. Type your own to test another positioning.",
+  how: (rs, pc, pool) => `Your clients pay the public price for their own volume (≈ ${rs} per token). You buy a pool of ${pool} tokens at ${pc} per token: your tier discount plus volume degressivity — that gap is your margin.`,
   kpis: ["Potential token revenue", "Partner cost", "Gross profit on tokens", "Gross margin"],
   services: "Plus your services: setup, training, debriefs, assessment centres, coaching — billed on top of this margin, at your rates.",
   custom: "Above 500,000 tokens: indicative — custom terms.", cta: "Discuss this business case",
@@ -526,7 +539,8 @@ L.fr.sim = {
   s3: "3 · Votre pool", commit: "Engagement du pool", tier: "Votre tier",
   vol: "Votre volume estimé", volu: "tokens / an", people: "personnes évaluées", perPerson: "tk par personne",
   tCols: ["Tier", "Remise", "Coût partenaire / an", "Marge brute / an", "Marge"], best: "Sélectionné",
-  refSize: "Taille de client type", resale: "Revente / token", resaleHint: "Revente par défaut = prix public AssessFirst pour le volume propre de chaque client, 12 mois, à la taille de client sélectionnée. Saisissez le vôtre pour tester un autre positionnement.",
+  resale: "Votre prix de revente par token", resaleHint: "Défaut = prix public AssessFirst pour le volume propre de chaque client, 12 mois. Saisissez le vôtre pour tester un autre positionnement.",
+  how: (rs, pc, pool) => `Vos clients paient le prix public pour leur propre volume (≈ ${rs} par token). Vous achetez un pool de ${pool} tokens à ${pc} par token : remise de votre tier plus dégressivité au volume — cet écart est votre marge.`,
   kpis: ["Revenu tokens potentiel", "Coût partenaire", "Marge brute tokens", "Taux de marge"],
   services: "Plus vos services : paramétrage, formation, restitutions, assessment centers, coaching — facturés en plus de cette marge, à vos tarifs.",
   custom: "Au-delà de 500 000 tokens : indicatif — conditions sur mesure.", cta: "Discuter de ce business case",
@@ -583,18 +597,19 @@ const S_Grid = ({ lang, prog }) => {
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11.5, marginBottom: 4 }}><span style={{ color: AF.grayMid }}>{T.tokens}</span><b style={{ color: AF.black }}>{fmtN(tk)} tk</b></div>
           <input type="range" min={0} max={PRICE.length - 1} value={i} onChange={(e) => setI(Number(e.target.value))} style={{ width: "100%", accentColor: AF.pink, marginBottom: 12 }} />
           <div style={{ display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
-            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={m} onChange={setM} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"]]} /></span>
+            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={m} onChange={setM} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></span>
             <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.tier}</span><Seg value={tier} onChange={setTier} options={TIER_NAMES.map((n, k) => [k, `${n} · ${DISC[prog][k]}%`])} /></span>
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.pub}</div><div style={{ fontSize: 22, fontWeight: 800, color: AF.black }}>{money(pub)}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{sym}{(pub / tk * r).toFixed(2)} {T.perTk}</div></div>
-          <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 14px", background: "#FFF5FA" }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.part} · −{disc}%</div><div style={{ fontSize: 22, fontWeight: 800, color: AF.pink }}>{money(part)}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{sym}{(part / tk * r).toFixed(2)} {T.perTk} · {T.yourMargin}: <b style={{ color: AF.black }}>{money(pub - part)}</b></div></div>
+          <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.part} · −{disc}%</div><div style={{ fontSize: 22, fontWeight: 800, color: AF.black }}>{money(part)}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{sym}{(part / tk * r).toFixed(2)} {T.perTk}</div></div>
         </div>
+        <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 16px", background: "#FFF5FA", marginTop: 10, display: "flex", alignItems: "center", gap: 14 }}><div style={{ flex: 1 }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.yourMargin}</div><div style={{ fontSize: 26, fontWeight: 800, color: AF.pink }}>{money(pub - part)}</div></div><div style={{ fontSize: 11, color: AF.grayMid, textAlign: "right", lineHeight: 1.5 }}>{fmtN(tk)} tk · {m} {T.months}<br />{disc}% {T.mLbl}</div></div>
         <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginTop: 12 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k) => <span key={k}>{k}</span>)}</div>
-          {key.map((k) => <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(publicPrice(k, 12, PARTNER_SIZE))}</span><span>{money(publicPrice(k, 36, PARTNER_SIZE))}</span><span style={{ color: AF.pink }}>{money(partnerPrice(k, 12, disc))}</span><span style={{ color: AF.pink }}>{money(partnerPrice(k, 36, disc))}</span></div>)}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 4fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, color: AF.grayMid }}><b style={{ color: AF.black }}>&gt; 500,000</b><span>{T.custom}</span></div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1.2fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k) => <span key={k}>{k}</span>)}<span style={{ gridColumn: "1 / -1", fontWeight: 400, textTransform: "none", fontSize: 9.5, marginTop: 2 }}>{m} {T.months} · {TIER_NAMES[tier]} −{disc}%</span></div>
+          {key.map((k) => { const pk = publicPrice(k, m, PARTNER_SIZE), pp = pk * (1 - disc / 100); return <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(pk)}</span><span style={{ color: AF.pink }}>{money(pp)}</span><b style={{ color: AF.black }}>{money(pk - pp)} <span style={{ fontWeight: 400, color: AF.grayMid }}>· {disc}%</span></b></div>; })}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 3.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, color: AF.grayMid }}><b style={{ color: AF.black }}>&gt; 500,000</b><span>{T.custom}</span></div>
         </div>
       </div>
       <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "16px 18px" }}>
@@ -602,7 +617,7 @@ const S_Grid = ({ lang, prog }) => {
         {PRODUCTS.map((p) => <div key={p.id} onClick={() => setUse({ ...use, [p.id]: !use[p.id] })} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", borderRadius: 9, marginBottom: 6, cursor: "pointer", background: use[p.id] ? "#FFF5FA" : AF.grayLight, border: use[p.id] ? `1.5px solid ${AF.pink}` : "1.5px solid transparent" }}>
           <span style={{ width: 15, height: 15, borderRadius: 4, border: use[p.id] ? "none" : `2px solid ${AF.border}`, background: use[p.id] ? AF.pink : "#fff", color: "#fff", fontSize: 10, fontWeight: 700, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{use[p.id] ? "✓" : ""}</span>
           <span style={{ width: 22, height: 22, borderRadius: 6, background: p.grad, color: "#fff", fontSize: 10, display: "inline-flex", alignItems: "center", justifyContent: "center" }}>{p.icon}</span>
-          <b style={{ fontSize: 12, flex: 1 }}>{p.label}</b><span style={{ fontSize: 10.5, color: AF.grayMid }}>{p.short}</span><span style={{ fontSize: 11, fontWeight: 700, color: AF.pink }}>{p.cost} tk</span>
+          <b style={{ fontSize: 12, flex: 1 }}>{p.label}</b><span style={{ fontSize: 10.5, color: AF.grayMid }}>{prodTxt(p, lang).short}</span><span style={{ fontSize: 11, fontWeight: 700, color: AF.pink }}>{p.cost} tk</span>
         </div>)}
         <div style={{ background: AF.black, color: "#fff", borderRadius: 10, padding: "14px 16px", marginTop: 12 }}>
           <div style={{ fontSize: 10, color: "#9A9A9E", textTransform: "uppercase", letterSpacing: "0.05em" }}>{fmtN(tk)} tokens · {perPerson} {T.perPerson}</div>
@@ -622,7 +637,7 @@ const S_Simulator = ({ lang, prog, profile }) => {
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
   const [projects, setProjects] = useState(d.projects), [type, setType] = useState(d.type), [camps, setCamps] = useState(d.camps), [cands, setCands] = useState(d.cands), [emps, setEmps] = useState(d.emps);
   const [usage, setUsage] = useState(MIX_DEF[d.type === "talent" ? "talent" : "recruit"]);
-  const [months, setMonths] = useState(12), [tier, setTier] = useState(0), [resale, setResale] = useState(null), [refSize, setRefSize] = useState(">1000");
+  const [months, setMonths] = useState(12), [tier, setTier] = useState(0), [resale, setResale] = useState(null);
   const chType = (t) => { setType(t); setUsage(MIX_DEF[t === "talent" ? "talent" : "recruit"]); };
   const people = projects * ((type !== "talent" ? camps * cands : 0) + (type !== "recruit" ? emps : 0));
   const perPerson = PRODUCTS.reduce((a, p) => a + (usage[p.id][0] ? usage[p.id][1] / 100 * p.cost : 0), 0);
@@ -630,7 +645,7 @@ const S_Simulator = ({ lang, prog, profile }) => {
   const k = months / 12, poolTk = tokens * k, over = poolTk > 500000;
   const rows = TIER_NAMES.map((n, idx) => { const cost = partnerPrice(poolTk, months, DISC[prog][idx]) / k; return { n, disc: DISC[prog][idx], cost }; });
   const perProject = tokens / Math.max(projects, 1);
-  const pubRevenue = projects * publicPrice(perProject, 12, refSize);
+  const pubRevenue = projects * publicPrice(perProject, 12, PARTNER_SIZE);
   const avgPub = tokens ? pubRevenue / tokens : 0;
   const rs = resale ?? avgPub, revenue = tokens * rs;
   const act = rows[tier], profit = revenue - act.cost, margin = revenue > 0 ? profit / revenue * 100 : 0;
@@ -667,7 +682,7 @@ const S_Simulator = ({ lang, prog, profile }) => {
           </div>
           <Kicker>{T.s3}</Kicker>
           <div style={{ display: "flex", gap: 18, alignItems: "center", marginBottom: 10, flexWrap: "wrap" }}>
-            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={months} onChange={setMonths} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"]]} /></span>
+            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={months} onChange={setMonths} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></span>
             {over && <span style={{ fontSize: 10.5, color: "#B54708", background: "#FFF6E6", borderRadius: 8, padding: "4px 9px" }}>{T.custom}</span>}
           </div>
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 12 }}>
@@ -678,13 +693,13 @@ const S_Simulator = ({ lang, prog, profile }) => {
               </div>); })}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-            <span style={{ fontSize: 11.5, color: AF.grayMid }}>{T.refSize}</span><Seg value={refSize} onChange={(v) => { setRefSize(v); setResale(null); }} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} />
-            <span style={{ fontSize: 11.5, color: AF.grayMid, marginLeft: 8 }}>{T.resale}</span>
+            <span style={{ fontSize: 11.5, color: AF.grayMid }}>{T.resale}</span>
             <input type="number" step={0.01} min={0.1} value={Number((rs * r).toFixed(2))} onChange={(e) => setResale(Number(e.target.value) / r)} style={{ width: 70, fontSize: 12, fontWeight: 700, color: AF.black, border: `1px solid ${AF.pink}`, borderRadius: 6, padding: "4px 6px", textAlign: "center", fontFamily: AF.font }} />
             <span style={{ fontSize: 11, color: AF.grayMid }}>{sym}</span>
             {resale !== null && <span onClick={() => setResale(null)} style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer" }}>↺</span>}
           </div>
-          <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 12px", lineHeight: 1.45 }}>{T.resaleHint}</p>
+          <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 10px", lineHeight: 1.45 }}>{T.resaleHint}</p>
+          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{T.how(sym + (rs * r).toFixed(2), sym + (tokens ? act.cost / tokens * r : 0).toFixed(2), fmtN(poolTk))}</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 12 }}>
             {[[T.kpis[0], fmt(revenue)], [T.kpis[1] + " · " + act.n, fmt(act.cost)], [T.kpis[2], fmt(profit)], [T.kpis[3], margin.toFixed(0) + "%"]].map(([t, v]) => <div key={t} style={{ background: "#FDF7FB", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "11px 13px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 19, fontWeight: 800, color: AF.pink, marginTop: 2 }}>{v}</div></div>)}
           </div>
@@ -703,11 +718,11 @@ const S_Roadmap = ({ lang }) => {
   const T = L[lang].road;
   return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
     <div style={{ position: "relative", margin: "26px 0 8px" }}>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 22, height: 3, background: AF.gradient, borderRadius: 2 }} />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 8 }}>
+      <div style={{ position: "absolute", left: "8%", right: "8%", top: 19, height: 3, background: AF.gradient, borderRadius: 2, zIndex: 0 }} />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 8, position: "relative", zIndex: 1 }}>
         {T.ms.map(([d, t, you, af], k) => (
           <div key={t}>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}><span style={{ width: 34, height: 34, borderRadius: "50%", background: k === 5 ? AF.black : AF.pink, color: "#fff", fontSize: 10, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: `0 0 0 1px ${AF.border}` }}>{d.split(" ")[1]}</span></div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}><span style={{ width: 34, height: 34, borderRadius: "50%", background: k === 5 ? AF.black : AF.pink, color: "#fff", fontSize: 10, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: `0 0 0 1px ${AF.border}`, boxSizing: "content-box" }}>{d.split(" ")[1]}</span></div>
             <div style={{ textAlign: "center", fontSize: 10, color: AF.pink, fontWeight: 700 }}>{d}</div>
             <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 700, color: AF.black, margin: "2px 0 10px", lineHeight: 1.3 }}>{t}</div>
             <div style={{ background: "#FFF5FA", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "9px 10px", marginBottom: 6, minHeight: 78 }}><div style={{ fontSize: 9, color: AF.pink, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.you}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{you}</div></div>
