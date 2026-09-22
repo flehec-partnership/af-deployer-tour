@@ -505,7 +505,7 @@ L.en.buy = {
   pool: "Your pool", client: "Client", months: "months",
   rules: [["Tokens are valid 12 months from your order", "The pool clock starts at the AssessFirst invoice. Tokens still unallocated at the end of the pool expire."], ["Allocated tokens are valid 12 months for your client", "Once allocated, the client subscription runs its full 12 months — even past the end of your pool."], ["Top up any time", "Add tokens to a running pool at the volume tier you have reached; the pool end date does not change."]],
   gH: "Public price grid", gP: "One grid, from 5,000 to 500,000 tokens; above that, custom terms. Your partner price applies your tier discount — the difference with the public price is your margin if you resell at list price.",
-  tokens: "Tokens", commit: "Commitment", tier: "Your tier", pub: "Public price", part: "Your partner price", perTk: "per token", mLbl: "margin", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public price", "Your partner price", "Your margin at public price"],
+  tokens: "Tokens", commit: "Commitment", tier: "Your tier", pub: "Public price", part: "Your partner price", perTk: "per token", mLbl: "margin", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public price", "/ token", "Your partner price", "/ token", "Your margin at public price"],
   convT: "What does that buy?", convP: "Tick the tools your clients would use on each person — the grid shows how many people you can assess with this volume.", people: "people assessed", perPerson: "tokens per person",
 };
 L.fr.buy = {
@@ -516,31 +516,35 @@ L.fr.buy = {
   pool: "Votre pool", client: "Client", months: "mois",
   rules: [["Les tokens sont valables 12 mois à partir de votre commande", "L'horloge du pool démarre à la facture AssessFirst. Les tokens encore non alloués à la fin du pool expirent."], ["Les tokens alloués sont valables 12 mois pour votre client", "Une fois alloués, l'abonnement client court ses 12 mois complets — même au-delà de la fin de votre pool."], ["Rechargez à tout moment", "Ajoutez des tokens à un pool en cours au palier de volume atteint ; la date de fin du pool ne change pas."]],
   gH: "Grille tarifaire publique", gP: "Une seule grille, de 5 000 à 500 000 tokens ; au-delà, conditions sur mesure. Votre prix partenaire applique la remise de votre tier — l'écart avec le prix public est votre marge si vous revendez au tarif public.",
-  tokens: "Tokens", commit: "Engagement", tier: "Votre tier", pub: "Prix public", part: "Votre prix partenaire", perTk: "par token", mLbl: "de marge", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Prix public", "Votre prix partenaire", "Votre marge au prix public"],
+  tokens: "Tokens", commit: "Engagement", tier: "Votre tier", pub: "Prix public", part: "Votre prix partenaire", perTk: "par token", mLbl: "de marge", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Prix public", "/ token", "Votre prix partenaire", "/ token", "Votre marge au prix public"],
   convT: "Ça représente quoi ?", convP: "Cochez les outils que vos clients utiliseraient pour chaque personne : vous voyez combien de personnes ce volume permet d'évaluer.", people: "personnes évaluées", perPerson: "tokens par personne",
 };
 L.en.sim = {
   h: "Estimate your partner opportunity", p: "Built on your portfolio: how many client projects a year, what each one assesses, which tools. Every figure is an assumption you can change.",
-  s1: "1 · Your portfolio", projects: "Client projects per year", type: "Project type", types: [["recruit", "Hiring campaigns"], ["talent", "Talent projects"], ["both", "Both"]], camps: "Campaigns per project", cands: "Candidates per campaign", emps: "People assessed per talent project",
+  s1: "1 · Your portfolio", projects: "Client projects per year", type: "Project type", types: [["recruit", "Hiring campaigns"], ["talent", "Talent projects"]], camps: "Campaigns per project", cands: "Candidates per campaign", emps: "People assessed per talent project",
   s2: "2 · Tools used", s2n: "Each % applies to the people assessed. Your clients run the tools they need, in any order.",
   s3: "3 · Your pool", commit: "Pool commitment", tier: "Your tier",
   vol: "Your estimated volume", volu: "tokens / year", people: "people assessed", perPerson: "tk per person",
   tCols: ["Tier", "Discount", "Partner cost / year", "Gross profit / year", "Margin"], best: "Selected",
-  resale: "Your resale price per token", resaleHint: "Default = AssessFirst public price for each client's own volume, 12 months. Type your own to test another positioning.",
-  how: (rs, pc, pool) => `Your clients pay the public price for their own volume (≈ ${rs} per token). You buy a pool of ${pool} tokens at ${pc} per token: your tier discount plus volume degressivity — that gap is your margin.`,
+  resale: "Resale price / token", resaleHint: "“Public price” = what the client would pay AssessFirst for the same volume and commitment: your margin is then your discount. “Per client” = each client pays the public price for its own, smaller volume. “Custom” = type your own.",
+  rmodes: [["same", "Public price"], ["client", "Public price · per client"], ["custom", "Custom"]],
+  how: (mode, rs, pc, pool, disc) => mode === "same" ? `Reselling at the public price for the same volume and commitment (${rs} per token) while buying at ${pc}: your margin equals your tier discount, ${disc}%.` : mode === "client" ? `Each client pays the public price for its own volume, 12 months (≈ ${rs} per token on average) while you buy ${pool} tokens at ${pc}: your tier discount plus the volume degressivity of the grid.` : `Your own resale price: ${rs} per token versus ${pc} bought.`,
+  none: "Tick at least one tool to estimate your volume.",
   kpis: ["Potential token revenue", "Partner cost", "Gross profit on tokens", "Gross margin"],
   services: "Plus your services: setup, training, debriefs, assessment centres, coaching — billed on top of this margin, at your rates.",
   custom: "Above 500,000 tokens: indicative — custom terms.", cta: "Discuss this business case",
 };
 L.fr.sim = {
   h: "Estimez votre opportunité partenaire", p: "Construit sur votre portefeuille : combien de projets clients par an, ce que chacun évalue, avec quels outils. Chaque chiffre est une hypothèse modifiable.",
-  s1: "1 · Votre portefeuille", projects: "Projets clients par an", type: "Type de projet", types: [["recruit", "Campagnes de recrutement"], ["talent", "Projets talents"], ["both", "Les deux"]], camps: "Campagnes par projet", cands: "Candidats par campagne", emps: "Personnes évaluées par projet talents",
+  s1: "1 · Votre portefeuille", projects: "Projets clients par an", type: "Type de projet", types: [["recruit", "Campagnes de recrutement"], ["talent", "Projets talents"]], camps: "Campagnes par projet", cands: "Candidats par campagne", emps: "Personnes évaluées par projet talents",
   s2: "2 · Outils utilisés", s2n: "Chaque % s'applique aux personnes évaluées. Vos clients utilisent les outils dont ils ont besoin, dans l'ordre qu'ils veulent.",
   s3: "3 · Votre pool", commit: "Engagement du pool", tier: "Votre tier",
   vol: "Votre volume estimé", volu: "tokens / an", people: "personnes évaluées", perPerson: "tk par personne",
   tCols: ["Tier", "Remise", "Coût partenaire / an", "Marge brute / an", "Marge"], best: "Sélectionné",
-  resale: "Votre prix de revente par token", resaleHint: "Défaut = prix public AssessFirst pour le volume propre de chaque client, 12 mois. Saisissez le vôtre pour tester un autre positionnement.",
-  how: (rs, pc, pool) => `Vos clients paient le prix public pour leur propre volume (≈ ${rs} par token). Vous achetez un pool de ${pool} tokens à ${pc} par token : remise de votre tier plus dégressivité au volume — cet écart est votre marge.`,
+  resale: "Prix de revente / token", resaleHint: "« Prix public » = ce que le client paierait à AssessFirst pour le même volume et le même engagement : votre marge est alors votre remise. « Par client » = chaque client paie le prix public pour son propre volume, plus petit. « Personnalisé » = saisissez le vôtre.",
+  rmodes: [["same", "Prix public"], ["client", "Prix public · par client"], ["custom", "Personnalisé"]],
+  how: (mode, rs, pc, pool, disc) => mode === "same" ? `En revendant au prix public pour le même volume et le même engagement (${rs} par token) alors que vous achetez à ${pc} : votre marge est égale à la remise de votre tier, ${disc} %.` : mode === "client" ? `Chaque client paie le prix public pour son propre volume, 12 mois (≈ ${rs} par token en moyenne) alors que vous achetez ${pool} tokens à ${pc} : remise de votre tier plus dégressivité de la grille.` : `Votre propre prix de revente : ${rs} par token contre ${pc} à l'achat.`,
+  none: "Cochez au moins un outil pour estimer votre volume.",
   kpis: ["Revenu tokens potentiel", "Coût partenaire", "Marge brute tokens", "Taux de marge"],
   services: "Plus vos services : paramétrage, formation, restitutions, assessment centers, coaching — facturés en plus de cette marge, à vos tarifs.",
   custom: "Au-delà de 500 000 tokens : indicatif — conditions sur mesure.", cta: "Discuter de ce business case",
@@ -607,9 +611,9 @@ const S_Grid = ({ lang, prog }) => {
         </div>
         <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 16px", background: "#FFF5FA", marginTop: 10, display: "flex", alignItems: "center", gap: 14 }}><div style={{ flex: 1 }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.yourMargin}</div><div style={{ fontSize: 26, fontWeight: 800, color: AF.pink }}>{money(pub - part)}</div></div><div style={{ fontSize: 11, color: AF.grayMid, textAlign: "right", lineHeight: 1.5 }}>{fmtN(tk)} tk · {m} {T.months}<br />{disc}% {T.mLbl}</div></div>
         <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginTop: 12 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1.2fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k) => <span key={k}>{k}</span>)}<span style={{ gridColumn: "1 / -1", fontWeight: 400, textTransform: "none", fontSize: 9.5, marginTop: 2 }}>{m} {T.months} · {TIER_NAMES[tier]} −{disc}%</span></div>
-          {key.map((k) => { const pk = publicPrice(k, m, PARTNER_SIZE), pp = pk * (1 - disc / 100); return <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(pk)}</span><span style={{ color: AF.pink }}>{money(pp)}</span><b style={{ color: AF.black }}>{money(pk - pp)} <span style={{ fontWeight: 400, color: AF.grayMid }}>· {disc}%</span></b></div>; })}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 3.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, color: AF.grayMid }}><b style={{ color: AF.black }}>&gt; 500,000</b><span>{T.custom}</span></div>
+          <div style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k, ki) => <span key={ki}>{k}</span>)}<span style={{ gridColumn: "1 / -1", fontWeight: 400, textTransform: "none", fontSize: 9.5, marginTop: 2 }}>{m} {T.months} · {TIER_NAMES[tier]} −{disc}%</span></div>
+          {key.map((k) => { const pk = publicPrice(k, m, PARTNER_SIZE), pp = pk * (1 - disc / 100); return <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(pk)}</span><span style={{ color: AF.grayMid }}>{sym}{(pk / k * r).toFixed(2)}</span><span style={{ color: AF.pink }}>{money(pp)}</span><span style={{ color: AF.grayMid }}>{sym}{(pp / k * r).toFixed(2)}</span><b style={{ color: AF.black }}>{money(pk - pp)} <span style={{ fontWeight: 400, color: AF.grayMid }}>· {disc}%</span></b></div>; })}
+          <div style={{ display: "grid", gridTemplateColumns: ".9fr 4.6fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, color: AF.grayMid }}><b style={{ color: AF.black }}>&gt; 500,000</b><span>{T.custom}</span></div>
         </div>
       </div>
       <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "16px 18px" }}>
@@ -630,24 +634,24 @@ const S_Grid = ({ lang, prog }) => {
 
 /* ============ ACT 6 — SIMULATOR ============ */
 const SIM_DEF = { rpo: { projects: 20, type: "recruit", camps: 6, cands: 150, emps: 50 }, recruit: { projects: 12, type: "recruit", camps: 2, cands: 40, emps: 30 }, consult: { projects: 8, type: "talent", camps: 1, cands: 30, emps: 60 } };
-const MIX_DEF = { recruit: { CVS: [false, 100], SCAN: [true, 100], SWIPE: [true, 30], DRIVE: [true, 30], BRAIN: [true, 30], VOICE: [true, 15] }, talent: { CVS: [false, 0], SCAN: [false, 0], SWIPE: [true, 100], DRIVE: [true, 100], BRAIN: [true, 50], VOICE: [true, 20] } };
+const MIX_DEF = { recruit: { CVS: [false, 100], SCAN: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] }, talent: { CVS: [false, 100], SCAN: [false, 100], SWIPE: [false, 100], DRIVE: [false, 100], BRAIN: [false, 50], VOICE: [false, 20] } };
 const S_Simulator = ({ lang, prog, profile }) => {
   const T = L[lang].sim;
   const d = SIM_DEF[profile];
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
   const [projects, setProjects] = useState(d.projects), [type, setType] = useState(d.type), [camps, setCamps] = useState(d.camps), [cands, setCands] = useState(d.cands), [emps, setEmps] = useState(d.emps);
   const [usage, setUsage] = useState(MIX_DEF[d.type === "talent" ? "talent" : "recruit"]);
-  const [months, setMonths] = useState(12), [tier, setTier] = useState(0), [resale, setResale] = useState(null);
+  const [months, setMonths] = useState(12), [tier, setTier] = useState(0), [resale, setResale] = useState(null), [rmode, setRmode] = useState("same");
   const chType = (t) => { setType(t); setUsage(MIX_DEF[t === "talent" ? "talent" : "recruit"]); };
-  const people = projects * ((type !== "talent" ? camps * cands : 0) + (type !== "recruit" ? emps : 0));
+  const people = projects * (type === "recruit" ? camps * cands : emps);
   const perPerson = PRODUCTS.reduce((a, p) => a + (usage[p.id][0] ? usage[p.id][1] / 100 * p.cost : 0), 0);
   const tokens = Math.round(people * perPerson);
   const k = months / 12, poolTk = tokens * k, over = poolTk > 500000;
   const rows = TIER_NAMES.map((n, idx) => { const cost = partnerPrice(poolTk, months, DISC[prog][idx]) / k; return { n, disc: DISC[prog][idx], cost }; });
   const perProject = tokens / Math.max(projects, 1);
-  const pubRevenue = projects * publicPrice(perProject, 12, PARTNER_SIZE);
-  const avgPub = tokens ? pubRevenue / tokens : 0;
-  const rs = resale ?? avgPub, revenue = tokens * rs;
+  const pubSame = tokens ? publicPrice(poolTk, months, PARTNER_SIZE) / poolTk : 0;            // public price, same volume & commitment as the pool
+  const pubClient = tokens ? projects * publicPrice(perProject, 12, PARTNER_SIZE) / tokens : 0; // public price for each client's own volume, 12 months
+  const rs = resale ?? (rmode === "client" ? pubClient : pubSame), revenue = tokens * rs;
   const act = rows[tier], profit = revenue - act.cost, margin = revenue > 0 ? profit / revenue * 100 : 0;
   const fmt = (n) => { const v = n * r; return sym + (Math.abs(v) >= 1000 ? (v / 1000).toFixed(1) + "k" : fmtN(v)); };
   const setU = (id, on, pct) => setUsage({ ...usage, [id]: [on, pct] });
@@ -661,8 +665,8 @@ const S_Simulator = ({ lang, prog, profile }) => {
           <Kicker>{T.s1}</Kicker>
           <Slider label={T.projects} value={projects} onChange={setProjects} min={1} max={100} />
           <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.type}</div><div style={{ marginBottom: 12 }}><Seg value={type} onChange={chType} options={T.types} /></div>
-          {type !== "talent" && <><Slider label={T.camps} value={camps} onChange={setCamps} min={1} max={20} /><Slider label={T.cands} value={cands} onChange={setCands} min={20} max={2000} step={10} /></>}
-          {type !== "recruit" && <Slider label={T.emps} value={emps} onChange={setEmps} min={10} max={1000} step={10} />}
+          {type === "recruit" && <><Slider label={T.camps} value={camps} onChange={setCamps} min={1} max={20} /><Slider label={T.cands} value={cands} onChange={setCands} min={20} max={2000} step={10} /></>}
+          {type === "talent" && <Slider label={T.emps} value={emps} onChange={setEmps} min={10} max={1000} step={10} />}
           <div style={{ marginTop: 6 }}><Kicker>{T.s2}</Kicker></div>
           <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 8px", lineHeight: 1.4 }}>{T.s2n}</p>
           {PRODUCTS.map((p) => { const [on, pct] = usage[p.id]; return (
@@ -689,17 +693,18 @@ const S_Simulator = ({ lang, prog, profile }) => {
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "8px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.tCols.map((c) => <span key={c}>{c}</span>)}</div>
             {rows.map((row, idx) => { const pr = revenue - row.cost; const on = idx === tier; return (
               <div key={row.n} onClick={() => setTier(idx)} style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "9px 12px", fontSize: 12, borderTop: `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", cursor: "pointer", boxShadow: on ? `inset 3px 0 0 ${AF.pink}` : "none", alignItems: "center" }}>
-                <span><b>{row.n}</b>{on && <span style={{ fontSize: 8.5, fontWeight: 800, color: "#fff", background: AF.pink, borderRadius: 8, padding: "2px 7px", marginLeft: 6, textTransform: "uppercase" }}>{T.best}</span>}</span><span>−{row.disc}%</span><span>{fmt(row.cost)}</span><b style={{ color: AF.pink }}>{fmt(pr)}</b><span>{revenue > 0 ? (pr / revenue * 100).toFixed(0) : 0}%</span>
+                <span><b>{row.n}</b>{on && <span style={{ fontSize: 8.5, fontWeight: 800, color: "#fff", background: AF.pink, borderRadius: 8, padding: "2px 7px", marginLeft: 6, textTransform: "uppercase" }}>{T.best}</span>}</span><span>−{row.disc}%</span><span>{fmt(row.cost)}</span><b style={{ color: AF.pink }}>{fmt(pr)}</b><span>{revenue > 0 ? (pr / revenue * 100).toFixed(0) : "—"}%</span>
               </div>); })}
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
             <span style={{ fontSize: 11.5, color: AF.grayMid }}>{T.resale}</span>
+            <Seg value={resale !== null ? "custom" : rmode} onChange={(v) => { if (v === "custom") setResale(rs); else { setRmode(v); setResale(null); } }} options={T.rmodes} />
             <input type="number" step={0.01} min={0.1} value={Number((rs * r).toFixed(2))} onChange={(e) => setResale(Number(e.target.value) / r)} style={{ width: 70, fontSize: 12, fontWeight: 700, color: AF.black, border: `1px solid ${AF.pink}`, borderRadius: 6, padding: "4px 6px", textAlign: "center", fontFamily: AF.font }} />
             <span style={{ fontSize: 11, color: AF.grayMid }}>{sym}</span>
             {resale !== null && <span onClick={() => setResale(null)} style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer" }}>↺</span>}
           </div>
           <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 10px", lineHeight: 1.45 }}>{T.resaleHint}</p>
-          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{T.how(sym + (rs * r).toFixed(2), sym + (tokens ? act.cost / tokens * r : 0).toFixed(2), fmtN(poolTk))}</div>
+          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{tokens ? T.how(resale !== null ? "custom" : rmode, sym + (rs * r).toFixed(2), sym + (act.cost / tokens * r).toFixed(2), fmtN(poolTk), act.disc) : T.none}</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 12 }}>
             {[[T.kpis[0], fmt(revenue)], [T.kpis[1] + " · " + act.n, fmt(act.cost)], [T.kpis[2], fmt(profit)], [T.kpis[3], margin.toFixed(0) + "%"]].map(([t, v]) => <div key={t} style={{ background: "#FDF7FB", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "11px 13px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 19, fontWeight: 800, color: AF.pink, marginTop: 2 }}>{v}</div></div>)}
           </div>
