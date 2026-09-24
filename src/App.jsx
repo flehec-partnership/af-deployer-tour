@@ -12,15 +12,16 @@ const PARTNERS_MAIL = "partners@assessfirst.com";
 /* AssessFirst product catalogue */
 const PRODUCTS = [
   { id: "CVS", label: "CV Screening", short: "CV analysis", cost: 5, icon: "▤", grad: "linear-gradient(135deg,#757575,#1D1D1F)", info: "Automatic parsing · 1 min · Extracts skills, experience and education from every CV and ranks applications against the role." },
-  { id: "SCAN", label: "SCAN", short: "AI pre-qualification", cost: 10, icon: "◎", grad: "linear-gradient(135deg,#FF2F92,#0096FF)", info: "AI voice agent · 5 min · Calls candidates and validates the key criteria of the role — experience, salary, availability, mobility — with instant fit scoring." },
+  { id: "SCAN", label: "SCAN", short: "AI voice pre-qualification", cost: 10, icon: "◎", grad: "linear-gradient(135deg,#FF2F92,#0096FF)", info: "AI voice agent · 5 min · Calls candidates and validates the key criteria of the role — experience, salary, availability, mobility — with instant fit scoring." },
+  { id: "SCANT", label: "SCAN Text", short: "AI text pre-qualification", cost: 5, icon: "◍", grad: "linear-gradient(135deg,#0096FF,#7C3AED)", info: "AI chat agent · 3 min · The same pre-qualification as SCAN, in a written conversation — built for high-volume, mobile-first funnels." },
   { id: "SWIPE", label: "SWIPE", short: "Personality", cost: 20, icon: "◐", grad: "linear-gradient(135deg,#FF2F92,#FE8058)", info: "Visual questionnaire · 5 min · Measures 20 personality traits (Big Five) — how someone works, collaborates and grows." },
   { id: "DRIVE", label: "DRIVE", short: "Motivations", cost: 20, icon: "▲", grad: "linear-gradient(135deg,#FFA800,#FE8058)", info: "Paired statements · 8 min · Measures 20 motivation drivers — what keeps someone engaged. A predictor of retention." },
   { id: "BRAIN", label: "BRAIN", short: "Reasoning", cost: 20, icon: "◆", grad: "linear-gradient(135deg,#0096FF,#029CAF)", info: "Adaptive test · 8 min · Adjusts to the candidate in real time. Evaluates reasoning, problem-solving and learning agility." },
-  { id: "VOICE", label: "VOICE", short: "Skills & languages", cost: 20, icon: "●", grad: "linear-gradient(135deg,#029CAF,#0096FF)", info: "AI voice interview · ~3 min per skill · Job-specific scenarios validate any technical skill or spoken language, with a CEFR certificate." },
+  { id: "VOICE", label: "VOICE", short: "Skills & languages", cost: 25, icon: "●", grad: "linear-gradient(135deg,#029CAF,#0096FF)", info: "AI voice interview · ~3 min per skill · Job-specific scenarios validate any technical skill or spoken language, with a CEFR certificate." },
 ];
 
-/* ============ PRICING (public direct-sales grid, base column: 36 months) ============ */
-const PRICE = [[5000,3500],[7500,4900],[10000,6000],[12500,7100],[15000,8200],[17500,9200],[20000,10200],[25000,12100],[30000,13950],[35000,15700],[40000,17400],[45000,19050],[50000,20650],[75000,26500],[100000,33200],[125000,39500],[150000,45500],[175000,51200],[200000,56500],[225000,61650],[250000,66700],[275000,71600],[300000,76350],[325000,81050],[350000,85650],[375000,90150],[400000,94550],[425000,98900],[450000,103200],[475000,107450],[500000,111600]];
+/* ============ PRICING (public direct-sales grid, base column: 36 months · <250) — 250k updated Sept 2026; 275k–500k pending new grid ============ */
+const PRICE = [[5000,3500],[7500,4900],[10000,6000],[12500,7100],[15000,8200],[17500,9200],[20000,10200],[25000,12100],[30000,13950],[35000,15700],[40000,17400],[45000,19050],[50000,20650],[75000,26500],[100000,33200],[125000,39500],[150000,45500],[175000,51200],[200000,56500],[225000,61650],[250000,64900],[275000,71600],[300000,76350],[325000,81050],[350000,85650],[375000,90150],[400000,94550],[425000,98900],[450000,103200],[475000,107450],[500000,111600]];
 const DUR = { 12: 0.2, 24: 0.1, 36: 0, 48: -0.1 };
 const SIZE = { "<250": 0, "250-1000": 0.25, ">1000": 0.5 };
 const PARTNER_SIZE = "250-1000"; // channel grid: partners buy on the 250–1,000-employee column (+25%), all order types
@@ -80,7 +81,8 @@ const Seg = ({ options, value, onChange }) => (
 );
 const PROD_FR = {
   CVS: ["Analyse de CV", "Analyse automatique · 1 min · Extrait compétences, expériences et formation de chaque CV et classe les candidatures par rapport au poste."],
-  SCAN: ["Préqualification IA", "Agent vocal IA · 5 min · Appelle les candidats et valide les critères clés du poste — expérience, salaire, disponibilité, mobilité — avec un score d'adéquation immédiat."],
+  SCAN: ["Préqualification IA vocale", "Agent vocal IA · 5 min · Appelle les candidats et valide les critères clés du poste — expérience, salaire, disponibilité, mobilité — avec un score d'adéquation immédiat."],
+  SCANT: ["Préqualification IA écrite", "Agent conversationnel IA · 3 min · La même préqualification que SCAN, en conversation écrite — conçue pour les funnels à fort volume, mobile-first."],
   SWIPE: ["Personnalité", "Questionnaire visuel · 5 min · Mesure 20 traits de personnalité (Big Five) — comment une personne travaille, collabore et progresse."],
   DRIVE: ["Motivations", "Énoncés par paires · 8 min · Mesure 20 leviers de motivation — ce qui entretient l'engagement. Un prédicteur de la fidélisation."],
   BRAIN: ["Raisonnement", "Test adaptatif · 8 min · S'ajuste au candidat en temps réel. Évalue le raisonnement, la résolution de problèmes et l'agilité d'apprentissage."],
@@ -145,7 +147,7 @@ en: {
   },
   sell: {
     h: "Six tools. One token.", p: "Your clients buy an annual subscription with a number of tokens; every assessment consumes tokens. Hover a tool to see what it does.",
-    note: "Each source enriches the others: combined, they give recruiters and managers a reliable, actionable view of every person. Every candidate or employee receives their own profile.",
+    note: "Each source enriches the others: combined, they give recruiters and managers a reliable, actionable view of every person. Every candidate or employee receives their own profile. The full suite on one person = 100 tokens exactly.",
     h2: "Your margin: tokens you resell, services you deliver.",
     p2: "You buy tokens at your partner price and resell an annual subscription at the price you decide. Around it, you sell what you know best — that second line is often the larger one.",
     tokT: "Token resale", tok: ["Partner price = public grid − your tier discount", "Resale price = yours, per client", "Renewals compound year after year"],
@@ -193,7 +195,7 @@ fr: {
   },
   sell: {
     h: "Six outils. Un seul token.", p: "Vos clients souscrivent un abonnement annuel incluant un volume de tokens ; chaque évaluation en consomme. Survolez un outil pour en savoir plus.",
-    note: "Chaque source enrichit les autres : combinées, elles donnent aux recruteurs et aux managers une vision fiable et actionnable de chaque personne. Chaque candidat ou collaborateur reçoit son propre profil.",
+    note: "Chaque source enrichit les autres : combinées, elles donnent aux recruteurs et aux managers une vision fiable et actionnable de chaque personne. Chaque candidat ou collaborateur reçoit son propre profil. La suite complète sur une personne = 100 tokens exactement.",
     h2: "Votre marge : les tokens que vous revendez et les services que vous facturez.",
     p2: "Vous achetez les tokens au prix partenaire et revendez un abonnement annuel au prix que vous décidez. Autour, vous vendez ce que vous savez faire — cette seconde ligne de revenus est souvent la plus importante.",
     tokT: "Revente des tokens", tok: ["Prix partenaire = grille publique − remise de votre tier", "Prix de revente = le vôtre, par client", "Les renouvellements se cumulent année après année"],
@@ -323,7 +325,7 @@ const S_Products = ({ lang }) => {
   const T = L[lang].sell;
   return (
     <Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, marginBottom: 14 }}>{PRODUCTS.map((p) => <ProductTile key={p.id} p={p} big lang={lang} />)}</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 14 }}>{PRODUCTS.map((p) => <ProductTile key={p.id} p={p} big lang={lang} />)}</div>
       <p style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.55, margin: 0, maxWidth: 760 }}>{T.note}</p>
     </Frame>
   );
@@ -361,14 +363,14 @@ const SEED_BY_PROFILE = {
 const POOL = { total: 100000, start: "2026-01-01", end: "2026-12-31" };
 const addYear = (d) => { const x = new Date(d); x.setFullYear(x.getFullYear() + 1); return x.toISOString().slice(0, 10); };
 const daysTo = (d) => Math.round((new Date(d) - new Date("2026-09-22")) / 86400000);
-const MIX = [0.06, 0.24, 0.3, 0.14, 0.14, 0.12];
-const PCOL = ["#757575", "#0096FF", "#FF2F92", "#FFA800", "#029CAF", "#7C3AED"];
+const MIX = [0.05, 0.18, 0.07, 0.28, 0.14, 0.14, 0.14];
+const PCOL = ["#757575", "#0096FF", "#7C3AED", "#FF2F92", "#FFA800", "#029CAF", "#2FB86A"];
 const SPEC = {
   Overview: { story: "As a partner admin, I see my pool, my alerts and what to do next in one screen.", rules: ["Pool clock starts at AssessFirst invoice date; duration = partner commitment (12 by default, 24/36 possible)", "Unallocated tokens expire at pool end", "Alerts: client at 80% / 100% of allocation, renewal due in 30 days, pool ends in 60 days, pool 90% allocated"], data: ["pool_id, tokens_total, allocated, consumed, start, end, commitment_months, tier, discount"], rights: ["Reseller: read + order", "Distributor: read + order + top-up"], out: ["Multiple concurrent pools", "Auto-renewal"] },
   Clients: { story: "As a partner admin, I list every client company with allocation, consumption, dates and attribution.", rules: ["'Sourced by' = free attribution field (sub-partner) — no platform access for the sourcing party", "Renewal date = allocation date + 12 months", "Declared headcount captured at creation, visible to AssessFirst"], data: ["company_id, name, country, headcount_band, tokens_allocated, consumed, start, renewal, users_count, sourced_by, health"], rights: ["Both: read, filter, export"], out: ["Sub-partner logins"] },
   "Create client": { story: "As a partner admin, I create a client company and allocate tokens from my pool in one step — or order tokens for that client.", rules: ["Allocation creates a 12-month client subscription from allocation date, independent of pool end", "Allocated tokens leave the pool and cannot expire with it", "No minimum allocation", "Per-client order: priced on public grid × commitment − discount; AssessFirst invoices, tokens credited on payment"], data: ["company (name, country, headcount_band, admin_email), allocation (tokens, date), subscription (start, end)"], rights: ["Reseller: create + order for client", "Distributor: create + allocate from pool + order"], out: ["Custom subscription lengths"] },
   "Users & renewals": { story: "As a partner admin, I manage my clients' users, renew subscriptions and return unused tokens to my pool.", rules: ["Reallocation returns unused tokens to the pool (never client-to-client directly)", "Renewal = new 12-month period from current end date, new allocation", "Roles: admin / recruiter / viewer", "Renewal reminders to partner at D-60 / D-30"], data: ["user_id, email, role, company_id, last_login, invited_by"], rights: ["Both: manage users, renew", "Distributor: reallocate"], out: ["SSO per client", "Bulk import"] },
-  Consumption: { story: "As a partner admin, I follow consumption per client and per product to anticipate renewals and upsell.", rules: ["Token weights: CVS 5, SCAN 10, SWIPE/DRIVE/BRAIN/VOICE 20", "Monthly aggregation, 24-month history", "Export CSV"], data: ["consumption events (company_id, product, tokens, date)"], rights: ["Both: read + export"], out: ["Candidate-level data (GDPR: stays in client workspace)"] },
+  Consumption: { story: "As a partner admin, I follow consumption per client and per product to anticipate renewals and upsell.", rules: ["Token weights: CV Screening 5, SCAN 10, SCAN Text 5, SWIPE/DRIVE/BRAIN 20, VOICE 25", "Monthly aggregation, 24-month history", "Export CSV"], data: ["consumption events (company_id, product, tokens, date)"], rights: ["Both: read + export"], out: ["Candidate-level data (GDPR: stays in client workspace)"] },
   Orders: { story: "As a partner admin, I see every order, invoice and its status, and I download invoices myself.", rules: ["Order types: pool, top-up, per-client", "Statuses: pending, invoiced, paid, credited", "Tokens credited on payment (or on PO acceptance for approved partners)"], data: ["order_id, type, tokens, amount, currency, commitment, status, company_id (per-client), invoice_pdf"], rights: ["Both: read, download", "Admin role: place orders"], out: ["Online card payment v1"] },
   Team: { story: "As a partner admin, I manage my own team's access to the back-office.", rules: ["Roles: admin (orders, allocation), manager (clients, users), consultant (delegated access to assigned clients only)", "Every action logged with user identity (audit log)"], data: ["partner_user_id, email, role, assigned_companies, last_login; audit_log"], rights: ["Admin only"], out: ["SSO / SCIM"] },
   "Client workspace": { story: "As a partner consultant, I open a client's AssessFirst account with delegated access to configure campaigns and read results.", rules: ["Delegation granted by client admin at creation (checkbox) — revocable anytime", "Every action logged with partner user identity", "Scoped to assigned companies"], data: ["delegation (partner_user_id, company_id, granted_at, revoked_at)"], rights: ["Distributor: default on", "Reseller: on client consent"], out: ["Impersonation of individual client users"] },
@@ -460,7 +462,7 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
   else if (tab === 4) body = (<div style={panel}>
     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}><b style={{ fontSize: 15 }}>Consumption by client and product</b><BoBtn onClick={() => flash("consumption.csv exported")}>Export CSV</BoBtn></div>
     <div style={{ display: "flex", gap: 12, fontSize: 10.5, color: AF.grayMid, marginBottom: 8 }}>{PRODUCTS.map((p, i) => <span key={p.id}><span style={{ display: "inline-block", width: 9, height: 9, borderRadius: 2, background: PCOL[i], marginRight: 4 }} />{p.id}</span>)}</div>
-    {clients.map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.3fr 3fr .8fr", gap: 10, alignItems: "center", marginBottom: 7, fontSize: 12 }}><span>{c.n}</span><div style={{ display: "flex", height: 16, borderRadius: 4, overflow: "hidden", background: AF.grayLight }}>{MIX.map((m, i) => <div key={i} style={{ width: `${c.u / 20000 * m * 100}%`, background: PCOL[i] }} />)}</div><span style={{ color: AF.grayMid, textAlign: "right" }}>{fmtN(c.u)} tk · {fmtN(c.u / 18)} tests</span></div>)}
+    {clients.map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.3fr 3fr .8fr", gap: 10, alignItems: "center", marginBottom: 7, fontSize: 12 }}><span>{c.n}</span><div style={{ display: "flex", height: 16, borderRadius: 4, overflow: "hidden", background: AF.grayLight }}>{MIX.map((m, i) => <div key={i} style={{ width: `${c.u / 20000 * m * 100}%`, background: PCOL[i] }} />)}</div><span style={{ color: AF.grayMid, textAlign: "right" }}>{fmtN(c.u)} tk · {fmtN(c.u / 16)} tests</span></div>)}
     <div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "16px 0 6px" }}>Monthly consumption (tokens)</div>
     <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 80 }}>{[4.2, 5.1, 6.3, 5.8, 7.4, 8.1, 7.9, 9.2, 8.6].map((v, i) => <div key={i} style={{ flex: 1, textAlign: "center" }}><div style={{ height: v * 7, background: i === 8 ? AF.pink : AF.black, borderRadius: "4px 4px 0 0" }} /><div style={{ fontSize: 9, color: AF.grayMid, marginTop: 3 }}>{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"][i]}</div></div>)}</div>
   </div>);
@@ -588,7 +590,7 @@ const S_Grid = ({ lang, prog }) => {
   const T = L[lang].buy;
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
   const [i, setI] = useState(2), [m, setM] = useState(12), [tier, setTier] = useState(0);
-  const [use, setUse] = useState({ CVS: false, SCAN: true, SWIPE: true, DRIVE: true, BRAIN: false, VOICE: false });
+  const [use, setUse] = useState({ CVS: false, SCAN: true, SCANT: false, SWIPE: true, DRIVE: true, BRAIN: false, VOICE: false });
   const tk = PRICE[i][0], disc = DISC[prog][tier], pub = publicPrice(tk, m, PARTNER_SIZE), part = pub * (1 - disc / 100);
   const money = (n) => sym + fmtN(n * r);
   const perPerson = PRODUCTS.reduce((a, p) => a + (use[p.id] ? p.cost : 0), 0);
@@ -634,7 +636,7 @@ const S_Grid = ({ lang, prog }) => {
 
 /* ============ ACT 6 — SIMULATOR ============ */
 const SIM_DEF = { rpo: { projects: 20, type: "recruit", camps: 6, cands: 150, emps: 50 }, recruit: { projects: 12, type: "recruit", camps: 2, cands: 40, emps: 30 }, consult: { projects: 8, type: "talent", camps: 1, cands: 30, emps: 60 } };
-const MIX_DEF = { recruit: { CVS: [false, 100], SCAN: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] }, talent: { CVS: [false, 100], SCAN: [false, 100], SWIPE: [false, 100], DRIVE: [false, 100], BRAIN: [false, 50], VOICE: [false, 20] } };
+const MIX_DEF = { recruit: { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] }, talent: { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 100], DRIVE: [false, 100], BRAIN: [false, 50], VOICE: [false, 20] } };
 const S_Simulator = ({ lang, prog, profile }) => {
   const T = L[lang].sim;
   const d = SIM_DEF[profile];
