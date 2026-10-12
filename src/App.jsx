@@ -110,13 +110,13 @@ const L = {
 en: {
   nav: { back: "← Back", next: "Next →", restart: "Restart", intro: "Introduction", act: "Act" },
   hdr: { title: "partner journey", sub: "How you resell and deploy predictive assessment across your own clients — from programme to margin.",
-    acts: { 0: "Welcome", 1: "Why now", 2: "Your programme", 3: "What you sell", 4: "Your back-office", 5: "How you order", 6: "Estimate your opportunity", 7: "Your first 90 days" } },
+    acts: { 0: "Welcome", 1: "Why now", 2: "Your programme", 3: "What you sell", 4: "Your back-office", 5: "How you order", 6: "Your year with AssessFirst", 7: "Your first 90 days" } },
   profiles: [["rpo", "RPO & staffing", "Volume hiring, pre-qualification, quality of hire"], ["recruit", "Recruitment firm", "Shortlists, time-to-hire, candidate experience"], ["consult", "HR consulting", "Assessment centres, mobility, development"]],
   welcome: {
     h: "Add a talent intelligence layer to everything you deliver for your clients.",
     p: "AssessFirst helps organisations understand people at work and make better decisions. Behavioural science and AI build a complete picture of each person — personality, motivations, reasoning, skills, languages, job fit. As a partner, you deploy it across your own clients, run it from your own back-office and turn it into a recurring revenue line.",
     pickT: "Choose your profile", pickSub: "The journey is the same for everyone; your choice adapts the use cases in “Why now”, the client data in the back-office demo and the default assumptions of the simulator.",
-    chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, discounts and market development funds."], ["What you sell", "Seven tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Request client accounts, manage users, follow consumption and renewals — without waiting for us."], ["How you order", "Per-client orders, the public price grid, your partner price and margin."], ["Your opportunity", "A margin simulator built on your portfolio and your project mix."], ["Your first 90 days", "From contract to first client — and how to book a call."]],
+    chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, MDF, partner portal and deal protection."], ["What you sell", "Seven tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Request client accounts, manage users, follow consumption and renewals — without waiting for us."], ["How you order", "Per-client orders, the public price grid, your partner price and margin."], ["Your year", "Your projects × tokens: annual cost, revenue and margin at each tier."], ["Your first 90 days", "A real partner year, the 90-day plan — and how to book a call."]],
     start: "Start the journey →", skip: "Skip to the simulator →",
   },
   why: {
@@ -158,13 +158,13 @@ en: {
 fr: {
   nav: { back: "← Retour", next: "Suivant →", restart: "Recommencer", intro: "Introduction", act: "Acte" },
   hdr: { title: "parcours partenaire", sub: "Comment vous revendez et déployez l'évaluation prédictive chez vos propres clients — du programme à la marge.",
-    acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous commandez", 6: "Estimez votre opportunité", 7: "Vos 90 premiers jours" } },
+    acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous commandez", 6: "Votre année avec AssessFirst", 7: "Vos 90 premiers jours" } },
   profiles: [["rpo", "RPO & staffing", "Recrutement en volume, préqualification, qualité d'embauche"], ["recruit", "Cabinet de recrutement", "Shortlists, time-to-hire, expérience candidat"], ["consult", "Conseil RH", "Assessment centers, mobilité, développement"]],
   welcome: {
     h: "Ajoutez une couche d'intelligence des talents à toutes les prestations que vous délivrez à vos clients.",
     p: "AssessFirst aide les organisations à comprendre les personnes au travail et à prendre de meilleures décisions. Sciences comportementales et IA construisent une compréhension complète de chaque individu — personnalité, motivations, raisonnement, compétences, langues, adéquation au poste. En tant que partenaire, vous la déployez chez vos propres clients, la pilotez depuis votre back-office et en faites une ligne de revenus récurrents.",
     pickT: "Choisissez votre profil", pickSub: "Le parcours est le même pour tous ; votre choix adapte les cas d'usage de « Pourquoi maintenant », les données clients de la démo back-office et les hypothèses par défaut du simulateur.",
-    chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, remises et fonds de développement marché."], ["Ce que vous vendez", "Sept outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Demander des comptes clients, gérer les utilisateurs, suivre consommation et renouvellements — sans nous attendre."], ["Comment vous commandez", "La commande par client, la grille tarifaire publique, votre prix partenaire et votre marge."], ["Votre opportunité", "Un simulateur de marge construit sur votre portefeuille et votre mix de projets."], ["Vos 90 premiers jours", "Du contrat au premier client — et comment prendre rendez-vous."]],
+    chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, MDF, portail partenaire et protection des deals."], ["Ce que vous vendez", "Sept outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Demander des comptes clients, gérer les utilisateurs, suivre consommation et renouvellements — sans nous attendre."], ["Comment vous commandez", "La commande par client, la grille tarifaire publique, votre prix partenaire et votre marge."], ["Votre année", "Vos projets × tokens : coût, revenu et marge annuels à chaque tier."], ["Vos 90 premiers jours", "Une année de partenaire réelle, le plan à 90 jours — et comment prendre rendez-vous."]],
     start: "Démarrer le parcours →", skip: "Aller au simulateur →",
   },
   why: {
@@ -368,7 +368,7 @@ const ROLES = ["Admin", "Recruiter", "Manager"];
 const SPEC = {
   Overview: { story: "As a partner admin, I see in one screen what I have ordered, what my clients have consumed, and which renewals are coming.", rules: ["Every order creates one client company with its own subscription (12/24/36/48 months)", "Tokens ordered = sum of client allocations; no partner-level pool in v1", "Renewal date = subscription start + duration"], data: ["orders (date, tokens, amount, company_id), company (start, end, tokens, consumed)"], rights: ["Reseller & Distributor: read"], out: ["Prepaid credit pool (v2)", "Alerts & notifications (v2)"] },
   Clients: { story: "As a partner admin, I list every client company with consumption %, dates and users, and I request new ones.", rules: ["Client accounts are created by AssessFirst from the partner's request; status 'Pending' until created", "Declared headcount is verified by AssessFirst before creation; the invoice reflects the verified band", "Users count opens the Users tab filtered on that client"], data: ["company_id, name, country, headcount_band, tokens, consumed, start, renewal, users_count, status"], rights: ["Both: read, request creation"], out: ["Self-service company creation", "Export"] },
-  "Request client": { story: "As a partner admin, I request a client account in five fields; AssessFirst creates it and invoices me at my partner price.", rules: ["Price = public grid (verified headcount band × commitment) − tier discount", "Minimum order: smallest pack of the grid", "Subscription starts at the requested start date", "Option 'allocate from prepaid credits' shown as coming soon (v2)"], data: ["request (name, country, start_date, tokens, commitment, admin_email, headcount_band)"], rights: ["Both"], out: ["Prepaid credits", "Online payment"] },
+  "Request client": { story: "As a partner admin, I request a client account in five fields; AssessFirst creates it and invoices me at my partner price.", rules: ["Price = public grid (verified headcount band × commitment) − tier discount", "Minimum order: 5,000 tokens (smallest pack of the grid)", "Subscription starts at the requested start date", "Option 'allocate from prepaid credits' shown as coming soon (v2)"], data: ["request (name, country, start_date, tokens, commitment, admin_email, headcount_band)"], rights: ["Both"], out: ["Prepaid credits", "Online payment"] },
   Users: { story: "As a partner admin, I manage my clients' users: add, edit email and role, see last login.", rules: ["Roles: Admin / Recruiter / Manager", "Filter by client", "Invitation email sent by AssessFirst on add"], data: ["user_id, email, role, company_id, last_login"], rights: ["Both"], out: ["SSO per client", "Bulk import"] },
   Consumption: { story: "As a partner admin, I follow consumption per client and per product to anticipate renewals and upsell.", rules: ["Token weights: CV Screening 5, SCAN 10, SCAN Text 5, SWIPE/DRIVE/BRAIN 20, VOICE 25", "Monthly aggregation, 24-month history", "Hover a bar to read the monthly value"], data: ["consumption events (company_id, product, tokens, date)"], rights: ["Both: read"], out: ["Candidate-level data (stays in client workspace)", "Export (v2)"] },
   "Client workspace": { story: "As a partner consultant, I open a client's AssessFirst account with delegated access to configure campaigns and read results.", rules: ["Delegation granted by the client admin at creation — revocable anytime", "Every action logged with partner user identity"], data: ["delegation (partner_user_id, company_id, granted_at, revoked_at)"], rights: ["Distributor: default on", "Reseller: on client consent"], out: ["Impersonation of individual client users"] },
@@ -433,7 +433,7 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
       <label style={{ fontSize: 11, color: AF.grayMid }}>Commitment<div style={{ marginTop: 4 }}><Seg value={form.months} onChange={(v) => setForm({ ...form, months: v })} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></div></label>
       <label style={{ fontSize: 11, color: AF.grayMid }}>Client headcount <span style={{ color: "#98A2AE" }}>· verified by AssessFirst before creation</span><div style={{ marginTop: 4 }}><Seg value={form.hc} onChange={(v) => setForm({ ...form, hc: v })} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></div></label>
     </div>
-    <div style={{ marginTop: 12 }}><Slider label="Tokens for this client" value={form.tk} onChange={(v) => setForm({ ...form, tk: v })} min={2500} max={100000} step={2500} suffix=" tk" /></div>
+    <div style={{ marginTop: 12 }}><Slider label="Tokens for this client" value={form.tk} onChange={(v) => setForm({ ...form, tk: v })} min={5000} max={100000} step={2500} suffix=" tk" /></div>
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: AF.grayLight, borderRadius: 8, padding: "10px 14px", gap: 12 }}>
       <span style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>Public price €{fmtN(pub)} − {disc}% = <b style={{ color: AF.black }}>€{fmtN(cost)}</b> invoiced to you by AssessFirst. The account is created by AssessFirst within 2 business days; the subscription runs {form.months} months from {form.start}.</span>
       <BoBtn primary onClick={() => { if (!form.n) { flash("Give the company a name first."); return; } setClients([...clients, { n: form.n, c: form.c || "—", a: form.tk, u: 0, s: form.start, users: 0, hc: form.hc, st: "Pending" }]); flash(`Request sent — ${form.n} will be created by AssessFirst.`); setForm({ ...form, n: "", c: "", e: "" }); setTab(1); }}>Send request</BoBtn>
@@ -487,7 +487,7 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
 L.en.buy = {
   h: "One grid, one way to order", p: "You order for a named client; AssessFirst creates the client account and invoices you at the public price minus your tier discount. Prepaid credits you allocate yourself are on the roadmap.",
   available: "Available", soon: "In development",
-  modes: [["Per-client order", ["You order the tokens one client needs, from 2,500 tokens", "Price = public grid (client size × commitment, 12 to 48 months) − your discount", "Client size is verified by AssessFirst before the account is created — no surprise on the invoice", "Each order = one client account with its own subscription"]],
+  modes: [["Per-client order", ["You order the tokens one client needs, from 5,000 tokens", "Price = public grid (client size × commitment, 12 to 48 months) − your discount", "Client size is verified by AssessFirst before the account is created — no surprise on the invoice", "Each order = one client account with its own subscription"]],
           ["Prepaid credits", ["You buy a volume of credits for your portfolio and allocate them to clients from your back-office", "Credits valid 12 months to allocate; each allocation opens a 12-month client subscription", "Designed for partners who operate AssessFirst in their own missions: RPO, assessment centres", "Available once the back-office supports partner-level balances"]]],
   rules: [["Subscription, not tokens", "Your client buys a service allowing up to N tokens for the chosen commitment; AssessFirst creates the account and the subscription."], ["Your invoice, your price", "AssessFirst invoices you at your partner price; you invoice your client at yours and add your services."], ["Renewals are yours", "You see every renewal date in your back-office and renew by placing a new order."]],
   gH: "Public price grid", gP: "The grid our direct sales team uses, from 5,000 to 500,000 tokens; above that, custom terms. Pick the client size and commitment: your partner price applies your tier discount, and the difference with the public price is your margin if you resell at list price.",
@@ -497,7 +497,7 @@ L.en.buy = {
 L.fr.buy = {
   h: "Une grille, une façon de commander", p: "Vous commandez pour un client nommé ; AssessFirst crée le compte client et vous facture au prix public moins la remise de votre tier. Les crédits prépayés que vous allouez vous-même sont sur la feuille de route.",
   available: "Disponible", soon: "En développement",
-  modes: [["Commande par client", ["Vous commandez les tokens dont un client a besoin, à partir de 2 500 tokens", "Prix = grille publique (taille du client × engagement, 12 à 48 mois) − votre remise", "La taille du client est vérifiée par AssessFirst avant la création du compte — aucune surprise sur la facture", "Chaque commande = un compte client avec son propre abonnement"]],
+  modes: [["Commande par client", ["Vous commandez les tokens dont un client a besoin, à partir de 5 000 tokens", "Prix = grille publique (taille du client × engagement, 12 à 48 mois) − votre remise", "La taille du client est vérifiée par AssessFirst avant la création du compte — aucune surprise sur la facture", "Chaque commande = un compte client avec son propre abonnement"]],
           ["Crédits prépayés", ["Vous achetez un volume de crédits pour votre portefeuille et les allouez à vos clients depuis votre back-office", "Crédits valables 12 mois pour être alloués ; chaque allocation ouvre un abonnement client de 12 mois", "Conçu pour les partenaires qui opèrent AssessFirst dans leurs propres missions : RPO, assessment centers", "Disponible dès que le back-office gère les soldes au niveau partenaire"]]],
   rules: [["Un abonnement, pas des tokens", "Votre client achète un service lui donnant droit à N tokens sur l'engagement choisi ; AssessFirst crée le compte et l'abonnement."], ["Votre facture, votre prix", "AssessFirst vous facture au prix partenaire ; vous facturez votre client au vôtre et ajoutez vos services."], ["Les renouvellements sont à vous", "Vous voyez chaque date de renouvellement dans votre back-office et renouvelez en passant une nouvelle commande."]],
   gH: "Grille tarifaire publique", gP: "La grille utilisée par notre équipe de vente directe, de 5 000 à 500 000 tokens ; au-delà, conditions sur mesure. Choisissez la taille du client et l'engagement : votre prix partenaire applique la remise de votre tier, et l'écart avec le prix public est votre marge si vous revendez au tarif public.",
@@ -505,31 +505,27 @@ L.fr.buy = {
   convT: "Ça représente quoi ?", convP: "Cochez les outils que vos clients utiliseraient pour chaque personne : vous voyez combien de personnes ce volume permet d'évaluer.", people: "personnes évaluées", perPerson: "tokens par personne",
 };
 L.en.sim = {
-  h: "Estimate your partner opportunity", p: "Built on your portfolio: how many client projects a year, what each one assesses, which tools. Every figure is an assumption you can change.",
-  s1: "1 · Your portfolio", projects: "Client projects per year", type: "Project type", types: [["recruit", "Hiring campaigns"], ["talent", "Talent projects"]], camps: "Campaigns per project", cands: "Candidates per campaign", emps: "People assessed per talent project",
-  s2: "2 · Tools used", s2n: "Tick the tools and the share of people assessed with each. Nothing is pre-selected.",
-  s3: "3 · Your orders", commit: "Client commitment", size: "Typical client size",
-  vol: "Your estimated volume", volu: "tokens / year", people: "people assessed", perPerson: "tk per person", perProject: "tk per project",
-  tCols: ["Tier", "Discount", "Partner cost / year", "Gross profit / year", "Margin"], best: "Selected",
+  h: "Your year with AssessFirst", p: "The price grid shows one order. This screen adds them up: how many client projects a year, how many tokens each, and what it leaves you at each tier. Every figure is an assumption you can change.",
+  s1: "1 · Your portfolio", projects: "Client projects per year", tkPer: "Tokens per project (average)", tkHint: "Not sure? The converter on the price grid turns tools and people into tokens. 5,000 tokens ≈ 250 full personality + motivation profiles.",
+  size: "Typical client size", commit: "Client commitment",
   resale: "Resale price / token", rmodes: [["public", "Public price"], ["custom", "Custom"]],
-  resaleHint: "“Public price” = what your client would pay AssessFirst for the same volume, size and commitment: your margin is then your tier discount. “Custom” = type your own price.",
-  how: (custom, rs, pc, disc, per) => custom ? `Your own resale price: ${rs} per token versus ${pc} bought — one order of ${per} tokens per project.` : `Each project is one order of ${per} tokens. You buy at ${pc} per token and resell at the public price, ${rs}: your margin is your tier discount, ${disc}%.`,
-  none: "Tick at least one tool to estimate your volume.",
+  resaleHint: "“Public price” = what your client would pay AssessFirst for the same volume, size and commitment; your margin is then your tier discount. “Custom” = your own price.",
+  vol: "Your estimated volume", volu: "tokens / year", orders: "orders", pubEach: "public price each",
+  s3: "2 · What it leaves you", tCols: ["Tier", "Discount", "Partner cost / year", "Gross profit / year", "Margin"], best: "Selected",
+  how: (custom, rs, pc, disc) => custom ? `Your own resale price: ${rs} per token versus ${pc} bought.` : `You buy at ${pc} per token and resell at the public price, ${rs}: your margin is your tier discount, ${disc}%.`,
   kpis: ["Potential token revenue", "Partner cost", "Gross profit on tokens", "Gross margin"],
   services: "Plus your services: setup, training, debriefs, assessment centres, coaching — billed on top of this margin, at your rates.",
   cta: "Discuss this business case",
 };
 L.fr.sim = {
-  h: "Estimez votre opportunité partenaire", p: "Construit sur votre portefeuille : combien de projets clients par an, ce que chacun évalue, avec quels outils. Chaque chiffre est une hypothèse modifiable.",
-  s1: "1 · Votre portefeuille", projects: "Projets clients par an", type: "Type de projet", types: [["recruit", "Campagnes de recrutement"], ["talent", "Projets talents"]], camps: "Campagnes par projet", cands: "Candidats par campagne", emps: "Personnes évaluées par projet talents",
-  s2: "2 · Outils utilisés", s2n: "Cochez les outils et la part des personnes évaluées avec chacun. Rien n'est présélectionné.",
-  s3: "3 · Vos commandes", commit: "Engagement du client", size: "Taille de client type",
-  vol: "Votre volume estimé", volu: "tokens / an", people: "personnes évaluées", perPerson: "tk par personne", perProject: "tk par projet",
-  tCols: ["Tier", "Remise", "Coût partenaire / an", "Marge brute / an", "Marge"], best: "Sélectionné",
+  h: "Votre année avec AssessFirst", p: "La grille tarifaire montre une commande. Cet écran les additionne : combien de projets clients par an, combien de tokens chacun, et ce qu'il vous reste à chaque tier. Chaque chiffre est une hypothèse modifiable.",
+  s1: "1 · Votre portefeuille", projects: "Projets clients par an", tkPer: "Tokens par projet (moyenne)", tkHint: "Pas sûr ? Le convertisseur de la grille tarifaire transforme outils et personnes en tokens. 5 000 tokens ≈ 250 profils complets personnalité + motivations.",
+  size: "Taille de client type", commit: "Engagement du client",
   resale: "Prix de revente / token", rmodes: [["public", "Prix public"], ["custom", "Personnalisé"]],
-  resaleHint: "« Prix public » = ce que votre client paierait à AssessFirst pour le même volume, la même taille et le même engagement : votre marge est alors la remise de votre tier. « Personnalisé » = saisissez votre propre prix.",
-  how: (custom, rs, pc, disc, per) => custom ? `Votre propre prix de revente : ${rs} par token contre ${pc} à l'achat — une commande de ${per} tokens par projet.` : `Chaque projet est une commande de ${per} tokens. Vous achetez à ${pc} par token et revendez au prix public, ${rs} : votre marge est la remise de votre tier, ${disc} %.`,
-  none: "Cochez au moins un outil pour estimer votre volume.",
+  resaleHint: "« Prix public » = ce que votre client paierait à AssessFirst pour le même volume, la même taille et le même engagement ; votre marge est alors la remise de votre tier. « Personnalisé » = votre propre prix.",
+  vol: "Votre volume estimé", volu: "tokens / an", orders: "commandes", pubEach: "prix public chacune",
+  s3: "2 · Ce qu'il vous reste", tCols: ["Tier", "Remise", "Coût partenaire / an", "Marge brute / an", "Marge"], best: "Sélectionné",
+  how: (custom, rs, pc, disc) => custom ? `Votre propre prix de revente : ${rs} par token contre ${pc} à l'achat.` : `Vous achetez à ${pc} par token et revendez au prix public, ${rs} : votre marge est la remise de votre tier, ${disc} %.`,
   kpis: ["Revenu tokens potentiel", "Coût partenaire", "Marge brute tokens", "Taux de marge"],
   services: "Plus vos services : paramétrage, formation, restitutions, assessment centers, coaching — facturés en plus de cette marge, à vos tarifs.",
   cta: "Discuter de ce business case",
@@ -537,16 +533,91 @@ L.fr.sim = {
 L.en.road = {
   h: "From contract to first client in 90 days", p: "A shared plan. We commit to the support, you commit to the pace. Your back-office is open on day one.",
   you: "You", af: "AssessFirst",
-  ms: [["Day 0", "Contract signed", "Partnership agreement, programme and tier confirmed.", "Back-office access, Partner Manager assigned, welcome kit."], ["Day 7", "Kick-off", "Your team meets your Partner Manager; first accounts mapped.", "Portal access (Introw): playbooks, battle cards, sandbox."], ["Day 14", "Certified", "Product & sales certification completed by your consultants.", "Badge issued; deal registration and co-sell unlocked."], ["Day 30", "First client created", "First order placed; first client account requested and created.", "Onboarding of the client (Reseller) or coaching of your team (Distributor)."], ["Day 60", "First campaign live", "First assessments running at your client; consumption visible.", "Escalation path active; first monthly business review."], ["Day 90", "Business review", "Pipeline for the next quarter, renewals planned, second client in motion.", "Tier trajectory, co-marketing plan, MDF eligibility."]],
+  ms: [["Day 0", "Contract signed", "Partnership agreement, programme and tier confirmed.", "Back-office access, Partner Manager assigned, welcome kit."], ["Day 7", "Kick-off", "Your team meets your Partner Manager; first accounts mapped.", "Back-office opened; sandbox and welcome kit delivered."], ["Day 14", "Certified", "Product & sales certification completed by your consultants on the partner portal (Introw).", "Badge issued; deal registration, sales assets and co-sell unlocked in the portal."], ["Day 30", "First client created", "First order placed; first client account requested and created.", "Onboarding of the client (Reseller) or coaching of your team (Distributor)."], ["Day 60", "First campaign live", "First assessments running at your client; consumption visible.", "Escalation path active; first monthly business review."], ["Day 90", "Business review", "Pipeline for the next quarter, renewals planned, second client in motion.", "Tier trajectory, co-marketing plan, MDF eligibility."]],
   cH: "Interested in exploring a partnership?", cP: "A 30-minute conversation with our Partnerships team is enough to see whether the model fits your business — and which programme is right for you.",
   cta: "Book a 30-minute call", mail: "or write to", restart: "↻ Restart the journey",
 };
 L.fr.road = {
   h: "Du contrat au premier client en 90 jours", p: "Un plan partagé. Nous nous engageons sur le support, vous sur le rythme. Votre back-office est ouvert dès le premier jour.",
   you: "Vous", af: "AssessFirst",
-  ms: [["Jour 0", "Contrat signé", "Contrat de partenariat, programme et tier confirmés.", "Accès back-office, Partner Manager assigné, kit de bienvenue."], ["Jour 7", "Kick-off", "Votre équipe rencontre votre Partner Manager ; premiers comptes cartographiés.", "Accès portail (Introw) : playbooks, battle cards, sandbox."], ["Jour 14", "Certifié", "Certification produit & vente complétée par vos consultants.", "Badge remis ; enregistrement des deals et co-vente débloqués."], ["Jour 30", "Premier client créé", "Première commande passée ; premier compte client demandé et créé.", "Onboarding du client (Revendeur) ou coaching de votre équipe (Distributeur)."], ["Jour 60", "Première campagne live", "Premières évaluations chez votre client ; consommation visible.", "Escalade active ; première revue mensuelle."], ["Jour 90", "Revue business", "Pipeline du trimestre suivant, renouvellements planifiés, deuxième client en cours.", "Trajectoire de tier, plan de co-marketing, éligibilité MDF."]],
+  ms: [["Jour 0", "Contrat signé", "Contrat de partenariat, programme et tier confirmés.", "Accès back-office, Partner Manager assigné, kit de bienvenue."], ["Jour 7", "Kick-off", "Votre équipe rencontre votre Partner Manager ; premiers comptes cartographiés.", "Back-office ouvert ; sandbox et kit de bienvenue livrés."], ["Jour 14", "Certifié", "Certification produit & vente complétée par vos consultants sur le portail partenaire (Introw).", "Badge remis ; enregistrement des deals, supports de vente et co-vente débloqués dans le portail."], ["Jour 30", "Premier client créé", "Première commande passée ; premier compte client demandé et créé.", "Onboarding du client (Revendeur) ou coaching de votre équipe (Distributeur)."], ["Jour 60", "1re campagne live", "Premières évaluations chez votre client ; consommation visible.", "Escalade active ; première revue mensuelle."], ["Jour 90", "Revue business", "Pipeline du trimestre suivant, renouvellements planifiés, deuxième client en cours.", "Trajectoire de tier, plan de co-marketing, éligibilité MDF."]],
   cH: "Envie d'explorer un partenariat ?", cP: "Une conversation de 30 minutes avec notre équipe Partenariats suffit pour voir si le modèle correspond à votre activité — et quel programme vous convient.",
   cta: "Réserver un call de 30 minutes", mail: "ou écrivez à", restart: "↻ Recommencer le parcours",
+};
+
+/* ============ ACT 2b — PARTNER PORTAL & DEAL PROTECTION ============ */
+L.en.portal = {
+  h: "Your partner portal — and your deals, protected", p: "Everything you need to sell is in one place, from day one. And every opportunity you register is yours for 12 months.",
+  items: [["Certification", "Product & sales certification, badge, refreshed at every release"], ["Sales assets", "Decks, battle cards, objection handling, case studies"], ["Videos", "Product demos and training sessions, on demand"], ["Pipeline & leads", "Register deals, track your pipeline, receive leads from AssessFirst"], ["Orders & invoices", "Your orders, invoices and commission statements"], ["News", "Product releases, newsletter, partner events"]],
+  dealT: "Deal protection — three rules", deals: [["Register, you're protected", "A registered opportunity is yours for 12 months: AssessFirst does not sell there, direct or through another partner."], ["Conflicts are arbitrated, not ignored", "If two parties claim an account, your Partner Manager decides on the registration date — in writing, within 5 days."], ["Your clients stay yours", "Accounts you have signed are never approached by our sales team. Renewals and upsell go through you."]],
+  mock: { nav: ["Home", "Certification", "Sales assets", "Videos", "Pipeline", "Orders", "News"], hello: "Welcome back", kpi: [["Open deals", "7"], ["Protected until", "12 m"], ["Certification", "✓"]], deal: "Register a deal" },
+};
+L.fr.portal = {
+  h: "Votre portail partenaire — et vos deals, protégés", p: "Tout ce qu'il faut pour vendre, au même endroit, dès le premier jour. Et chaque opportunité que vous enregistrez vous appartient pendant 12 mois.",
+  items: [["Certification", "Certification produit & vente, badge, mise à jour à chaque version"], ["Supports de vente", "Decks, battle cards, réponses aux objections, cas clients"], ["Vidéos", "Démos produit et sessions de formation, à la demande"], ["Pipeline & leads", "Enregistrez vos deals, suivez votre pipeline, recevez des leads d'AssessFirst"], ["Commandes & factures", "Vos commandes, factures et relevés de commissions"], ["Actualités", "Nouveautés produit, newsletter, événements partenaires"]],
+  dealT: "Protection des deals — trois règles", deals: [["Enregistré, donc protégé", "Une opportunité enregistrée vous appartient 12 mois : AssessFirst n'y vend pas, ni en direct, ni via un autre partenaire."], ["Les conflits sont arbitrés, pas ignorés", "Si deux parties revendiquent un compte, votre Partner Manager tranche sur la date d'enregistrement — par écrit, sous 5 jours."], ["Vos clients restent les vôtres", "Les comptes que vous avez signés ne sont jamais approchés par notre équipe commerciale. Renouvellements et ventes additionnelles passent par vous."]],
+  mock: { nav: ["Accueil", "Certification", "Supports", "Vidéos", "Pipeline", "Commandes", "Actualités"], hello: "Bon retour", kpi: [["Deals ouverts", "7"], ["Protégés", "12 m"], ["Certification", "✓"]], deal: "Enregistrer un deal" },
+};
+const S_Portal = ({ lang }) => {
+  const T = L[lang].portal, M = T.mock;
+  const icons = ["🎓", "📑", "▶", "📈", "🧾", "📣"];
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: 18, alignItems: "start" }}>
+      <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, overflow: "hidden", boxShadow: "0 12px 32px rgba(20,30,40,0.10)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 14px", height: 40, borderBottom: `1px solid ${AF.border}` }}><AfLogo size={12} /><span style={{ fontSize: 10, color: AF.grayMid }}>Partner portal · powered by Introw</span><span style={{ marginLeft: "auto", width: 22, height: 22, borderRadius: 11, background: AF.gradient }} /></div>
+        <div style={{ display: "grid", gridTemplateColumns: "116px 1fr", minHeight: 300 }}>
+          <div style={{ background: AF.grayLight, padding: "10px 0" }}>{M.nav.map((n, i) => <div key={n} style={{ fontSize: 11, padding: "7px 14px", color: i === 0 ? AF.black : AF.grayMid, fontWeight: i === 0 ? 700 : 400, borderLeft: i === 0 ? `3px solid ${AF.pink}` : "3px solid transparent" }}>{n}</div>)}</div>
+          <div style={{ padding: 14 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}><b style={{ fontSize: 13 }}>{M.hello} 👋</b><span style={{ fontSize: 10, fontWeight: 700, color: "#fff", background: AF.pink, borderRadius: 7, padding: "5px 10px", textTransform: "uppercase" }}>{M.deal}</span></div>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8, marginBottom: 12 }}>{M.kpi.map(([k, v]) => <div key={k} style={{ border: `1px solid ${AF.border}`, borderRadius: 8, padding: "8px 10px" }}><div style={{ fontSize: 9.5, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{k}</div><div style={{ fontSize: 18, fontWeight: 800, color: v === "✓" ? "#12B76A" : AF.black }}>{v}</div></div>)}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>{T.items.map(([t, d], i) => <div key={t} style={{ background: AF.grayLight, borderRadius: 8, padding: "9px 10px" }}><div style={{ fontSize: 11.5, fontWeight: 700, color: AF.black }}><span style={{ marginRight: 6 }}>{icons[i]}</span>{t}</div><div style={{ fontSize: 9.5, color: AF.grayMid, lineHeight: 1.4, marginTop: 3 }}>{d}</div></div>)}</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 10 }}>{T.dealT}</div>
+        {T.deals.map(([a, b], i) => <div key={a} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "14px 16px", marginBottom: 10 }}><div style={{ display: "flex", gap: 10, alignItems: "baseline" }}><span style={{ width: 22, height: 22, borderRadius: 11, background: AF.pink, color: "#fff", fontSize: 11, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span><div><div style={{ fontSize: 13.5, fontWeight: 700, color: AF.black, marginBottom: 4 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div></div></div>)}
+      </div>
+    </div>
+  </Frame>);
+};
+
+/* ============ ACT 7a — PROOF ============ */
+L.en.proof = {
+  h: "What a partner year looks like", p: "One real story, one illustrative projection.",
+  real: { tag: "Real · Distributor · Latin America", name: "TalentLab", sub: "HR services group, signed 12 months ago",
+    stats: [["13", "client accounts opened"], ["400K+", "ARR generated in year 1"], ["12", "months from contract to Elite tier"]],
+    story: ["Month 1 — certification on the portal, first three accounts registered from the existing client base, first demos led by their own consultants.", "Month 3 — first two clients signed, onboarded by their team; AssessFirst on escalation only.", "Month 6 — eight accounts, recurring monthly business review, first co-branded webinar for the local market.", "Month 12 — thirteen clients, renewals running, tier upgraded, market development funds unlocked for 2027."],
+    quote: "They did not add AssessFirst to their catalogue; they built an assessment practice around it." },
+  illus: { tag: "Illustrative · Reseller · Europe", name: "A 10-consultant recruitment firm", sub: "What the first year could look like",
+    stats: [["6", "clients equipped"], ["5 to 10K", "tokens per client"], ["+1", "service line billed on top"]],
+    story: ["Month 1 — certification, pitch rehearsed on three current clients, first order placed from the back-office.", "Month 4 — three clients live; AssessFirst trains the recruiters, the firm runs the debriefs and bills them.", "Month 8 — a shortlist delivered with predictive profiles wins a competitive tender.", "Month 12 — six clients, first renewals, Premier tier within reach."],
+    quote: "Figures are an illustration based on the programme's grid, not a client case." },
+};
+L.fr.proof = {
+  h: "À quoi ressemble une année de partenaire", p: "Une histoire réelle, une projection illustrative.",
+  real: { tag: "Réel · Distributeur · Amérique latine", name: "TalentLab", sub: "Groupe de services RH, signé il y a 12 mois",
+    stats: [["13", "comptes clients ouverts"], ["400 K+", "d'ARR générés la première année"], ["12", "mois du contrat au tier Elite"]],
+    story: ["Mois 1 — certification sur le portail, trois premiers comptes enregistrés depuis la base clients existante, premières démos menées par leurs propres consultants.", "Mois 3 — deux premiers clients signés, onboardés par leur équipe ; AssessFirst en escalade uniquement.", "Mois 6 — huit comptes, revue mensuelle installée, premier webinaire co-brandé pour le marché local.", "Mois 12 — treize clients, renouvellements en cours, tier revu à la hausse, fonds de développement marché débloqués pour 2027."],
+    quote: "Ils n'ont pas ajouté AssessFirst à leur catalogue ; ils ont bâti une pratique d'évaluation autour." },
+  illus: { tag: "Illustratif · Revendeur · Europe", name: "Un cabinet de recrutement de 10 consultants", sub: "À quoi pourrait ressembler la première année",
+    stats: [["6", "clients équipés"], ["5 à 10 K", "tokens par client"], ["+1", "ligne de services facturée en plus"]],
+    story: ["Mois 1 — certification, pitch répété sur trois clients actuels, première commande passée depuis le back-office.", "Mois 4 — trois clients actifs ; AssessFirst forme les recruteurs, le cabinet anime les restitutions et les facture.", "Mois 8 — une shortlist livrée avec profils prédictifs remporte un appel d'offres concurrentiel.", "Mois 12 — six clients, premiers renouvellements, tier Premier à portée."],
+    quote: "Chiffres illustratifs, construits sur la grille du programme, pas un cas client." },
+};
+const S_Proof = ({ lang }) => {
+  const T = L[lang].proof;
+  const Card = ({ c, real }) => (
+    <div style={{ border: real ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, borderRadius: 12, padding: "18px 20px", background: real ? "#FFF5FA" : "#fff" }}>
+      <div style={{ fontSize: 9.5, fontWeight: 800, color: real ? "#fff" : AF.grayMid, background: real ? AF.pink : AF.grayLight, borderRadius: 8, padding: "3px 9px", textTransform: "uppercase", display: "inline-block", marginBottom: 10 }}>{c.tag}</div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: AF.black }}>{c.name}</div><div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 12 }}>{c.sub}</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8, marginBottom: 12 }}>{c.stats.map(([v, l]) => <div key={l} style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 8, padding: "8px 10px" }}><div style={{ fontSize: 18, fontWeight: 800, color: real ? AF.pink : AF.black }}>{v}</div><div style={{ fontSize: 9.5, color: AF.grayMid, lineHeight: 1.3 }}>{l}</div></div>)}</div>
+      {c.story.map((s) => <div key={s} style={{ fontSize: 11.5, color: AF.black, lineHeight: 1.5, padding: "6px 0", borderTop: `1px solid ${AF.border}` }}>{s}</div>)}
+      <div style={{ fontSize: 11, color: AF.grayMid, fontStyle: "italic", marginTop: 10 }}>{c.quote}</div>
+    </div>);
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}><Card c={T.real} real /><Card c={T.illus} /></div>
+  </Frame>);
 };
 
 /* ============ ACT 5 — HOW YOU ORDER ============ */
@@ -615,76 +686,54 @@ const S_Grid = ({ lang, prog }) => {
   </Frame>);
 };
 
-/* ============ ACT 6 — SIMULATOR ============ */
-const SIM_DEF = { rpo: { projects: 20, type: "recruit", camps: 6, cands: 150, emps: 50 }, recruit: { projects: 12, type: "recruit", camps: 2, cands: 40, emps: 30 }, consult: { projects: 8, type: "talent", camps: 1, cands: 30, emps: 60 } };
-const MIX_DEF = { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] };
+/* ============ ACT 6 — ANNUAL BUSINESS CASE ============ */
+const SIM_DEF = { rpo: { projects: 20, tk: 10000 }, recruit: { projects: 12, tk: 5000 }, consult: { projects: 8, tk: 7500 } };
 const S_Simulator = ({ lang, prog, profile }) => {
   const T = L[lang].sim;
   const d = SIM_DEF[profile];
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
-  const [projects, setProjects] = useState(d.projects), [type, setType] = useState(d.type), [camps, setCamps] = useState(d.camps), [cands, setCands] = useState(d.cands), [emps, setEmps] = useState(d.emps);
-  const [usage, setUsage] = useState(MIX_DEF);
+  const [projects, setProjects] = useState(d.projects), [tk, setTk] = useState(d.tk);
   const [months, setMonths] = useState(12), [sz, setSz] = useState("250-1000"), [tier, setTier] = useState(0), [resale, setResale] = useState(null);
-  const people = projects * (type === "recruit" ? camps * cands : emps);
-  const perPerson = PRODUCTS.reduce((a, p) => a + (usage[p.id][0] ? usage[p.id][1] / 100 * p.cost : 0), 0);
-  const tokens = Math.round(people * perPerson);
-  const perProject = tokens / Math.max(projects, 1);
-  const pubPerProject = publicPrice(perProject, months, sz);
+  const tokens = projects * tk;
+  const pubPerProject = publicPrice(tk, months, sz), pubPerTk = pubPerProject / tk;
   const rows = TIER_NAMES.map((n, idx) => ({ n, disc: DISC[prog][idx], cost: projects * pubPerProject * (1 - DISC[prog][idx] / 100) }));
-  const pubPerTk = perProject ? pubPerProject / perProject : 0;
   const rs = resale ?? pubPerTk, revenue = tokens * rs;
   const act = rows[tier], profit = revenue - act.cost, margin = revenue > 0 ? profit / revenue * 100 : 0;
   const fmt = (n) => { const v = n * r; return sym + (Math.abs(v) >= 1000 ? (v / 1000).toFixed(1) + "k" : fmtN(v)); };
-  const setU = (id, on, pct) => setUsage({ ...usage, [id]: [on, pct] });
   return (
     <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 12, minHeight: 500, padding: "28px 30px", fontFamily: AF.font, boxSizing: "border-box" }}>
       <div style={{ height: 4, width: 120, background: AF.gradient, borderRadius: 2, marginBottom: 14 }} />
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}><h2 style={{ fontSize: 21, fontWeight: 700, color: AF.black, letterSpacing: "-0.02em", margin: 0 }}>{T.h}</h2><CurSwitch cur={cur} setCur={setCur} /></div>
-      <p style={{ fontSize: 12, color: AF.grayMid, margin: "0 0 16px", maxWidth: 680, lineHeight: 1.55 }}>{T.p}</p>
-      <div style={{ display: "flex", gap: 20 }}>
+      <p style={{ fontSize: 12, color: AF.grayMid, margin: "0 0 18px", maxWidth: 680, lineHeight: 1.55 }}>{T.p}</p>
+      <div style={{ display: "flex", gap: 22 }}>
         <div style={{ flex: "0 0 300px" }}>
           <Kicker>{T.s1}</Kicker>
           <Slider label={T.projects} value={projects} onChange={setProjects} min={1} max={100} />
-          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.type}</div><div style={{ marginBottom: 12 }}><Seg value={type} onChange={setType} options={T.types} /></div>
-          {type === "recruit" && <><Slider label={T.camps} value={camps} onChange={setCamps} min={1} max={20} /><Slider label={T.cands} value={cands} onChange={setCands} min={20} max={2000} step={10} /></>}
-          {type === "talent" && <Slider label={T.emps} value={emps} onChange={setEmps} min={10} max={1000} step={10} />}
-          <div style={{ marginTop: 6 }}><Kicker>{T.s2}</Kicker></div>
-          <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 8px", lineHeight: 1.4 }}>{T.s2n}</p>
-          {PRODUCTS.map((p) => { const [on, pct] = usage[p.id]; return (
-            <div key={p.id} style={{ background: on ? "#FFF5FA" : AF.grayLight, border: on ? `1.5px solid ${AF.pink}` : "1.5px solid transparent", borderRadius: 9, padding: "6px 10px", marginBottom: 5 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span onClick={() => setU(p.id, !on, pct || 30)} style={{ width: 15, height: 15, borderRadius: 4, cursor: "pointer", border: on ? "none" : `2px solid ${AF.border}`, background: on ? AF.pink : "#fff", color: "#fff", fontSize: 10, fontWeight: 700, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on ? "✓" : ""}</span>
-                <span style={{ fontSize: 12, fontWeight: 700, color: on ? AF.black : AF.grayMid, flex: 1 }}>{p.label} <span style={{ fontWeight: 400, fontSize: 10, color: AF.grayMid }}>· {p.cost} tk</span></span>
-                {on && <b style={{ fontSize: 11, color: AF.pink }}>{pct}%</b>}
-              </div>
-              {on && <input type="range" min={5} max={100} step={5} value={pct} onChange={(e) => setU(p.id, true, Number(e.target.value))} style={{ width: "100%", accentColor: AF.pink, marginTop: 3 }} />}
-            </div>); })}
+          <Slider label={T.tkPer} value={tk} onChange={setTk} min={5000} max={100000} step={2500} suffix=" tk" />
+          <p style={{ fontSize: 10, color: "#98A2AE", margin: "-4px 0 14px", lineHeight: 1.45 }}>{T.tkHint}</p>
+          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.size}</div><div style={{ marginBottom: 12 }}><Seg value={sz} onChange={(v) => { setSz(v); setResale(null); }} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></div>
+          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.commit}</div><div style={{ marginBottom: 12 }}><Seg value={months} onChange={(v) => { setMonths(v); setResale(null); }} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></div>
+          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.resale}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <Seg value={resale !== null ? "custom" : "public"} onChange={(v) => { if (v === "custom") setResale(rs); else setResale(null); }} options={T.rmodes} />
+            <input type="number" step={0.01} min={0.1} value={Number((rs * r).toFixed(2))} onChange={(e) => setResale(Number(e.target.value) / r)} style={{ width: 66, fontSize: 12, fontWeight: 700, color: AF.black, border: `1px solid ${AF.pink}`, borderRadius: 6, padding: "4px 6px", textAlign: "center", fontFamily: AF.font }} /><span style={{ fontSize: 11, color: AF.grayMid }}>{sym} / tk</span>
+          </div>
+          <p style={{ fontSize: 10, color: "#98A2AE", margin: "8px 0 0", lineHeight: 1.45 }}>{T.resaleHint}</p>
         </div>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", gap: 14, alignItems: "center", background: "linear-gradient(135deg, rgba(255,47,146,0.08), rgba(0,150,255,0.06))", border: `1.5px solid ${AF.pink}`, borderRadius: 12, padding: "14px 20px", marginBottom: 12 }}>
             <div><div style={{ fontSize: 10, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.vol}</div><div style={{ fontSize: 34, fontWeight: 800, color: AF.pink, lineHeight: 1.1 }}>{tokens >= 1000 ? (tokens / 1000).toFixed(0) + "K" : fmtN(tokens)} <span style={{ fontSize: 15, fontWeight: 700 }}>{T.volu}</span></div></div>
-            <div style={{ marginLeft: "auto", fontSize: 10.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.6 }}>{fmtN(people)} {T.people}<br />{perPerson.toFixed(1)} {T.perPerson} · {fmtN(perProject)} {T.perProject}</div>
+            <div style={{ marginLeft: "auto", fontSize: 10.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.6 }}>{projects} {T.orders} × {fmtN(tk)} tk<br />{fmt(pubPerProject)} {T.pubEach}</div>
           </div>
           <Kicker>{T.s3}</Kicker>
-          <div style={{ display: "flex", gap: 18, alignItems: "center", marginBottom: 10, flexWrap: "wrap" }}>
-            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={months} onChange={setMonths} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></span>
-            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.size}</span><Seg value={sz} onChange={(v) => { setSz(v); setResale(null); }} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></span>
-          </div>
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 12 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "8px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.tCols.map((c) => <span key={c}>{c}</span>)}</div>
             {rows.map((row, idx) => { const pr = revenue - row.cost; const on = idx === tier; return (
-              <div key={row.n} onClick={() => setTier(idx)} style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "9px 12px", fontSize: 12, borderTop: `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", cursor: "pointer", boxShadow: on ? `inset 3px 0 0 ${AF.pink}` : "none", alignItems: "center" }}>
+              <div key={row.n} onClick={() => setTier(idx)} style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "10px 12px", fontSize: 12, borderTop: `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", cursor: "pointer", boxShadow: on ? `inset 3px 0 0 ${AF.pink}` : "none", alignItems: "center" }}>
                 <span><b>{row.n}</b>{on && <span style={{ fontSize: 8.5, fontWeight: 800, color: "#fff", background: AF.pink, borderRadius: 8, padding: "2px 7px", marginLeft: 6, textTransform: "uppercase" }}>{T.best}</span>}</span><span>−{row.disc}%</span><span>{fmt(row.cost)}</span><b style={{ color: AF.pink }}>{fmt(pr)}</b><span>{revenue > 0 ? (pr / revenue * 100).toFixed(0) : "—"}%</span>
               </div>); })}
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, flexWrap: "wrap" }}>
-            <span style={{ fontSize: 11.5, color: AF.grayMid }}>{T.resale}</span>
-            <Seg value={resale !== null ? "custom" : "public"} onChange={(v) => { if (v === "custom") setResale(rs); else setResale(null); }} options={T.rmodes} />
-            <input type="number" step={0.01} min={0.1} value={Number((rs * r).toFixed(2))} onChange={(e) => setResale(Number(e.target.value) / r)} style={{ width: 70, fontSize: 12, fontWeight: 700, color: AF.black, border: `1px solid ${AF.pink}`, borderRadius: 6, padding: "4px 6px", textAlign: "center", fontFamily: AF.font }} />
-            <span style={{ fontSize: 11, color: AF.grayMid }}>{sym}</span>
-          </div>
-          <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 10px", lineHeight: 1.45 }}>{T.resaleHint}</p>
-          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{tokens ? T.how(resale !== null, sym + (rs * r).toFixed(2), sym + (act.cost / tokens * r).toFixed(2), act.disc, fmtN(perProject)) : T.none}</div>
+          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{T.how(resale !== null, sym + (rs * r).toFixed(2), sym + (act.cost / tokens * r).toFixed(2), act.disc)}</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 12 }}>
             {[[T.kpis[0], fmt(revenue)], [T.kpis[1] + " · " + act.n, fmt(act.cost)], [T.kpis[2], fmt(profit)], [T.kpis[3], margin.toFixed(0) + "%"]].map(([t, v]) => <div key={t} style={{ background: "#FDF7FB", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "11px 13px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 19, fontWeight: 800, color: AF.pink, marginTop: 2 }}>{v}</div></div>)}
           </div>
@@ -709,7 +758,7 @@ const S_Roadmap = ({ lang }) => {
           <div key={t}>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}><span style={{ width: 34, height: 34, borderRadius: "50%", background: k === 5 ? AF.black : AF.pink, color: "#fff", fontSize: 10, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: `0 0 0 1px ${AF.border}`, boxSizing: "content-box" }}>{d.split(" ")[1]}</span></div>
             <div style={{ textAlign: "center", fontSize: 10, color: AF.pink, fontWeight: 700 }}>{d}</div>
-            <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 700, color: AF.black, margin: "2px 0 10px", lineHeight: 1.3 }}>{t}</div>
+            <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 700, color: AF.black, margin: "2px 0 10px", lineHeight: 1.3, minHeight: 34, display: "flex", alignItems: "flex-start", justifyContent: "center" }}>{t}</div>
             <div style={{ background: "#FFF5FA", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "9px 10px", marginBottom: 6, minHeight: 78 }}><div style={{ fontSize: 9, color: AF.pink, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.you}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{you}</div></div>
             <div style={{ background: AF.grayLight, borderRadius: 10, padding: "9px 10px", minHeight: 78 }}><div style={{ fontSize: 9, color: AF.grayMid, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.af}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{af}</div></div>
           </div>))}
@@ -742,12 +791,14 @@ const STEPS = [
   { act: 1, label: "Your edge", C: S_Own },
   { act: 2, label: "Reseller or Distributor", C: S_Programme },
   { act: 2, label: "Tiers & MDF", C: S_Tiers },
+  { act: 2, label: "Portal & deal protection", C: S_Portal },
   { act: 3, label: "Six tools, one token", C: S_Products },
   { act: 3, label: "Your margin", C: S_Margin },
   { act: 4, label: "Partner back-office", C: S_BackOffice },
   { act: 5, label: "How you order", C: S_Modes },
   { act: 5, label: "Public price grid", C: S_Grid },
   { act: 6, label: "Simulator", C: S_Simulator },
+  { act: 7, label: "A partner year", C: S_Proof },
   { act: 7, label: "First 90 days", C: S_Roadmap },
   { act: 7, label: "Book a call", C: S_Call },
 ];
