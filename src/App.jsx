@@ -24,13 +24,13 @@ const PRODUCTS = [
 const PRICE = [[5000,3500],[7500,4900],[10000,6000],[12500,7100],[15000,8200],[17500,9200],[20000,10200],[25000,12100],[30000,13950],[35000,15700],[40000,17400],[45000,19050],[50000,20650],[75000,26500],[100000,33200],[125000,39500],[150000,45500],[175000,51200],[200000,56500],[225000,61650],[250000,64900],[275000,71600],[300000,76350],[325000,81050],[350000,85650],[375000,90150],[400000,94550],[425000,98900],[450000,103200],[475000,107450],[500000,111600]];
 const DUR = { 12: 0.2, 24: 0.1, 36: 0, 48: -0.1 };
 const SIZE = { "<250": 0, "250-1000": 0.25, ">1000": 0.5 };
-const PARTNER_SIZE = "250-1000"; // channel grid: partners buy on the 250–1,000-employee column (+25%), all order types
+// Channel pricing = public grid by client size (verified by AssessFirst at account creation) × commitment − tier discount
 const DISC = { reseller: [30, 35, 40], distributor: [40, 45, 50] };
 const TIER_NAMES = ["Core", "Premier", "Elite"];
 const tierFor = (tk) => { let t = PRICE[0]; for (const p of PRICE) if (p[0] <= tk) t = p; return t; };
 const basePrice = (tk) => { const [tt, b] = tierFor(Math.max(tk, PRICE[0][0])); return b * (tk / tt); };
 const publicPrice = (tk, months = 12, size = "<250") => basePrice(tk) * (1 + SIZE[size]) * (1 + (DUR[months] ?? 0));
-const partnerPrice = (tk, months, disc) => publicPrice(tk, months, PARTNER_SIZE) * (1 - disc / 100);
+const partnerPrice = (tk, months, disc, size = "<250") => publicPrice(tk, months, size) * (1 - disc / 100);
 const CUR = { EUR: { s: "€", r: 1 }, USD: { s: "$", r: 1.2 }, GBP: { s: "£", r: 0.9 } };
 const fmtN = (n) => Math.round(n).toLocaleString("en-US");
 
@@ -110,21 +110,21 @@ const L = {
 en: {
   nav: { back: "← Back", next: "Next →", restart: "Restart", intro: "Introduction", act: "Act" },
   hdr: { title: "partner journey", sub: "How you resell and deploy predictive assessment across your own clients — from programme to margin.",
-    acts: { 0: "Welcome", 1: "Why now", 2: "Your programme", 3: "What you sell", 4: "Your back-office", 5: "How you buy", 6: "Estimate your opportunity", 7: "Your first 90 days" } },
+    acts: { 0: "Welcome", 1: "Why now", 2: "Your programme", 3: "What you sell", 4: "Your back-office", 5: "How you order", 6: "Estimate your opportunity", 7: "Your first 90 days" } },
   profiles: [["rpo", "RPO & staffing", "Volume hiring, pre-qualification, quality of hire"], ["recruit", "Recruitment firm", "Shortlists, time-to-hire, candidate experience"], ["consult", "HR consulting", "Assessment centres, mobility, development"]],
   welcome: {
     h: "Add a talent intelligence layer to everything you deliver for your clients.",
     p: "AssessFirst helps organisations understand people at work and make better decisions. Behavioural science and AI build a complete picture of each person — personality, motivations, reasoning, skills, languages, job fit. As a partner, you deploy it across your own clients, run it from your own back-office and turn it into a recurring revenue line.",
     pickT: "Choose your profile", pickSub: "The journey is the same for everyone; your choice adapts the use cases in “Why now”, the client data in the back-office demo and the default assumptions of the simulator.",
-    chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, discounts and market development funds."], ["What you sell", "Six tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Deployer: order, create client accounts, allocate, track, renew — without waiting for us."], ["How you buy", "Per-client order or Credit Pool, two clocks, the public price grid."], ["Your opportunity", "A margin simulator built on your portfolio and your project mix."], ["Your first 90 days", "From contract to first client — and how to book a call."]],
+    chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, discounts and market development funds."], ["What you sell", "Seven tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Request client accounts, manage users, follow consumption and renewals — without waiting for us."], ["How you order", "Per-client orders, the public price grid, your partner price and margin."], ["Your opportunity", "A margin simulator built on your portfolio and your project mix."], ["Your first 90 days", "From contract to first client — and how to book a call."]],
     start: "Start the journey →", skip: "Skip to the simulator →",
   },
   why: {
     h: "The HR market is changing. Your clients are feeling it.",
     cols: [["What's happening", [["CVs have real limits", "Less than 15% predictive validity, yet most decisions still rely on them."], ["Mistakes are expensive", "A bad hire costs ~1.5× annual salary; a failed promotion costs a team."], ["Regulation is tightening", "The EU AI Act requires transparency and fairness in AI-based decisions."]]],
-      ["The AssessFirst approach", [["Understand the whole person", "Personality, motivations, reasoning, skills and languages — one profile, six tools."], ["AI where it saves time", "SCAN and VOICE automate pre-qualification and skills interviews."], ["Built for compliance", "Auditable models, bias-tested, GDPR-ready, aligned with the EU AI Act."]]],
+      ["The AssessFirst approach", [["A complete view of each person", "Personality, motivations, reasoning, skills and languages: one profile, seven tools."], ["AI where it saves time", "SCAN and VOICE automate pre-qualification and skills interviews."], ["Built for compliance", "Auditable models, bias-tested, GDPR-ready, aligned with the EU AI Act."]]],
       ["What clients see", [["-30%", "hiring mistakes within 6 months"], ["+25%", "performance on key roles within 12 months"], ["4.9/5", "candidate & employee experience · 2,700+ Google reviews"], ["39", "languages · 3,500+ clients in 40+ countries"]]]],
-    h2: "Partners who already own clients win.",
+    h2: "Your edge: you already have the clients.",
     p2: "We built this programme for firms that already have the trust of HR leaders. No cold prospecting required: you add AssessFirst to what you already deliver.",
     use: {
       rpo: [["Pre-qualification at scale", "SCAN calls every applicant and validates the key criteria — your recruiters only handle qualified profiles."], ["Volume hiring, secured", "SWIPE, DRIVE and BRAIN on every shortlist: objective fit, fewer early departures."], ["Prove quality of hire", "Consumption and fit data per client — the KPI your account managers need in reviews."]],
@@ -146,11 +146,11 @@ en: {
     tNote: "Indicative programme structure — final terms are set in your partnership agreement.",
   },
   sell: {
-    h: "Six tools. One token.", p: "Your clients buy an annual subscription with a number of tokens; every assessment consumes tokens. Hover a tool to see what it does.",
+    h: "Seven tools. One token.", p: "Your clients buy an annual subscription with a number of tokens; every assessment consumes tokens. Hover a tool to see what it does.",
     note: "Each source enriches the others: combined, they give recruiters and managers a reliable, actionable view of every person. Every candidate or employee receives their own profile. The full suite on one person = 100 tokens exactly.",
     h2: "Your margin: tokens you resell, services you deliver.",
     p2: "You buy tokens at your partner price and resell an annual subscription at the price you decide. Around it, you sell what you know best — that second line is often the larger one.",
-    tokT: "Token resale", tok: ["Partner price = public grid − your tier discount", "Resale price = yours, per client", "Renewals compound year after year"],
+    tokT: "Token resale", tok: ["Partner price = public grid − your tier discount", "Resale price = yours, per client", "Each renewal is a new order — revenue compounds year after year"],
     servT: "Services you bill on top", serv: ["Setup & job-model configuration", "Recruiter & manager training", "Candidate and employee debriefs", "Assessment centres & mobility programmes", "Coaching, competency frameworks, change"],
     foot: "Figures come later, in the simulator — built on your own portfolio.",
   },
@@ -158,21 +158,21 @@ en: {
 fr: {
   nav: { back: "← Retour", next: "Suivant →", restart: "Recommencer", intro: "Introduction", act: "Acte" },
   hdr: { title: "parcours partenaire", sub: "Comment vous revendez et déployez l'évaluation prédictive chez vos propres clients — du programme à la marge.",
-    acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous achetez", 6: "Estimez votre opportunité", 7: "Vos 90 premiers jours" } },
+    acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous commandez", 6: "Estimez votre opportunité", 7: "Vos 90 premiers jours" } },
   profiles: [["rpo", "RPO & staffing", "Recrutement en volume, préqualification, qualité d'embauche"], ["recruit", "Cabinet de recrutement", "Shortlists, time-to-hire, expérience candidat"], ["consult", "Conseil RH", "Assessment centers, mobilité, développement"]],
   welcome: {
     h: "Ajoutez une couche d'intelligence des talents à toutes les prestations que vous délivrez à vos clients.",
     p: "AssessFirst aide les organisations à comprendre les personnes au travail et à prendre de meilleures décisions. Sciences comportementales et IA construisent une compréhension complète de chaque individu — personnalité, motivations, raisonnement, compétences, langues, adéquation au poste. En tant que partenaire, vous la déployez chez vos propres clients, la pilotez depuis votre back-office et en faites une ligne de revenus récurrents.",
     pickT: "Choisissez votre profil", pickSub: "Le parcours est le même pour tous ; votre choix adapte les cas d'usage de « Pourquoi maintenant », les données clients de la démo back-office et les hypothèses par défaut du simulateur.",
-    chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, remises et fonds de développement marché."], ["Ce que vous vendez", "Six outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Deployer : commander, créer les comptes clients, allouer, suivre, renouveler — sans nous attendre."], ["Comment vous achetez", "Commande par client ou Credit Pool, deux horloges, la grille tarifaire publique."], ["Votre opportunité", "Un simulateur de marge construit sur votre portefeuille et votre mix de projets."], ["Vos 90 premiers jours", "Du contrat au premier client — et comment prendre rendez-vous."]],
+    chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, remises et fonds de développement marché."], ["Ce que vous vendez", "Sept outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Demander des comptes clients, gérer les utilisateurs, suivre consommation et renouvellements — sans nous attendre."], ["Comment vous commandez", "La commande par client, la grille tarifaire publique, votre prix partenaire et votre marge."], ["Votre opportunité", "Un simulateur de marge construit sur votre portefeuille et votre mix de projets."], ["Vos 90 premiers jours", "Du contrat au premier client — et comment prendre rendez-vous."]],
     start: "Démarrer le parcours →", skip: "Aller au simulateur →",
   },
   why: {
     h: "Le marché RH change. Vos clients le ressentent.",
-    cols: [["Ce qui se passe", [["Le CV a ses limites", "Moins de 15 % de validité prédictive, et pourtant la plupart des décisions s'appuient encore dessus."], ["Les erreurs coûtent cher", "Un mauvais recrutement coûte ~1,5× le salaire annuel ; une promotion ratée coûte une équipe."], ["La réglementation se durcit", "L'EU AI Act impose transparence et équité dans les décisions basées sur l'IA."]]],
-      ["L'approche AssessFirst", [["Comprendre la personne entière", "Personnalité, motivations, raisonnement, compétences et langues — un profil, six outils."], ["L'IA là où elle fait gagner du temps", "SCAN et VOICE automatisent la préqualification et les entretiens de compétences."], ["Conçu pour la conformité", "Modèles auditables, testés anti-biais, RGPD-ready, alignés avec l'EU AI Act."]]],
-      ["Ce que voient les clients", [["-30 %", "d'erreurs de recrutement dans les 6 mois"], ["+25 %", "de performance sur les postes clés dans les 12 mois"], ["4,9/5", "expérience candidats & collaborateurs · 2 700+ avis Google"], ["39", "langues · 3 500+ clients dans 40+ pays"]]]],
-    h2: "Les partenaires qui ont déjà leurs clients gagnent.",
+    cols: [["Le constat", [["Le CV ne suffit plus", "Moins de 15 % de validité prédictive, et pourtant la plupart des décisions reposent encore dessus."], ["Une erreur de recrutement coûte cher", "En moyenne 1,5 fois le salaire annuel ; une promotion ratée, c'est une équipe entière qui décroche."], ["La réglementation se durcit", "L'EU AI Act impose transparence et équité dans toute décision assistée par l'IA."]]],
+      ["La réponse AssessFirst", [["Une vision complète de chaque personne", "Personnalité, motivations, raisonnement, compétences et langues : un seul profil, sept outils."], ["L'IA pour gagner du temps", "SCAN et VOICE automatisent la préqualification et les entretiens de compétences."], ["Conforme par conception", "Modèles auditables, testés contre les biais, conformes au RGPD et à l'EU AI Act."]]],
+      ["Les résultats chez nos clients", [["-30 %", "d'erreurs de recrutement en 6 mois"], ["+25 %", "de performance sur les postes clés en 12 mois"], ["4,9/5", "satisfaction candidats et collaborateurs · 2 700+ avis Google"], ["39", "langues · 3 500+ clients dans plus de 40 pays"]]]],
+    h2: "Votre atout : vous avez déjà les clients.",
     p2: "Ce programme est conçu pour les cabinets qui ont déjà la confiance des directions RH. Aucune prospection à froid : vous ajoutez AssessFirst aux prestations que vous délivrez déjà.",
     use: {
       rpo: [["Préqualification à grande échelle", "SCAN appelle chaque candidat et valide les critères clés — vos recruteurs ne traitent que des profils qualifiés."], ["Recrutement en volume, sécurisé", "SWIPE, DRIVE et BRAIN sur chaque shortlist : adéquation objective, moins de départs précoces."], ["Prouvez la qualité des embauches", "Données de consommation et d'adéquation par client — le KPI qu'attendent vos account managers en revue."]],
@@ -194,7 +194,7 @@ fr: {
     tNote: "Structure de programme indicative — les conditions finales sont fixées dans votre contrat de partenariat.",
   },
   sell: {
-    h: "Six outils. Un seul token.", p: "Vos clients souscrivent un abonnement annuel incluant un volume de tokens ; chaque évaluation en consomme. Survolez un outil pour en savoir plus.",
+    h: "Sept outils. Un seul token.", p: "Vos clients souscrivent un abonnement annuel incluant un volume de tokens ; chaque évaluation en consomme. Survolez un outil pour en savoir plus.",
     note: "Chaque source enrichit les autres : combinées, elles donnent aux recruteurs et aux managers une vision fiable et actionnable de chaque personne. Chaque candidat ou collaborateur reçoit son propre profil. La suite complète sur une personne = 100 tokens exactement.",
     h2: "Votre marge : les tokens que vous revendez et les services que vous facturez.",
     p2: "Vous achetez les tokens au prix partenaire et revendez un abonnement annuel au prix que vous décidez. Autour, vous vendez ce que vous savez faire — cette seconde ligne de revenus est souvent la plus importante.",
@@ -350,145 +350,130 @@ const S_Margin = ({ lang }) => {
   );
 };
 
-/* ============ ACT 4 — BACK-OFFICE "DEPLOYER" (product vision, English UI) ============ */
+/* ============ ACT 4 — PARTNER BACK-OFFICE (product vision, English UI) ============ */
 const BO_INTRO = {
-  en: { h: "Deployer — run your AssessFirst business without waiting for us", p: "Order, create client accounts, allocate tokens, follow consumption, renew. This is the partner back-office we are building — the demo below is interactive.", spec: "Product spec" },
-  fr: { h: "Deployer — pilotez votre activité AssessFirst sans nous attendre", p: "Commander, créer les comptes clients, allouer les tokens, suivre la consommation, renouveler. C'est le back-office partenaire que nous construisons — la démo ci-dessous est interactive.", spec: "Spécification produit" },
+  en: { h: "Your partner back-office — run your clients without waiting for us", p: "Request client accounts, manage users, follow consumption and renewals, open client workspaces. AssessFirst creates every client account; you do the rest. The demo below is interactive.", spec: "Product spec" },
+  fr: { h: "Votre back-office partenaire — pilotez vos clients sans nous attendre", p: "Demandez la création de comptes clients, gérez les utilisateurs, suivez consommation et renouvellements, ouvrez les espaces clients. AssessFirst crée chaque compte client ; vous faites le reste. La démo ci-dessous est interactive.", spec: "Spécification produit" },
 };
 const SEED_BY_PROFILE = {
-  rpo: [["Nordwind Retail", "FR", 20000, 14200, "2026-01-12", 9, "", 4200], ["Bergmann Logistics", "DE", 15000, 11800, "2025-11-20", 7, "Regional partner", 6500], ["Kestrel Contact Centres", "UK", 12500, 5100, "2026-05-02", 5, "", 1800], ["Altura Hospitality", "ES", 7500, 6900, "2025-10-15", 4, "", 950], ["Cielo Fintech", "IT", 10000, 3200, "2026-07-01", 6, "Regional partner", 2400]],
-  recruit: [["Maison Verdier", "FR", 5000, 3100, "2026-02-03", 3, "", 180], ["Orbis Consulting", "BE", 2500, 2300, "2025-10-20", 2, "", 240], ["Helix Biotech", "CH", 7500, 2600, "2026-06-15", 4, "", 420], ["Northgate Real Estate", "UK", 1000, 400, "2026-08-01", 1, "", 60], ["Solano Energy", "ES", 5000, 1200, "2026-08-20", 3, "", 700]],
-  consult: [["Groupe Amarante", "FR", 10000, 6400, "2026-01-20", 5, "", 3200], ["Steinberg Industries", "DE", 7500, 7100, "2025-11-05", 4, "", 2100], ["Lumen Insurance", "NL", 5000, 1900, "2026-05-12", 3, "", 1500], ["Vantage Public Sector", "UK", 12500, 4300, "2026-04-01", 6, "Regional partner", 3800], ["Aurora Pharma", "IT", 5000, 800, "2026-08-25", 2, "", 900]],
+  rpo: [["Nordwind Retail", "FR", 20000, 14200, "2026-01-12", 9, "250-1000"], ["Bergmann Logistics", "DE", 15000, 11800, "2025-11-20", 7, ">1000"], ["Kestrel Contact Centres", "UK", 12500, 5100, "2026-05-02", 5, "250-1000"], ["Altura Hospitality", "ES", 7500, 6900, "2025-10-15", 4, "<250"], ["Cielo Fintech", "IT", 10000, 3200, "2026-07-01", 6, "<250"]],
+  recruit: [["Maison Verdier", "FR", 5000, 3100, "2026-02-03", 3, "<250"], ["Orbis Consulting", "BE", 5000, 4300, "2025-10-20", 2, "<250"], ["Helix Biotech", "CH", 7500, 2600, "2026-06-15", 4, "250-1000"], ["Northgate Real Estate", "UK", 5000, 1400, "2026-08-01", 1, "<250"], ["Solano Energy", "ES", 10000, 1200, "2026-08-20", 3, ">1000"]],
+  consult: [["Groupe Amarante", "FR", 10000, 6400, "2026-01-20", 5, ">1000"], ["Steinberg Industries", "DE", 7500, 7100, "2025-11-05", 4, "250-1000"], ["Lumen Insurance", "NL", 5000, 1900, "2026-05-12", 3, "250-1000"], ["Vantage Public Sector", "UK", 12500, 4300, "2026-04-01", 6, ">1000"], ["Aurora Pharma", "IT", 5000, 800, "2026-08-25", 2, "<250"]],
 };
-const POOL = { total: 100000, start: "2026-01-01", end: "2026-12-31" };
 const addYear = (d) => { const x = new Date(d); x.setFullYear(x.getFullYear() + 1); return x.toISOString().slice(0, 10); };
-const daysTo = (d) => Math.round((new Date(d) - new Date("2026-09-22")) / 86400000);
+const daysTo = (d) => Math.round((new Date(d) - new Date("2026-10-12")) / 86400000);
 const MIX = [0.05, 0.18, 0.07, 0.28, 0.14, 0.14, 0.14];
 const PCOL = ["#757575", "#0096FF", "#7C3AED", "#FF2F92", "#FFA800", "#029CAF", "#2FB86A"];
+const ROLES = ["Admin", "Recruiter", "Manager"];
 const SPEC = {
-  Overview: { story: "As a partner admin, I see my pool, my alerts and what to do next in one screen.", rules: ["Pool clock starts at AssessFirst invoice date; duration = partner commitment (12 by default, 24/36 possible)", "Unallocated tokens expire at pool end", "Alerts: client at 80% / 100% of allocation, renewal due in 30 days, pool ends in 60 days, pool 90% allocated"], data: ["pool_id, tokens_total, allocated, consumed, start, end, commitment_months, tier, discount"], rights: ["Reseller: read + order", "Distributor: read + order + top-up"], out: ["Multiple concurrent pools", "Auto-renewal"] },
-  Clients: { story: "As a partner admin, I list every client company with allocation, consumption, dates and attribution.", rules: ["'Sourced by' = free attribution field (sub-partner) — no platform access for the sourcing party", "Renewal date = allocation date + 12 months", "Declared headcount captured at creation, visible to AssessFirst"], data: ["company_id, name, country, headcount_band, tokens_allocated, consumed, start, renewal, users_count, sourced_by, health"], rights: ["Both: read, filter, export"], out: ["Sub-partner logins"] },
-  "Create client": { story: "As a partner admin, I create a client company and allocate tokens from my pool in one step — or order tokens for that client.", rules: ["Allocation creates a 12-month client subscription from allocation date, independent of pool end", "Allocated tokens leave the pool and cannot expire with it", "No minimum allocation", "Per-client order: priced on public grid × commitment − discount; AssessFirst invoices, tokens credited on payment"], data: ["company (name, country, headcount_band, admin_email), allocation (tokens, date), subscription (start, end)"], rights: ["Reseller: create + order for client", "Distributor: create + allocate from pool + order"], out: ["Custom subscription lengths"] },
-  "Users & renewals": { story: "As a partner admin, I manage my clients' users, renew subscriptions and return unused tokens to my pool.", rules: ["Reallocation returns unused tokens to the pool (never client-to-client directly)", "Renewal = new 12-month period from current end date, new allocation", "Roles: admin / recruiter / viewer", "Renewal reminders to partner at D-60 / D-30"], data: ["user_id, email, role, company_id, last_login, invited_by"], rights: ["Both: manage users, renew", "Distributor: reallocate"], out: ["SSO per client", "Bulk import"] },
-  Consumption: { story: "As a partner admin, I follow consumption per client and per product to anticipate renewals and upsell.", rules: ["Token weights: CV Screening 5, SCAN 10, SCAN Text 5, SWIPE/DRIVE/BRAIN 20, VOICE 25", "Monthly aggregation, 24-month history", "Export CSV"], data: ["consumption events (company_id, product, tokens, date)"], rights: ["Both: read + export"], out: ["Candidate-level data (GDPR: stays in client workspace)"] },
-  Orders: { story: "As a partner admin, I see every order, invoice and its status, and I download invoices myself.", rules: ["Order types: pool, top-up, per-client", "Statuses: pending, invoiced, paid, credited", "Tokens credited on payment (or on PO acceptance for approved partners)"], data: ["order_id, type, tokens, amount, currency, commitment, status, company_id (per-client), invoice_pdf"], rights: ["Both: read, download", "Admin role: place orders"], out: ["Online card payment v1"] },
-  Team: { story: "As a partner admin, I manage my own team's access to the back-office.", rules: ["Roles: admin (orders, allocation), manager (clients, users), consultant (delegated access to assigned clients only)", "Every action logged with user identity (audit log)"], data: ["partner_user_id, email, role, assigned_companies, last_login; audit_log"], rights: ["Admin only"], out: ["SSO / SCIM"] },
-  "Client workspace": { story: "As a partner consultant, I open a client's AssessFirst account with delegated access to configure campaigns and read results.", rules: ["Delegation granted by client admin at creation (checkbox) — revocable anytime", "Every action logged with partner user identity", "Scoped to assigned companies"], data: ["delegation (partner_user_id, company_id, granted_at, revoked_at)"], rights: ["Distributor: default on", "Reseller: on client consent"], out: ["Impersonation of individual client users"] },
+  Overview: { story: "As a partner admin, I see in one screen what I have ordered, what my clients have consumed, and which renewals are coming.", rules: ["Every order creates one client company with its own subscription (12/24/36/48 months)", "Tokens ordered = sum of client allocations; no partner-level pool in v1", "Renewal date = subscription start + duration"], data: ["orders (date, tokens, amount, company_id), company (start, end, tokens, consumed)"], rights: ["Reseller & Distributor: read"], out: ["Prepaid credit pool (v2)", "Alerts & notifications (v2)"] },
+  Clients: { story: "As a partner admin, I list every client company with consumption %, dates and users, and I request new ones.", rules: ["Client accounts are created by AssessFirst from the partner's request; status 'Pending' until created", "Declared headcount is verified by AssessFirst before creation; the invoice reflects the verified band", "Users count opens the Users tab filtered on that client"], data: ["company_id, name, country, headcount_band, tokens, consumed, start, renewal, users_count, status"], rights: ["Both: read, request creation"], out: ["Self-service company creation", "Export"] },
+  "Request client": { story: "As a partner admin, I request a client account in five fields; AssessFirst creates it and invoices me at my partner price.", rules: ["Price = public grid (verified headcount band × commitment) − tier discount", "Minimum order: smallest pack of the grid", "Subscription starts at the requested start date", "Option 'allocate from prepaid credits' shown as coming soon (v2)"], data: ["request (name, country, start_date, tokens, commitment, admin_email, headcount_band)"], rights: ["Both"], out: ["Prepaid credits", "Online payment"] },
+  Users: { story: "As a partner admin, I manage my clients' users: add, edit email and role, see last login.", rules: ["Roles: Admin / Recruiter / Manager", "Filter by client", "Invitation email sent by AssessFirst on add"], data: ["user_id, email, role, company_id, last_login"], rights: ["Both"], out: ["SSO per client", "Bulk import"] },
+  Consumption: { story: "As a partner admin, I follow consumption per client and per product to anticipate renewals and upsell.", rules: ["Token weights: CV Screening 5, SCAN 10, SCAN Text 5, SWIPE/DRIVE/BRAIN 20, VOICE 25", "Monthly aggregation, 24-month history", "Hover a bar to read the monthly value"], data: ["consumption events (company_id, product, tokens, date)"], rights: ["Both: read"], out: ["Candidate-level data (stays in client workspace)", "Export (v2)"] },
+  "Client workspace": { story: "As a partner consultant, I open a client's AssessFirst account with delegated access to configure campaigns and read results.", rules: ["Delegation granted by the client admin at creation — revocable anytime", "Every action logged with partner user identity"], data: ["delegation (partner_user_id, company_id, granted_at, revoked_at)"], rights: ["Distributor: default on", "Reseller: on client consent"], out: ["Impersonation of individual client users"] },
 };
-const TABS_ALL = ["Overview", "Clients", "Create client", "Users & renewals", "Consumption", "Orders", "Team", "Client workspace"];
-const TABS = TABS_ALL;
+const TABS = ["Overview", "Clients", "Request client", "Users", "Consumption", "Client workspace"];
 const BoBtn = ({ children, onClick, primary }) => <button onClick={onClick} style={{ background: primary ? AF.pink : "#fff", color: primary ? "#fff" : AF.black, border: primary ? "none" : `1px solid ${AF.border}`, borderRadius: 7, padding: "7px 13px", fontSize: 11, fontWeight: 600, fontFamily: AF.font, cursor: "pointer", whiteSpace: "nowrap" }}>{children}</button>;
 const Kpi = ({ t, v, s }) => <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t}</div><div style={{ fontSize: 20, fontWeight: 800, color: AF.black, margin: "3px 0 1px" }}>{v}</div>{s && <div style={{ fontSize: 10, color: AF.grayMid }}>{s}</div>}</div>;
 const Input = (props) => <input {...props} style={{ width: "100%", padding: "8px 10px", border: `1px solid ${AF.border}`, borderRadius: 7, fontFamily: AF.font, fontSize: 12, color: AF.black, boxSizing: "border-box", ...props.style }} />;
+const mkUsers = (seed) => seed.flatMap(([n, , , , , users], ci) => Array.from({ length: users }).map((_, i) => ({ id: `${ci}-${i}`, ci, email: `user${i + 1}@${n.split(" ")[0].toLowerCase()}.com`, role: ROLES[i === 0 ? 0 : i % 2 === 0 ? 2 : 1], last: `2026-10-${String(1 + (i * 3) % 11).padStart(2, "0")}` })));
 
 const S_BackOffice = ({ lang, profile, prog, internal }) => {
   const T = BO_INTRO[lang];
   const [tab, setTab] = useState(0);
-  const [clients, setClients] = useState(() => SEED_BY_PROFILE[profile].map(([n, c, a, u, s, users, by, m]) => ({ n, c, a, u, s, users, by, m, hc: "<250" })));
-  const [sel, setSel] = useState(0);
+  const [clients, setClients] = useState(() => SEED_BY_PROFILE[profile].map(([n, c, a, u, s, users, hc]) => ({ n, c, a, u, s, users, hc, st: "Active" })));
+  const [users, setUsers] = useState(() => mkUsers(SEED_BY_PROFILE[profile]));
+  const [filter, setFilter] = useState("all");
+  const [editing, setEditing] = useState(null);
   const [ws, setWs] = useState(null);
   const [msg, setMsg] = useState("");
-  const [topup, setTopup] = useState(0);
-  const [orders, setOrders] = useState([{ id: "PO-2026-001", type: "Credit Pool · 12 months", tk: 100000, amt: partnerPrice(100000, 12, DISC[prog][0]), st: "Paid", d: "2026-01-01" }, { id: "PO-2026-014", type: "Per-client order · Bergmann", tk: 15000, amt: partnerPrice(15000, 24, DISC[prog][0]), st: "Paid", d: "2025-11-20" }]);
-  const [form, setForm] = useState({ n: "", c: "", e: "", hc: "<250", tk: 5000, by: "", mode: "pool", months: 12 });
-  const [team, setTeam] = useState([["you@yourfirm.com", "Admin", "All clients"], ["m.dupont@yourfirm.com", "Manager", "All clients"], ["a.rossi@yourfirm.com", "Consultant", "2 assigned"]]);
-  const allocated = clients.reduce((s, c) => s + c.a, 0), consumed = clients.reduce((s, c) => s + c.u, 0);
-  const total = POOL.total + topup, free = total - allocated;
+  const [hoverBar, setHoverBar] = useState(null);
+  const [form, setForm] = useState({ n: "", c: "", e: "", hc: "<250", tk: 5000, start: "2026-11-01", months: 12 });
   const disc = DISC[prog][0];
+  const ordered = clients.reduce((s, c) => s + c.a, 0), consumed = clients.reduce((s, c) => s + c.u, 0);
   const flash = (m) => { setMsg(m); setTimeout(() => setMsg(""), 3500); };
-  const alerts = [
-    ...clients.filter((c) => c.u / c.a >= 0.8).map((c) => ({ k: "warn", t: `${c.n} has used ${Math.round(c.u / c.a * 100)}% of its allocation — propose a renewal or a top-up.` })),
-    ...clients.filter((c) => daysTo(addYear(c.s)) <= 60).map((c) => ({ k: "info", t: `${c.n} renews in ${daysTo(addYear(c.s))} days (${addYear(c.s)}).` })),
-    { k: daysTo(POOL.end) <= 100 ? "warn" : "info", t: `Your pool ends in ${daysTo(POOL.end)} days — ${fmtN(free)} tokens are still unallocated.` },
-  ];
   const Spec = () => { const s = SPEC[TABS[tab]]; return internal ? (
     <div style={{ background: AF.black, color: "#fff", borderRadius: 12, padding: 16, fontSize: 11, lineHeight: 1.5, alignSelf: "start" }}>
       <div style={{ color: "#FFA800", fontWeight: 700, marginBottom: 8, fontSize: 11 }}>{T.spec} · {TABS[tab]}</div>
       {[["User story", s.story], ["Business rules", s.rules], ["Data", s.data], ["Rights", s.rights], ["Out of scope v1", s.out]].map(([k, v]) => <div key={k} style={{ marginBottom: 8 }}><div style={{ color: "#9A9A9E", fontSize: 9.5, textTransform: "uppercase", letterSpacing: "0.05em" }}>{k}</div>{Array.isArray(v) ? v.map((x) => <div key={x}>· {x}</div>) : <div>{v}</div>}</div>)}
     </div>) : null; };
-  const grid = "1.5fr .45fr .7fr .8fr .85fr .85fr .5fr .9fr";
-  const Health = ({ c }) => { const r = c.u / c.a; const col = r >= 0.8 ? AF.pink : r >= 0.4 ? "#0096FF" : "#12B76A"; return <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><span style={{ width: 54, height: 6, background: AF.grayLight, borderRadius: 3, overflow: "hidden", display: "inline-block" }}><span style={{ display: "block", width: `${Math.min(100, r * 100)}%`, height: 6, background: col }} /></span>{fmtN(c.u)}</span>; };
-  let body;
+  const grid = "1.5fr .45fr .7fr 1fr .85fr .85fr .55fr .8fr";
+  const Pct = ({ c }) => { const r = c.a ? c.u / c.a : 0; const col = r >= 0.8 ? AF.pink : r >= 0.4 ? "#0096FF" : "#12B76A"; return <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><span style={{ width: 46, height: 6, background: AF.grayLight, borderRadius: 3, overflow: "hidden", display: "inline-block" }}><span style={{ display: "block", width: `${Math.min(100, r * 100)}%`, height: 6, background: col }} /></span><b style={{ color: col }}>{Math.round(r * 100)}%</b></span>; };
   const panel = { background: "#fff", borderRadius: 10, padding: 18, minHeight: 360 };
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"], vals = [4200, 5100, 6300, 5800, 7400, 8100, 7900, 9200, 8600, 6100];
+  let body;
   if (ws !== null) body = (<div style={{ ...panel, border: `2px solid ${AF.pink}` }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}><span style={{ fontSize: 12 }}>Delegated access · <b>{clients[ws].n}</b> · every action is logged</span><BoBtn onClick={() => setWs(null)}>← Back to Deployer</BoBtn></div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}><span style={{ fontSize: 12 }}>Delegated access · <b>{clients[ws].n}</b> · every action is logged</span><BoBtn onClick={() => setWs(null)}>← Back to back-office</BoBtn></div>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 12 }}>{[["Campaigns", 7], ["Candidates", 312], ["Job models", 5], ["Reports", 148]].map(([k, v]) => <Kpi key={k} t={k} v={v} />)}</div>
     <div style={{ background: AF.grayLight, borderRadius: 10, height: 150, display: "flex", alignItems: "center", justifyContent: "center", color: AF.grayMid, fontSize: 12, gap: 8 }}><AfLogo size={13} /> client workspace — campaigns, predictive models, results</div>
   </div>);
-  else if (tab === 0) body = (<div style={panel}>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}><Kpi t="Unallocated tokens" v={fmtN(free)} s={`of ${fmtN(total)} in pool`} /><Kpi t="Allocated to clients" v={fmtN(allocated)} s={`${clients.length} client accounts`} /><Kpi t="Consumed by clients" v={fmtN(consumed)} s={`${Math.round(consumed / allocated * 100)}% of allocated`} /><Kpi t="Pool ends" v={POOL.end} s={`${daysTo(POOL.end)} days left · tier ${TIER_NAMES[0]} · ${disc}%`} /></div>
-    <div style={{ height: 12, background: AF.grayLight, borderRadius: 6, marginTop: 14, overflow: "hidden", display: "flex" }}><div style={{ width: `${consumed / total * 100}%`, background: AF.black }} /><div style={{ width: `${(allocated - consumed) / total * 100}%`, background: "#0096FF" }} /></div>
-    <div style={{ fontSize: 10, color: AF.grayMid, marginTop: 4 }}>■ consumed · <span style={{ color: "#0096FF" }}>■</span> allocated, not yet consumed · unallocated</div>
-    <div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "16px 0 8px" }}>Alerts & next actions</div>
-    {alerts.map((a, k) => <div key={k} style={{ display: "flex", gap: 10, alignItems: "center", fontSize: 12, padding: "8px 12px", borderRadius: 8, background: a.k === "warn" ? "#FFF5FA" : AF.grayLight, border: a.k === "warn" ? `1px solid ${AF.pink}` : "none", marginBottom: 6 }}><span style={{ width: 8, height: 8, borderRadius: 4, background: a.k === "warn" ? AF.pink : "#0096FF", flexShrink: 0 }} />{a.t}</div>)}
-    <div style={{ display: "flex", gap: 8, marginTop: 14 }}><BoBtn primary onClick={() => { setTopup(topup + 50000); setOrders([{ id: `PO-2026-0${orders.length + 20}`, type: "Top-up · 12 months", tk: 50000, amt: partnerPrice(150000, 12, disc) - partnerPrice(100000, 12, disc), st: "Pending", d: "2026-09-22" }, ...orders]); flash("Top-up of 50,000 tokens ordered at your current volume tier — invoice pending."); }}>Top up pool</BoBtn><BoBtn onClick={() => { setTab(2); setForm({ ...form, mode: "order" }); }}>Order for a client</BoBtn><BoBtn onClick={() => setTab(1)}>See clients</BoBtn></div>
-  </div>);
+  else if (tab === 0) { const next = clients.filter((c) => c.st === "Active").sort((a, b) => addYear(a.s) < addYear(b.s) ? -1 : 1).slice(0, 3); body = (<div style={panel}>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}><Kpi t="Tokens ordered" v={fmtN(ordered)} s={`${clients.length} client accounts`} /><Kpi t="Consumed by clients" v={fmtN(consumed)} s={`${ordered ? Math.round(consumed / ordered * 100) : 0}% of ordered`} /><Kpi t="Remaining at clients" v={fmtN(ordered - consumed)} s="across all subscriptions" /><Kpi t="Your tier" v={`${TIER_NAMES[0]} · −${disc}%`} s={L[lang].prog.cards[prog][0]} /></div>
+    <div style={{ height: 12, background: AF.grayLight, borderRadius: 6, marginTop: 14, overflow: "hidden" }}><div style={{ width: `${ordered ? consumed / ordered * 100 : 0}%`, height: "100%", background: AF.black }} /></div>
+    <div style={{ fontSize: 10, color: AF.grayMid, marginTop: 4 }}>■ consumed · remaining</div>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginTop: 16 }}>
+      <div><div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>Orders</div>{clients.slice(0, 5).map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.6fr .8fr .8fr", fontSize: 11.5, padding: "6px 0", borderTop: `1px solid ${AF.border}` }}><span>{c.n}</span><span>{fmtN(c.a)} tk</span><span style={{ color: AF.grayMid }}>{c.s}</span></div>)}</div>
+      <div><div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>Next renewals</div>{next.map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.6fr .8fr .8fr", fontSize: 11.5, padding: "6px 0", borderTop: `1px solid ${AF.border}` }}><span>{c.n}</span><span style={{ color: daysTo(addYear(c.s)) <= 60 ? AF.pink : AF.black }}>{addYear(c.s)}</span><span style={{ color: AF.grayMid }}>in {daysTo(addYear(c.s))} days</span></div>)}</div>
+    </div>
+    <div style={{ marginTop: 16 }}><BoBtn primary onClick={() => setTab(2)}>+ Request a client account</BoBtn></div>
+  </div>); }
   else if (tab === 1) body = (<div style={{ ...panel, padding: 0, overflow: "hidden" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px 6px" }}><b style={{ fontSize: 13 }}>{clients.length} client accounts</b><div style={{ display: "flex", gap: 8 }}><BoBtn onClick={() => flash("clients.csv exported")}>Export</BoBtn><BoBtn primary onClick={() => setTab(2)}>+ Create client</BoBtn></div></div>
-    <div style={{ display: "grid", gridTemplateColumns: grid, padding: "6px 16px", fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{["Client", "Country", "Allocated", "Consumed", "Start", "Renewal", "Users", "Sourced by"].map((h) => <span key={h}>{h}</span>)}</div>
-    {clients.map((c, i) => <div key={c.n + i} onClick={() => setSel(i)} style={{ display: "grid", gridTemplateColumns: grid, padding: "10px 16px", borderTop: `1px solid ${AF.border}`, fontSize: 12, cursor: "pointer", background: sel === i ? "#FFF5FA" : "#fff", alignItems: "center" }}><b>{c.n}</b><span>{c.c}</span><span>{fmtN(c.a)}</span><Health c={c} /><span>{c.s}</span><span style={{ color: daysTo(addYear(c.s)) <= 60 ? AF.pink : AF.black }}>{addYear(c.s)}</span><span>{c.users}</span><span style={{ color: AF.grayMid }}>{c.by || "You"}</span></div>)}
-    <div style={{ padding: "10px 16px", fontSize: 10.5, color: "#98A2AE" }}>Click a client, then open “Users & renewals” or “Client workspace”.</div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px 6px" }}><b style={{ fontSize: 13 }}>{clients.length} client accounts</b><BoBtn primary onClick={() => setTab(2)}>+ Request a client account</BoBtn></div>
+    <div style={{ display: "grid", gridTemplateColumns: grid, padding: "6px 16px", fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{["Client", "Country", "Tokens", "Consumed", "Start", "Renewal", "Users", "Status"].map((h) => <span key={h}>{h}</span>)}</div>
+    {clients.map((c, i) => <div key={c.n + i} style={{ display: "grid", gridTemplateColumns: grid, padding: "10px 16px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center", opacity: c.st === "Active" ? 1 : 0.7 }}><b>{c.n}</b><span>{c.c}</span><span>{fmtN(c.a)}</span><Pct c={c} /><span>{c.s}</span><span style={{ color: daysTo(addYear(c.s)) <= 60 ? AF.pink : AF.black }}>{addYear(c.s)}</span><span onClick={() => { setFilter(String(i)); setTab(3); }} style={{ color: AF.pink, fontWeight: 700, cursor: "pointer" }}>{c.users} →</span><span style={{ fontSize: 10, fontWeight: 600, color: c.st === "Active" ? "#12B76A" : "#B54708", background: c.st === "Active" ? "#E7F8F0" : "#FFF6E6", borderRadius: 8, padding: "3px 8px", justifySelf: "start" }}>{c.st}</span></div>)}
   </div>);
-  else if (tab === 2) { const cost = form.mode === "order" ? partnerPrice(form.tk, form.months, disc) : 0; body = (<div style={panel}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}><b style={{ fontSize: 15 }}>Create a client account</b><Seg value={form.mode} onChange={(v) => setForm({ ...form, mode: v })} options={[["pool", "Allocate from pool"], ["order", "Order for this client"]]} /></div>
+  else if (tab === 2) { const pub = publicPrice(form.tk, form.months, form.hc), cost = pub * (1 - disc / 100); body = (<div style={panel}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14, gap: 10, flexWrap: "wrap" }}><b style={{ fontSize: 15 }}>Request a client account</b><Seg value="order" onChange={() => {}} options={[["order", "Order for this client"], ["pool", "Allocate from prepaid credits · coming soon"]]} /></div>
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12 }}>
       <label style={{ fontSize: 11, color: AF.grayMid }}>Company name<Input value={form.n} onChange={(e) => setForm({ ...form, n: e.target.value })} placeholder="Acme Group" /></label>
       <label style={{ fontSize: 11, color: AF.grayMid }}>Country<Input value={form.c} onChange={(e) => setForm({ ...form, c: e.target.value })} placeholder="FR" /></label>
       <label style={{ fontSize: 11, color: AF.grayMid }}>Client admin email<Input value={form.e} onChange={(e) => setForm({ ...form, e: e.target.value })} placeholder="hr@acme.com" /></label>
-      <label style={{ fontSize: 11, color: AF.grayMid }}>Declared headcount<div style={{ marginTop: 4 }}><Seg value={form.hc} onChange={(v) => setForm({ ...form, hc: v })} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></div></label>
-      <label style={{ fontSize: 11, color: AF.grayMid }}>Sourced by (optional)<Input value={form.by} onChange={(e) => setForm({ ...form, by: e.target.value })} placeholder="Sub-partner name" /></label>
-      {form.mode === "order" && <label style={{ fontSize: 11, color: AF.grayMid }}>Client commitment<div style={{ marginTop: 4 }}><Seg value={form.months} onChange={(v) => setForm({ ...form, months: v })} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"]]} /></div></label>}
+      <label style={{ fontSize: 11, color: AF.grayMid }}>Start date<Input type="date" value={form.start} onChange={(e) => setForm({ ...form, start: e.target.value })} /></label>
+      <label style={{ fontSize: 11, color: AF.grayMid }}>Commitment<div style={{ marginTop: 4 }}><Seg value={form.months} onChange={(v) => setForm({ ...form, months: v })} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></div></label>
+      <label style={{ fontSize: 11, color: AF.grayMid }}>Client headcount <span style={{ color: "#98A2AE" }}>· verified by AssessFirst before creation</span><div style={{ marginTop: 4 }}><Seg value={form.hc} onChange={(v) => setForm({ ...form, hc: v })} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></div></label>
     </div>
-    <div style={{ marginTop: 12 }}><Slider label={form.mode === "pool" ? `Tokens to allocate (${fmtN(free)} available in pool)` : "Tokens to order for this client"} value={form.tk} onChange={(v) => setForm({ ...form, tk: v })} min={500} max={form.mode === "pool" ? Math.max(500, free) : 100000} step={500} suffix=" tk" /></div>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: AF.grayLight, borderRadius: 8, padding: "10px 14px" }}>
-      <span style={{ fontSize: 11.5, color: AF.grayMid }}>{form.mode === "pool" ? `Client subscription: 12 months from today, independent of your pool. Remaining in pool after allocation: ${fmtN(free - form.tk)} tk.` : `Public grid × ${form.months} months − ${disc}% partner discount = €${fmtN(cost)} · AssessFirst invoices you, tokens credited to this client on payment.`}</span>
-      <BoBtn primary onClick={() => { if (!form.n) { flash("Give the company a name first."); return; } setClients([...clients, { n: form.n, c: form.c || "—", a: form.tk, u: 0, s: "2026-09-22", users: 1, by: form.by, m: 0, hc: form.hc }]); if (form.mode === "order") setOrders([{ id: `PO-2026-0${orders.length + 20}`, type: `Per-client order · ${form.n}`, tk: form.tk, amt: cost, st: "Pending", d: "2026-09-22" }, ...orders]); flash(`${form.n} created — 12-month subscription active, admin invited.`); setForm({ ...form, n: "", c: "", e: "", by: "" }); setTab(1); }}>{form.mode === "pool" ? "Create & allocate" : "Create & send order"}</BoBtn>
+    <div style={{ marginTop: 12 }}><Slider label="Tokens for this client" value={form.tk} onChange={(v) => setForm({ ...form, tk: v })} min={2500} max={100000} step={2500} suffix=" tk" /></div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", background: AF.grayLight, borderRadius: 8, padding: "10px 14px", gap: 12 }}>
+      <span style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>Public price €{fmtN(pub)} − {disc}% = <b style={{ color: AF.black }}>€{fmtN(cost)}</b> invoiced to you by AssessFirst. The account is created by AssessFirst within 2 business days; the subscription runs {form.months} months from {form.start}.</span>
+      <BoBtn primary onClick={() => { if (!form.n) { flash("Give the company a name first."); return; } setClients([...clients, { n: form.n, c: form.c || "—", a: form.tk, u: 0, s: form.start, users: 0, hc: form.hc, st: "Pending" }]); flash(`Request sent — ${form.n} will be created by AssessFirst.`); setForm({ ...form, n: "", c: "", e: "" }); setTab(1); }}>Send request</BoBtn>
     </div>
   </div>); }
-  else if (tab === 3) { const c = clients[sel]; body = (<div style={panel}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 12 }}><b style={{ fontSize: 15 }}>{c.n}</b><span style={{ fontSize: 11, color: AF.grayMid }}>{c.s} → {addYear(c.s)} · {fmtN(c.a - c.u)} tk left · declared {c.hc} employees</span></div>
-    <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 12 }}>
-      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr .8fr", padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase" }}><span>User</span><span>Role</span><span>Last login</span><span /></div>
-      {Array.from({ length: c.users }).map((_, i) => <div key={i} style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr .8fr", padding: "9px 14px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center" }}><span>user{i + 1}@{c.n.split(" ")[0].toLowerCase()}.com</span><span style={{ color: AF.grayMid }}>{["Admin", "Recruiter", "Recruiter", "Viewer"][i % 4]}</span><span style={{ color: AF.grayMid }}>2026-09-{10 + (i % 12)}</span><span style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer" }}>Edit</span></div>)}
+  else if (tab === 3) { const list = users.filter((u) => filter === "all" || String(u.ci) === filter); body = (<div style={panel}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12, gap: 10 }}>
+      <b style={{ fontSize: 15 }}>Users</b>
+      <select value={filter} onChange={(e) => setFilter(e.target.value)} style={{ fontFamily: AF.font, fontSize: 12, padding: "6px 10px", border: `1px solid ${AF.border}`, borderRadius: 7, marginLeft: "auto" }}><option value="all">All clients</option>{clients.map((c, i) => <option key={c.n + i} value={String(i)}>{c.n}</option>)}</select>
+      <BoBtn primary onClick={() => { const ci = filter === "all" ? 0 : Number(filter); setUsers([...users, { id: `${ci}-${Date.now()}`, ci, email: `new@${clients[ci].n.split(" ")[0].toLowerCase()}.com`, role: "Recruiter", last: "—" }]); const cs = [...clients]; cs[ci] = { ...cs[ci], users: cs[ci].users + 1 }; setClients(cs); flash("Invitation sent by AssessFirst."); }}>+ Add user</BoBtn>
     </div>
-    <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-      <BoBtn onClick={() => { const cs = [...clients]; cs[sel] = { ...c, users: c.users + 1 }; setClients(cs); flash("Invitation sent."); }}>+ Add user</BoBtn>
-      <BoBtn primary onClick={() => { const cs = [...clients]; cs[sel] = { ...c, s: addYear(c.s), a: c.a + 5000 }; setClients(cs); flash(`Renewed — new 12-month period from ${addYear(c.s)}, 5,000 tokens allocated.`); }}>Renew 12 months (+5,000 tk)</BoBtn>
-      <BoBtn onClick={() => { const back = c.a - c.u; const cs = [...clients]; cs[sel] = { ...c, a: c.u }; setClients(cs); flash(`${fmtN(back)} unused tokens returned to your pool.`); }}>Return unused to pool</BoBtn>
-      <BoBtn onClick={() => { setWs(sel); setTab(7); }}>Open client workspace</BoBtn>
+    <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "2fr 1.4fr 1fr 1fr .6fr", padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase" }}><span>Email</span><span>Client</span><span>Role</span><span>Last login</span><span /></div>
+      {list.map((u) => <div key={u.id} style={{ display: "grid", gridTemplateColumns: "2fr 1.4fr 1fr 1fr .6fr", padding: "8px 14px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center", gap: 8 }}>
+        {editing === u.id ? <Input value={u.email} onChange={(e) => setUsers(users.map((x) => x.id === u.id ? { ...x, email: e.target.value } : x))} /> : <span>{u.email}</span>}
+        <span style={{ color: AF.grayMid }}>{clients[u.ci].n}</span>
+        {editing === u.id ? <select value={u.role} onChange={(e) => setUsers(users.map((x) => x.id === u.id ? { ...x, role: e.target.value } : x))} style={{ fontFamily: AF.font, fontSize: 12, padding: "5px 8px", border: `1px solid ${AF.border}`, borderRadius: 7 }}>{ROLES.map((r) => <option key={r}>{r}</option>)}</select> : <span style={{ color: u.role === "Admin" ? AF.pink : AF.black, fontWeight: 600 }}>{u.role}</span>}
+        <span style={{ color: AF.grayMid }}>{u.last}</span>
+        <span onClick={() => setEditing(editing === u.id ? null : u.id)} style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer", fontWeight: 700 }}>{editing === u.id ? "Save" : "Edit"}</span>
+      </div>)}
     </div>
-    <p style={{ fontSize: 10.5, color: "#98A2AE", margin: "12px 0 0" }}>Renewal reminders are sent to you at D-60 and D-30. Returned tokens go back to the pool, never directly to another client.</p>
   </div>); }
   else if (tab === 4) body = (<div style={panel}>
-    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}><b style={{ fontSize: 15 }}>Consumption by client and product</b><BoBtn onClick={() => flash("consumption.csv exported")}>Export CSV</BoBtn></div>
-    <div style={{ display: "flex", gap: 12, fontSize: 10.5, color: AF.grayMid, marginBottom: 8 }}>{PRODUCTS.map((p, i) => <span key={p.id}><span style={{ display: "inline-block", width: 9, height: 9, borderRadius: 2, background: PCOL[i], marginRight: 4 }} />{p.id}</span>)}</div>
-    {clients.map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.3fr 3fr .8fr", gap: 10, alignItems: "center", marginBottom: 7, fontSize: 12 }}><span>{c.n}</span><div style={{ display: "flex", height: 16, borderRadius: 4, overflow: "hidden", background: AF.grayLight }}>{MIX.map((m, i) => <div key={i} style={{ width: `${c.u / 20000 * m * 100}%`, background: PCOL[i] }} />)}</div><span style={{ color: AF.grayMid, textAlign: "right" }}>{fmtN(c.u)} tk · {fmtN(c.u / 16)} tests</span></div>)}
-    <div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "16px 0 6px" }}>Monthly consumption (tokens)</div>
-    <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 80 }}>{[4.2, 5.1, 6.3, 5.8, 7.4, 8.1, 7.9, 9.2, 8.6].map((v, i) => <div key={i} style={{ flex: 1, textAlign: "center" }}><div style={{ height: v * 7, background: i === 8 ? AF.pink : AF.black, borderRadius: "4px 4px 0 0" }} /><div style={{ fontSize: 9, color: AF.grayMid, marginTop: 3 }}>{["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"][i]}</div></div>)}</div>
-  </div>);
-  else if (tab === 5) body = (<div style={{ ...panel, padding: 0, overflow: "hidden" }}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px 6px" }}><b style={{ fontSize: 13 }}>Orders & invoices</b><span style={{ fontSize: 11, color: AF.grayMid }}>Tier {TIER_NAMES[0]} · {disc}% partner discount</span></div>
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr .8fr .8fr .7fr .7fr .6fr", padding: "6px 16px", fontSize: 10, color: AF.grayMid, textTransform: "uppercase" }}>{["Order", "Type", "Tokens", "Amount", "Date", "Status", ""].map((h, i) => <span key={i}>{h}</span>)}</div>
-    {orders.map((o) => <div key={o.id} style={{ display: "grid", gridTemplateColumns: "1fr 1.8fr .8fr .8fr .7fr .7fr .6fr", padding: "10px 16px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center" }}><b>{o.id}</b><span>{o.type}</span><span>{fmtN(o.tk)}</span><span>€{fmtN(o.amt)}</span><span style={{ color: AF.grayMid }}>{o.d}</span><span style={{ fontSize: 10.5, fontWeight: 600, color: o.st === "Paid" ? "#12B76A" : "#B54708" }}>{o.st}</span><span style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer" }} onClick={() => flash(`${o.id}.pdf downloaded`)}>PDF ↓</span></div>)}
-  </div>);
-  else if (tab === 6) body = (<div style={panel}>
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}><b style={{ fontSize: 15 }}>Your team & roles</b><BoBtn primary onClick={() => { setTeam([...team, [`new${team.length}@yourfirm.com`, "Consultant", "0 assigned"]]); flash("Invitation sent."); }}>+ Invite teammate</BoBtn></div>
-    <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 12 }}>{team.map(([e, r, s], i) => <div key={e} style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", padding: "9px 14px", borderTop: i ? `1px solid ${AF.border}` : "none", fontSize: 12 }}><span>{e}</span><b style={{ color: r === "Admin" ? AF.pink : AF.black }}>{r}</b><span style={{ color: AF.grayMid }}>{s}</span></div>)}</div>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8 }}>{[["Admin", "Orders, pool, allocation, team"], ["Manager", "Clients, users, renewals, consumption"], ["Consultant", "Delegated access to assigned client workspaces only"]].map(([r, d]) => <div key={r} style={{ background: AF.grayLight, borderRadius: 8, padding: "10px 12px", fontSize: 11 }}><b>{r}</b><div style={{ color: AF.grayMid, marginTop: 3 }}>{d}</div></div>)}</div>
-    <div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "14px 0 6px" }}>Audit log</div>
-    {[["2026-09-22 09:14", "you@yourfirm.com", "Allocated 5,000 tk to Cielo Fintech"], ["2026-09-21 17:02", "a.rossi@yourfirm.com", "Opened workspace · Nordwind Retail"], ["2026-09-20 11:40", "m.dupont@yourfirm.com", "Added user · Bergmann Logistics"]].map(([d, u, a]) => <div key={d} style={{ display: "grid", gridTemplateColumns: "1fr 1.4fr 2fr", fontSize: 11, color: AF.grayMid, padding: "4px 0" }}><span>{d}</span><span>{u}</span><span style={{ color: AF.black }}>{a}</span></div>)}
+    <b style={{ fontSize: 15 }}>Consumption by client and product</b>
+    <div style={{ display: "flex", gap: 12, fontSize: 10.5, color: AF.grayMid, margin: "10px 0 8px" }}>{PRODUCTS.map((p, i) => <span key={p.id}><span style={{ display: "inline-block", width: 9, height: 9, borderRadius: 2, background: PCOL[i], marginRight: 4 }} />{p.id}</span>)}</div>
+    {clients.filter((c) => c.u).map((c) => <div key={c.n} style={{ display: "grid", gridTemplateColumns: "1.3fr 3fr .8fr", gap: 10, alignItems: "center", marginBottom: 7, fontSize: 12 }}><span>{c.n}</span><div style={{ display: "flex", height: 16, borderRadius: 4, overflow: "hidden", background: AF.grayLight }}>{MIX.map((m, i) => <div key={i} style={{ width: `${c.u / 20000 * m * 100}%`, background: PCOL[i] }} />)}</div><span style={{ color: AF.grayMid, textAlign: "right" }}>{fmtN(c.u)} tk</span></div>)}
+    <div style={{ fontSize: 10.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", margin: "16px 0 6px" }}>Monthly consumption (tokens) — hover a bar</div>
+    <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 96 }}>{vals.map((v, i) => <div key={i} onMouseEnter={() => setHoverBar(i)} onMouseLeave={() => setHoverBar(null)} style={{ flex: 1, textAlign: "center", cursor: "default" }}><div style={{ fontSize: 10, fontWeight: 700, color: AF.black, height: 14 }}>{hoverBar === i || (hoverBar === null && i === vals.length - 1) ? fmtN(v) : ""}</div><div style={{ height: v / 130, background: hoverBar === i || i === vals.length - 1 ? AF.pink : AF.black, borderRadius: "4px 4px 0 0", opacity: hoverBar === null || hoverBar === i ? 1 : 0.55 }} /><div style={{ fontSize: 9, color: AF.grayMid, marginTop: 3 }}>{months[i]}</div></div>)}</div>
   </div>);
   else body = (<div style={panel}><b style={{ fontSize: 15 }}>Open a client workspace</b><p style={{ fontSize: 11.5, color: AF.grayMid, margin: "6px 0 14px" }}>Delegated access to your client's AssessFirst account — no password to share, every action logged, revocable by the client at any time.</p>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>{clients.slice(0, 6).map((c, i) => <div key={c.n} style={{ background: AF.grayLight, borderRadius: 10, padding: 12 }}><b style={{ fontSize: 12.5 }}>{c.n}</b><div style={{ fontSize: 10.5, color: AF.grayMid, margin: "3px 0 10px" }}>{c.users} users · {fmtN(c.a - c.u)} tk left</div><BoBtn primary onClick={() => setWs(i)}>Open workspace</BoBtn></div>)}</div>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>{clients.map((c, i) => c.st === "Active" && <div key={c.n + i} style={{ background: AF.grayLight, borderRadius: 10, padding: 12 }}><b style={{ fontSize: 12.5 }}>{c.n}</b><div style={{ fontSize: 10.5, color: AF.grayMid, margin: "3px 0 10px" }}>{c.users} users · {fmtN(c.a - c.u)} tk left</div><BoBtn primary onClick={() => setWs(i)}>Open workspace</BoBtn></div>)}</div>
   </div>);
   return (
     <Frame gray>
       <H2>{T.h}</H2><P>{T.p}</P>
       <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 12, overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 18, padding: "0 16px", height: 48, borderBottom: `1px solid ${AF.border}` }}>
-          <AfLogo size={13} /><span style={{ fontSize: 12, fontWeight: 700, color: AF.pink, marginLeft: -8 }}>Deployer</span>
-          <div style={{ display: "flex", gap: 2, flex: 1, overflowX: "auto" }}>{TABS.map((x, i) => (internal || !["Orders", "Team"].includes(x)) && <span key={x} onClick={() => { setTab(i); setWs(null); }} style={{ fontSize: 11.5, padding: "14px 9px", cursor: "pointer", whiteSpace: "nowrap", color: tab === i ? AF.black : AF.grayMid, fontWeight: tab === i ? 700 : 400, borderBottom: tab === i ? `2px solid ${AF.pink}` : "2px solid transparent" }}>{x}</span>)}</div>
-          <span style={{ fontSize: 11, fontWeight: 600, border: `1px solid ${AF.border}`, borderRadius: 20, padding: "4px 10px", display: "inline-flex", gap: 6, alignItems: "center" }}><span style={{ width: 9, height: 9, borderRadius: 5, background: AF.gradient, display: "inline-block" }} />{fmtN(free)} tk free</span>
+          <AfLogo size={13} /><span style={{ fontSize: 11, color: AF.grayMid, marginLeft: -8 }}>Partner back-office</span>
+          <div style={{ display: "flex", gap: 2, flex: 1, overflowX: "auto" }}>{TABS.map((x, i) => <span key={x} onClick={() => { setTab(i); setWs(null); }} style={{ fontSize: 11.5, padding: "14px 9px", cursor: "pointer", whiteSpace: "nowrap", color: tab === i ? AF.black : AF.grayMid, fontWeight: tab === i ? 700 : 400, borderBottom: tab === i ? `2px solid ${AF.pink}` : "2px solid transparent" }}>{x}</span>)}</div>
+          <span style={{ fontSize: 11, fontWeight: 600, border: `1px solid ${AF.border}`, borderRadius: 20, padding: "4px 10px", display: "inline-flex", gap: 6, alignItems: "center" }}><span style={{ width: 9, height: 9, borderRadius: 5, background: AF.gradient, display: "inline-block" }} />{fmtN(ordered - consumed)} tk remaining</span>
           <span style={{ fontSize: 10.5, color: AF.grayMid }}>{L[lang].prog.cards[prog][0]}</span>
         </div>
         <div style={{ padding: 14, background: AF.grayLight, display: "grid", gridTemplateColumns: internal ? "1fr 290px" : "1fr", gap: 12 }}>{body}<Spec /></div>
@@ -500,98 +485,93 @@ const S_BackOffice = ({ lang, profile, prog, internal }) => {
 
 /* ============ I18N — buy / simulator / roadmap ============ */
 L.en.buy = {
-  h: "Two ways to order", p: "Choose per order — most partners use both. In both cases you buy at the public grid minus your partner discount, and AssessFirst invoices you.",
-  modes: [["Per-client order", ["You order the exact tokens one client needs", "Priced on the public grid × the client's commitment (12 to 48 months) − your discount", "Best for large accounts and multi-year deals", "Tokens are booked to that client"]],
-          ["Credit Pool", ["You order a pool of tokens for your own portfolio", "One price on the same grid, with volume degressivity — the bigger the pool, the higher your margin on every client", "Reallocate freely across clients: small accounts, one-shot projects, pilots", "Tokens valid 12 months from your order; once allocated, 12 months for the client"]]],
-  cH: "Two clocks. Allocate before the pool ends.", cP: "Your pool has its own clock — 12 months by default, 24 or 36 on request. Every allocation to a client starts a separate 12-month client subscription, independent of your pool.",
-  pool: "Your pool", client: "Client", months: "months",
-  rules: [["Tokens are valid 12 months from your order", "The pool clock starts at the AssessFirst invoice. Tokens still unallocated at the end of the pool expire."], ["Allocated tokens are valid 12 months for your client", "Once allocated, the client subscription runs its full 12 months — even past the end of your pool."], ["Top up any time", "Add tokens to a running pool at the volume tier you have reached; the pool end date does not change."]],
-  gH: "Public price grid", gP: "One grid, from 5,000 to 500,000 tokens; above that, custom terms. Your partner price applies your tier discount — the difference with the public price is your margin if you resell at list price.",
-  tokens: "Tokens", commit: "Commitment", tier: "Your tier", pub: "Public price", part: "Your partner price", perTk: "per token", mLbl: "margin", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public price", "/ token", "Your partner price", "/ token", "Your margin at public price"],
+  h: "One grid, one way to order", p: "You order for a named client; AssessFirst creates the client account and invoices you at the public price minus your tier discount. Prepaid credits you allocate yourself are on the roadmap.",
+  available: "Available", soon: "In development",
+  modes: [["Per-client order", ["You order the tokens one client needs, from 2,500 tokens", "Price = public grid (client size × commitment, 12 to 48 months) − your discount", "Client size is verified by AssessFirst before the account is created — no surprise on the invoice", "Each order = one client account with its own subscription"]],
+          ["Prepaid credits", ["You buy a volume of credits for your portfolio and allocate them to clients from your back-office", "Credits valid 12 months to allocate; each allocation opens a 12-month client subscription", "Designed for partners who operate AssessFirst in their own missions: RPO, assessment centres", "Available once the back-office supports partner-level balances"]]],
+  rules: [["Subscription, not tokens", "Your client buys a service allowing up to N tokens for the chosen commitment; AssessFirst creates the account and the subscription."], ["Your invoice, your price", "AssessFirst invoices you at your partner price; you invoice your client at yours and add your services."], ["Renewals are yours", "You see every renewal date in your back-office and renew by placing a new order."]],
+  gH: "Public price grid", gP: "The grid our direct sales team uses, from 5,000 to 500,000 tokens; above that, custom terms. Pick the client size and commitment: your partner price applies your tier discount, and the difference with the public price is your margin if you resell at list price.",
+  tokens: "Tokens", commit: "Commitment", size: "Client size", employees: "employees", tier: "Your tier", pub: "Public price", part: "Your partner price", perTk: "per token", mLbl: "margin", yourMargin: "Your margin if resold at public price", custom: "Custom", keyRows: ["Tokens", "Public price", "/ token", "Your partner price", "/ token", "Your margin at public price"], months: "months",
   convT: "What does that buy?", convP: "Tick the tools your clients would use on each person — the grid shows how many people you can assess with this volume.", people: "people assessed", perPerson: "tokens per person",
 };
 L.fr.buy = {
-  h: "Deux façons de commander", p: "Au choix à chaque commande — la plupart des partenaires utilisent les deux. Dans les deux cas, vous achetez au prix de la grille publique moins votre remise partenaire, et AssessFirst vous facture.",
-  modes: [["Commande par client", ["Vous commandez exactement les tokens dont un client a besoin", "Prix : grille publique × engagement du client (12 à 48 mois) − votre remise", "Idéal pour les grands comptes et les deals pluriannuels", "Les tokens sont réservés à ce client"]],
-          ["Credit Pool", ["Vous commandez un pool de tokens pour votre portefeuille", "Un seul prix sur la même grille, dégressif au volume — plus le pool est gros, plus votre marge est élevée sur chaque client", "Réallocation libre entre clients : petits comptes, projets ponctuels, pilotes", "Tokens valables 12 mois à partir de la commande ; une fois alloués, 12 mois pour le client"]]],
-  cH: "Deux horloges. Allouez avant la fin du pool.", cP: "Votre pool a sa propre horloge — 12 mois par défaut, 24 ou 36 sur demande. Chaque allocation à un client démarre un abonnement client de 12 mois, indépendant de votre pool.",
-  pool: "Votre pool", client: "Client", months: "mois",
-  rules: [["Les tokens sont valables 12 mois à partir de votre commande", "L'horloge du pool démarre à la facture AssessFirst. Les tokens encore non alloués à la fin du pool expirent."], ["Les tokens alloués sont valables 12 mois pour votre client", "Une fois alloués, l'abonnement client court ses 12 mois complets — même au-delà de la fin de votre pool."], ["Rechargez à tout moment", "Ajoutez des tokens à un pool en cours au palier de volume atteint ; la date de fin du pool ne change pas."]],
-  gH: "Grille tarifaire publique", gP: "Une seule grille, de 5 000 à 500 000 tokens ; au-delà, conditions sur mesure. Votre prix partenaire applique la remise de votre tier — l'écart avec le prix public est votre marge si vous revendez au tarif public.",
-  tokens: "Tokens", commit: "Engagement", tier: "Votre tier", pub: "Prix public", part: "Votre prix partenaire", perTk: "par token", mLbl: "de marge", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Prix public", "/ token", "Votre prix partenaire", "/ token", "Votre marge au prix public"],
+  h: "Une grille, une façon de commander", p: "Vous commandez pour un client nommé ; AssessFirst crée le compte client et vous facture au prix public moins la remise de votre tier. Les crédits prépayés que vous allouez vous-même sont sur la feuille de route.",
+  available: "Disponible", soon: "En développement",
+  modes: [["Commande par client", ["Vous commandez les tokens dont un client a besoin, à partir de 2 500 tokens", "Prix = grille publique (taille du client × engagement, 12 à 48 mois) − votre remise", "La taille du client est vérifiée par AssessFirst avant la création du compte — aucune surprise sur la facture", "Chaque commande = un compte client avec son propre abonnement"]],
+          ["Crédits prépayés", ["Vous achetez un volume de crédits pour votre portefeuille et les allouez à vos clients depuis votre back-office", "Crédits valables 12 mois pour être alloués ; chaque allocation ouvre un abonnement client de 12 mois", "Conçu pour les partenaires qui opèrent AssessFirst dans leurs propres missions : RPO, assessment centers", "Disponible dès que le back-office gère les soldes au niveau partenaire"]]],
+  rules: [["Un abonnement, pas des tokens", "Votre client achète un service lui donnant droit à N tokens sur l'engagement choisi ; AssessFirst crée le compte et l'abonnement."], ["Votre facture, votre prix", "AssessFirst vous facture au prix partenaire ; vous facturez votre client au vôtre et ajoutez vos services."], ["Les renouvellements sont à vous", "Vous voyez chaque date de renouvellement dans votre back-office et renouvelez en passant une nouvelle commande."]],
+  gH: "Grille tarifaire publique", gP: "La grille utilisée par notre équipe de vente directe, de 5 000 à 500 000 tokens ; au-delà, conditions sur mesure. Choisissez la taille du client et l'engagement : votre prix partenaire applique la remise de votre tier, et l'écart avec le prix public est votre marge si vous revendez au tarif public.",
+  tokens: "Tokens", commit: "Engagement", size: "Taille du client", employees: "salariés", tier: "Votre tier", pub: "Prix public", part: "Votre prix partenaire", perTk: "par token", mLbl: "de marge", yourMargin: "Votre marge si revendu au prix public", custom: "Sur mesure", keyRows: ["Tokens", "Prix public", "/ token", "Votre prix partenaire", "/ token", "Votre marge au prix public"], months: "mois",
   convT: "Ça représente quoi ?", convP: "Cochez les outils que vos clients utiliseraient pour chaque personne : vous voyez combien de personnes ce volume permet d'évaluer.", people: "personnes évaluées", perPerson: "tokens par personne",
 };
 L.en.sim = {
   h: "Estimate your partner opportunity", p: "Built on your portfolio: how many client projects a year, what each one assesses, which tools. Every figure is an assumption you can change.",
   s1: "1 · Your portfolio", projects: "Client projects per year", type: "Project type", types: [["recruit", "Hiring campaigns"], ["talent", "Talent projects"]], camps: "Campaigns per project", cands: "Candidates per campaign", emps: "People assessed per talent project",
-  s2: "2 · Tools used", s2n: "Each % applies to the people assessed. Your clients run the tools they need, in any order.",
-  s3: "3 · Your pool", commit: "Pool commitment", tier: "Your tier",
-  vol: "Your estimated volume", volu: "tokens / year", people: "people assessed", perPerson: "tk per person",
+  s2: "2 · Tools used", s2n: "Tick the tools and the share of people assessed with each. Nothing is pre-selected.",
+  s3: "3 · Your orders", commit: "Client commitment", size: "Typical client size",
+  vol: "Your estimated volume", volu: "tokens / year", people: "people assessed", perPerson: "tk per person", perProject: "tk per project",
   tCols: ["Tier", "Discount", "Partner cost / year", "Gross profit / year", "Margin"], best: "Selected",
-  resale: "Resale price / token", resaleHint: "“Public price” = what the client would pay AssessFirst for the same volume and commitment: your margin is then your discount. “Per client” = each client pays the public price for its own, smaller volume. “Custom” = type your own.",
-  rmodes: [["same", "Public price"], ["client", "Public price · per client"], ["custom", "Custom"]],
-  how: (mode, rs, pc, pool, disc) => mode === "same" ? `Reselling at the public price for the same volume and commitment (${rs} per token) while buying at ${pc}: your margin equals your tier discount, ${disc}%.` : mode === "client" ? `Each client pays the public price for its own volume, 12 months (≈ ${rs} per token on average) while you buy ${pool} tokens at ${pc}: your tier discount plus the volume degressivity of the grid.` : `Your own resale price: ${rs} per token versus ${pc} bought.`,
+  resale: "Resale price / token", rmodes: [["public", "Public price"], ["custom", "Custom"]],
+  resaleHint: "“Public price” = what your client would pay AssessFirst for the same volume, size and commitment: your margin is then your tier discount. “Custom” = type your own price.",
+  how: (custom, rs, pc, disc, per) => custom ? `Your own resale price: ${rs} per token versus ${pc} bought — one order of ${per} tokens per project.` : `Each project is one order of ${per} tokens. You buy at ${pc} per token and resell at the public price, ${rs}: your margin is your tier discount, ${disc}%.`,
   none: "Tick at least one tool to estimate your volume.",
   kpis: ["Potential token revenue", "Partner cost", "Gross profit on tokens", "Gross margin"],
   services: "Plus your services: setup, training, debriefs, assessment centres, coaching — billed on top of this margin, at your rates.",
-  custom: "Above 500,000 tokens: indicative — custom terms.", cta: "Discuss this business case",
+  cta: "Discuss this business case",
 };
 L.fr.sim = {
   h: "Estimez votre opportunité partenaire", p: "Construit sur votre portefeuille : combien de projets clients par an, ce que chacun évalue, avec quels outils. Chaque chiffre est une hypothèse modifiable.",
   s1: "1 · Votre portefeuille", projects: "Projets clients par an", type: "Type de projet", types: [["recruit", "Campagnes de recrutement"], ["talent", "Projets talents"]], camps: "Campagnes par projet", cands: "Candidats par campagne", emps: "Personnes évaluées par projet talents",
-  s2: "2 · Outils utilisés", s2n: "Chaque % s'applique aux personnes évaluées. Vos clients utilisent les outils dont ils ont besoin, dans l'ordre qu'ils veulent.",
-  s3: "3 · Votre pool", commit: "Engagement du pool", tier: "Votre tier",
-  vol: "Votre volume estimé", volu: "tokens / an", people: "personnes évaluées", perPerson: "tk par personne",
+  s2: "2 · Outils utilisés", s2n: "Cochez les outils et la part des personnes évaluées avec chacun. Rien n'est présélectionné.",
+  s3: "3 · Vos commandes", commit: "Engagement du client", size: "Taille de client type",
+  vol: "Votre volume estimé", volu: "tokens / an", people: "personnes évaluées", perPerson: "tk par personne", perProject: "tk par projet",
   tCols: ["Tier", "Remise", "Coût partenaire / an", "Marge brute / an", "Marge"], best: "Sélectionné",
-  resale: "Prix de revente / token", resaleHint: "« Prix public » = ce que le client paierait à AssessFirst pour le même volume et le même engagement : votre marge est alors votre remise. « Par client » = chaque client paie le prix public pour son propre volume, plus petit. « Personnalisé » = saisissez le vôtre.",
-  rmodes: [["same", "Prix public"], ["client", "Prix public · par client"], ["custom", "Personnalisé"]],
-  how: (mode, rs, pc, pool, disc) => mode === "same" ? `En revendant au prix public pour le même volume et le même engagement (${rs} par token) alors que vous achetez à ${pc} : votre marge est égale à la remise de votre tier, ${disc} %.` : mode === "client" ? `Chaque client paie le prix public pour son propre volume, 12 mois (≈ ${rs} par token en moyenne) alors que vous achetez ${pool} tokens à ${pc} : remise de votre tier plus dégressivité de la grille.` : `Votre propre prix de revente : ${rs} par token contre ${pc} à l'achat.`,
+  resale: "Prix de revente / token", rmodes: [["public", "Prix public"], ["custom", "Personnalisé"]],
+  resaleHint: "« Prix public » = ce que votre client paierait à AssessFirst pour le même volume, la même taille et le même engagement : votre marge est alors la remise de votre tier. « Personnalisé » = saisissez votre propre prix.",
+  how: (custom, rs, pc, disc, per) => custom ? `Votre propre prix de revente : ${rs} par token contre ${pc} à l'achat — une commande de ${per} tokens par projet.` : `Chaque projet est une commande de ${per} tokens. Vous achetez à ${pc} par token et revendez au prix public, ${rs} : votre marge est la remise de votre tier, ${disc} %.`,
   none: "Cochez au moins un outil pour estimer votre volume.",
   kpis: ["Revenu tokens potentiel", "Coût partenaire", "Marge brute tokens", "Taux de marge"],
   services: "Plus vos services : paramétrage, formation, restitutions, assessment centers, coaching — facturés en plus de cette marge, à vos tarifs.",
-  custom: "Au-delà de 500 000 tokens : indicatif — conditions sur mesure.", cta: "Discuter de ce business case",
+  cta: "Discuter de ce business case",
 };
 L.en.road = {
   h: "From contract to first client in 90 days", p: "A shared plan. We commit to the support, you commit to the pace. Your back-office is open on day one.",
   you: "You", af: "AssessFirst",
-  ms: [["Day 0", "Contract signed", "Partnership agreement, programme and tier confirmed.", "Back-office access, Partner Manager assigned, welcome kit."], ["Day 7", "Kick-off", "Your team meets your Partner Manager; first accounts mapped.", "Portal access (Introw): playbooks, battle cards, sandbox."], ["Day 14", "Certified", "Product & sales certification completed by your consultants.", "Badge issued; deal registration and co-sell unlocked."], ["Day 30", "First client created", "First order or pool; first client account created in Deployer.", "Onboarding of the client (Reseller) or coaching of your team (Distributor)."], ["Day 60", "First campaign live", "First assessments running at your client; consumption visible.", "Escalation path active; first monthly business review."], ["Day 90", "Business review", "Pipeline for the next quarter, renewals planned, second client in motion.", "Tier trajectory, co-marketing plan, MDF eligibility."]],
+  ms: [["Day 0", "Contract signed", "Partnership agreement, programme and tier confirmed.", "Back-office access, Partner Manager assigned, welcome kit."], ["Day 7", "Kick-off", "Your team meets your Partner Manager; first accounts mapped.", "Portal access (Introw): playbooks, battle cards, sandbox."], ["Day 14", "Certified", "Product & sales certification completed by your consultants.", "Badge issued; deal registration and co-sell unlocked."], ["Day 30", "First client created", "First order placed; first client account requested and created.", "Onboarding of the client (Reseller) or coaching of your team (Distributor)."], ["Day 60", "First campaign live", "First assessments running at your client; consumption visible.", "Escalation path active; first monthly business review."], ["Day 90", "Business review", "Pipeline for the next quarter, renewals planned, second client in motion.", "Tier trajectory, co-marketing plan, MDF eligibility."]],
   cH: "Interested in exploring a partnership?", cP: "A 30-minute conversation with our Partnerships team is enough to see whether the model fits your business — and which programme is right for you.",
   cta: "Book a 30-minute call", mail: "or write to", restart: "↻ Restart the journey",
 };
 L.fr.road = {
   h: "Du contrat au premier client en 90 jours", p: "Un plan partagé. Nous nous engageons sur le support, vous sur le rythme. Votre back-office est ouvert dès le premier jour.",
   you: "Vous", af: "AssessFirst",
-  ms: [["Jour 0", "Contrat signé", "Contrat de partenariat, programme et tier confirmés.", "Accès back-office, Partner Manager assigné, kit de bienvenue."], ["Jour 7", "Kick-off", "Votre équipe rencontre votre Partner Manager ; premiers comptes cartographiés.", "Accès portail (Introw) : playbooks, battle cards, sandbox."], ["Jour 14", "Certifié", "Certification produit & vente complétée par vos consultants.", "Badge remis ; enregistrement des deals et co-vente débloqués."], ["Jour 30", "Premier client créé", "Première commande ou pool ; premier compte client créé dans Deployer.", "Onboarding du client (Revendeur) ou coaching de votre équipe (Distributeur)."], ["Jour 60", "Première campagne live", "Premières évaluations chez votre client ; consommation visible.", "Escalade active ; première revue mensuelle."], ["Jour 90", "Revue business", "Pipeline du trimestre suivant, renouvellements planifiés, deuxième client en cours.", "Trajectoire de tier, plan de co-marketing, éligibilité MDF."]],
+  ms: [["Jour 0", "Contrat signé", "Contrat de partenariat, programme et tier confirmés.", "Accès back-office, Partner Manager assigné, kit de bienvenue."], ["Jour 7", "Kick-off", "Votre équipe rencontre votre Partner Manager ; premiers comptes cartographiés.", "Accès portail (Introw) : playbooks, battle cards, sandbox."], ["Jour 14", "Certifié", "Certification produit & vente complétée par vos consultants.", "Badge remis ; enregistrement des deals et co-vente débloqués."], ["Jour 30", "Premier client créé", "Première commande passée ; premier compte client demandé et créé.", "Onboarding du client (Revendeur) ou coaching de votre équipe (Distributeur)."], ["Jour 60", "Première campagne live", "Premières évaluations chez votre client ; consommation visible.", "Escalade active ; première revue mensuelle."], ["Jour 90", "Revue business", "Pipeline du trimestre suivant, renouvellements planifiés, deuxième client en cours.", "Trajectoire de tier, plan de co-marketing, éligibilité MDF."]],
   cH: "Envie d'explorer un partenariat ?", cP: "Une conversation de 30 minutes avec notre équipe Partenariats suffit pour voir si le modèle correspond à votre activité — et quel programme vous convient.",
   cta: "Réserver un call de 30 minutes", mail: "ou écrivez à", restart: "↻ Recommencer le parcours",
 };
 
-/* ============ ACT 5 — HOW YOU BUY ============ */
+/* ============ ACT 5 — HOW YOU ORDER ============ */
 const S_Modes = ({ lang }) => {
   const T = L[lang].buy;
   return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-      {T.modes.map(([n, pts], i) => <div key={n} style={{ border: `1px solid ${AF.border}`, borderTop: `4px solid ${i ? AF.pink : AF.black}`, borderRadius: 12, padding: "18px 20px" }}><div style={{ fontSize: 18, fontWeight: 700, color: AF.black, marginBottom: 12 }}>{n}</div>{pts.map((p) => <div key={p} style={{ display: "flex", gap: 8, fontSize: 12.5, color: AF.black, lineHeight: 1.5, padding: "7px 0", borderTop: `1px solid ${AF.border}` }}><Check size={15} /><span>{p}</span></div>)}</div>)}
-    </div></Frame>);
-};
-const S_Clocks = ({ lang }) => {
-  const T = L[lang].buy;
-  const cl = [[1, "A"], [4, "B"], [8, "C"], [11, "D"]];
-  return (<Frame><Bar /><H2>{T.cH}</H2><P>{T.cP}</P>
-    <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "22px 24px", marginBottom: 16 }}>
-      <div style={{ position: "relative", height: 30, marginBottom: 10 }}><div style={{ position: "absolute", left: 0, width: `${12 / 24 * 100}%`, height: 30, background: AF.black, borderRadius: 8, color: "#fff", fontSize: 12, display: "flex", alignItems: "center", paddingLeft: 12 }}>{T.pool} — 12 {T.months}</div></div>
-      {cl.map(([s, l]) => <div key={l} style={{ position: "relative", height: 24, marginBottom: 6 }}><div style={{ position: "absolute", left: `${s / 24 * 100}%`, width: `${12 / 24 * 100}%`, height: 24, background: s + 12 > 12 ? AF.pink : "#0096FF", borderRadius: 6, color: "#fff", fontSize: 11, display: "flex", alignItems: "center", paddingLeft: 10 }}>{T.client} {l} — 12 {T.months}</div></div>)}
-      <div style={{ position: "relative", height: 1, background: AF.border, marginTop: 6 }}><div style={{ position: "absolute", left: `${12 / 24 * 100}%`, top: -170, height: 176, borderLeft: `2px dashed ${AF.pink}` }} /><div style={{ position: "absolute", left: `${12 / 24 * 100}%`, top: 6, transform: "translateX(-50%)", fontSize: 10, color: AF.pink, fontWeight: 700 }}>{T.pool} · end</div></div>
+    <div style={{ display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: 16 }}>
+      <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 12, padding: "18px 20px", background: "#FFF5FA" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}><div style={{ fontSize: 18, fontWeight: 700, color: AF.black }}>{T.modes[0][0]}</div><span style={{ fontSize: 9.5, fontWeight: 800, color: "#fff", background: AF.pink, borderRadius: 8, padding: "3px 8px", textTransform: "uppercase" }}>{T.available}</span></div>
+        {T.modes[0][1].map((p) => <div key={p} style={{ display: "flex", gap: 8, fontSize: 12.5, color: AF.black, lineHeight: 1.5, padding: "7px 0", borderTop: `1px solid ${AF.border}` }}><Check size={15} /><span>{p}</span></div>)}
+      </div>
+      <div style={{ border: `1px dashed ${AF.border}`, borderRadius: 12, padding: "18px 20px", opacity: 0.85 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}><div style={{ fontSize: 18, fontWeight: 700, color: AF.grayMid }}>{T.modes[1][0]}</div><span style={{ fontSize: 9.5, fontWeight: 800, color: AF.grayMid, background: AF.grayLight, borderRadius: 8, padding: "3px 8px", textTransform: "uppercase" }}>{T.soon}</span></div>
+        {T.modes[1][1].map((p) => <div key={p} style={{ display: "flex", gap: 8, fontSize: 12.5, color: AF.grayMid, lineHeight: 1.5, padding: "7px 0", borderTop: `1px solid ${AF.border}` }}><span style={{ color: AF.pink }}>·</span><span>{p}</span></div>)}
+      </div>
     </div>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginTop: 24 }}>{T.rules.map(([a, b]) => <div key={a} style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 16px" }}><div style={{ fontSize: 13.5, fontWeight: 700, color: AF.black, marginBottom: 6 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div>)}</div>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginTop: 16 }}>{T.rules.map(([a, b]) => <div key={a} style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 16px" }}><div style={{ fontSize: 13.5, fontWeight: 700, color: AF.black, marginBottom: 6 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div>)}</div>
   </Frame>);
 };
 const S_Grid = ({ lang, prog }) => {
   const T = L[lang].buy;
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
-  const [i, setI] = useState(2), [m, setM] = useState(12), [tier, setTier] = useState(0);
+  const [i, setI] = useState(2), [m, setM] = useState(12), [tier, setTier] = useState(0), [sz, setSz] = useState("<250");
   const [use, setUse] = useState({ CVS: false, SCAN: true, SCANT: false, SWIPE: true, DRIVE: true, BRAIN: false, VOICE: false });
-  const tk = PRICE[i][0], disc = DISC[prog][tier], pub = publicPrice(tk, m, PARTNER_SIZE), part = pub * (1 - disc / 100);
+  const tk = PRICE[i][0], disc = DISC[prog][tier], pub = publicPrice(tk, m, sz), part = pub * (1 - disc / 100);
   const money = (n) => sym + fmtN(n * r);
   const perPerson = PRODUCTS.reduce((a, p) => a + (use[p.id] ? p.cost : 0), 0);
   const key = [5000, 10000, 25000, 50000, 100000, 250000, 500000];
@@ -604,6 +584,7 @@ const S_Grid = ({ lang, prog }) => {
           <input type="range" min={0} max={PRICE.length - 1} value={i} onChange={(e) => setI(Number(e.target.value))} style={{ width: "100%", accentColor: AF.pink, marginBottom: 12 }} />
           <div style={{ display: "flex", gap: 20, alignItems: "center", flexWrap: "wrap" }}>
             <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={m} onChange={setM} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></span>
+            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.size}</span><Seg value={sz} onChange={setSz} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></span>
             <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.tier}</span><Seg value={tier} onChange={setTier} options={TIER_NAMES.map((n, k) => [k, `${n} · ${DISC[prog][k]}%`])} /></span>
           </div>
         </div>
@@ -611,10 +592,10 @@ const S_Grid = ({ lang, prog }) => {
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.pub}</div><div style={{ fontSize: 22, fontWeight: 800, color: AF.black }}>{money(pub)}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{sym}{(pub / tk * r).toFixed(2)} {T.perTk}</div></div>
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.part} · −{disc}%</div><div style={{ fontSize: 22, fontWeight: 800, color: AF.black }}>{money(part)}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{sym}{(part / tk * r).toFixed(2)} {T.perTk}</div></div>
         </div>
-        <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 16px", background: "#FFF5FA", marginTop: 10, display: "flex", alignItems: "center", gap: 14 }}><div style={{ flex: 1 }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.yourMargin}</div><div style={{ fontSize: 26, fontWeight: 800, color: AF.pink }}>{money(pub - part)}</div></div><div style={{ fontSize: 11, color: AF.grayMid, textAlign: "right", lineHeight: 1.5 }}>{fmtN(tk)} tk · {m} {T.months}<br />{disc}% {T.mLbl}</div></div>
+        <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 16px", background: "#FFF5FA", marginTop: 10, display: "flex", alignItems: "center", gap: 14 }}><div style={{ flex: 1 }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.yourMargin}</div><div style={{ fontSize: 26, fontWeight: 800, color: AF.pink }}>{money(pub - part)}</div></div><div style={{ fontSize: 11, color: AF.grayMid, textAlign: "right", lineHeight: 1.5 }}>{fmtN(tk)} tk · {m} {T.months}<br />{sz} {T.employees}</div></div>
         <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginTop: 12 }}>
-          <div style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k, ki) => <span key={ki}>{k}</span>)}<span style={{ gridColumn: "1 / -1", fontWeight: 400, textTransform: "none", fontSize: 9.5, marginTop: 2 }}>{m} {T.months} · {TIER_NAMES[tier]} −{disc}%</span></div>
-          {key.map((k) => { const pk = publicPrice(k, m, PARTNER_SIZE), pp = pk * (1 - disc / 100); return <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(pk)}</span><span style={{ color: AF.grayMid }}>{sym}{(pk / k * r).toFixed(2)}</span><span style={{ color: AF.pink }}>{money(pp)}</span><span style={{ color: AF.grayMid }}>{sym}{(pp / k * r).toFixed(2)}</span><b style={{ color: AF.black }}>{money(pk - pp)} <span style={{ fontWeight: 400, color: AF.grayMid }}>· {disc}%</span></b></div>; })}
+          <div style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase" }}>{T.keyRows.map((k, ki) => <span key={ki}>{k}</span>)}<span style={{ gridColumn: "1 / -1", fontWeight: 400, textTransform: "none", fontSize: 9.5, marginTop: 2 }}>{m} {T.months} · {sz} {T.employees} · {TIER_NAMES[tier]} −{disc}%</span></div>
+          {key.map((k) => { const pk = publicPrice(k, m, sz), pp = pk * (1 - disc / 100); return <div key={k} onClick={() => setI(PRICE.findIndex((p) => p[0] === k))} style={{ display: "grid", gridTemplateColumns: ".9fr 1fr .7fr 1fr .7fr 1.2fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, cursor: "pointer", background: tk === k ? "#FFF5FA" : "#fff" }}><b>{fmtN(k)}</b><span>{money(pk)}</span><span style={{ color: AF.grayMid }}>{sym}{(pk / k * r).toFixed(2)}</span><span style={{ color: AF.pink }}>{money(pp)}</span><span style={{ color: AF.grayMid }}>{sym}{(pp / k * r).toFixed(2)}</span><b style={{ color: AF.black }}>{money(pk - pp)}</b></div>; })}
           <div style={{ display: "grid", gridTemplateColumns: ".9fr 4.6fr", padding: "7px 12px", borderTop: `1px solid ${AF.border}`, fontSize: 11.5, color: AF.grayMid }}><b style={{ color: AF.black }}>&gt; 500,000</b><span>{T.custom}</span></div>
         </div>
       </div>
@@ -636,24 +617,22 @@ const S_Grid = ({ lang, prog }) => {
 
 /* ============ ACT 6 — SIMULATOR ============ */
 const SIM_DEF = { rpo: { projects: 20, type: "recruit", camps: 6, cands: 150, emps: 50 }, recruit: { projects: 12, type: "recruit", camps: 2, cands: 40, emps: 30 }, consult: { projects: 8, type: "talent", camps: 1, cands: 30, emps: 60 } };
-const MIX_DEF = { recruit: { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] }, talent: { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 100], DRIVE: [false, 100], BRAIN: [false, 50], VOICE: [false, 20] } };
+const MIX_DEF = { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] };
 const S_Simulator = ({ lang, prog, profile }) => {
   const T = L[lang].sim;
   const d = SIM_DEF[profile];
   const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
   const [projects, setProjects] = useState(d.projects), [type, setType] = useState(d.type), [camps, setCamps] = useState(d.camps), [cands, setCands] = useState(d.cands), [emps, setEmps] = useState(d.emps);
-  const [usage, setUsage] = useState(MIX_DEF[d.type === "talent" ? "talent" : "recruit"]);
-  const [months, setMonths] = useState(12), [tier, setTier] = useState(0), [resale, setResale] = useState(null), [rmode, setRmode] = useState("same");
-  const chType = (t) => { setType(t); setUsage(MIX_DEF[t === "talent" ? "talent" : "recruit"]); };
+  const [usage, setUsage] = useState(MIX_DEF);
+  const [months, setMonths] = useState(12), [sz, setSz] = useState("250-1000"), [tier, setTier] = useState(0), [resale, setResale] = useState(null);
   const people = projects * (type === "recruit" ? camps * cands : emps);
   const perPerson = PRODUCTS.reduce((a, p) => a + (usage[p.id][0] ? usage[p.id][1] / 100 * p.cost : 0), 0);
   const tokens = Math.round(people * perPerson);
-  const k = months / 12, poolTk = tokens * k, over = poolTk > 500000;
-  const rows = TIER_NAMES.map((n, idx) => { const cost = partnerPrice(poolTk, months, DISC[prog][idx]) / k; return { n, disc: DISC[prog][idx], cost }; });
   const perProject = tokens / Math.max(projects, 1);
-  const pubSame = tokens ? publicPrice(poolTk, months, PARTNER_SIZE) / poolTk : 0;            // public price, same volume & commitment as the pool
-  const pubClient = tokens ? projects * publicPrice(perProject, 12, PARTNER_SIZE) / tokens : 0; // public price for each client's own volume, 12 months
-  const rs = resale ?? (rmode === "client" ? pubClient : pubSame), revenue = tokens * rs;
+  const pubPerProject = publicPrice(perProject, months, sz);
+  const rows = TIER_NAMES.map((n, idx) => ({ n, disc: DISC[prog][idx], cost: projects * pubPerProject * (1 - DISC[prog][idx] / 100) }));
+  const pubPerTk = perProject ? pubPerProject / perProject : 0;
+  const rs = resale ?? pubPerTk, revenue = tokens * rs;
   const act = rows[tier], profit = revenue - act.cost, margin = revenue > 0 ? profit / revenue * 100 : 0;
   const fmt = (n) => { const v = n * r; return sym + (Math.abs(v) >= 1000 ? (v / 1000).toFixed(1) + "k" : fmtN(v)); };
   const setU = (id, on, pct) => setUsage({ ...usage, [id]: [on, pct] });
@@ -666,7 +645,7 @@ const S_Simulator = ({ lang, prog, profile }) => {
         <div style={{ flex: "0 0 300px" }}>
           <Kicker>{T.s1}</Kicker>
           <Slider label={T.projects} value={projects} onChange={setProjects} min={1} max={100} />
-          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.type}</div><div style={{ marginBottom: 12 }}><Seg value={type} onChange={chType} options={T.types} /></div>
+          <div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 6 }}>{T.type}</div><div style={{ marginBottom: 12 }}><Seg value={type} onChange={setType} options={T.types} /></div>
           {type === "recruit" && <><Slider label={T.camps} value={camps} onChange={setCamps} min={1} max={20} /><Slider label={T.cands} value={cands} onChange={setCands} min={20} max={2000} step={10} /></>}
           {type === "talent" && <Slider label={T.emps} value={emps} onChange={setEmps} min={10} max={1000} step={10} />}
           <div style={{ marginTop: 6 }}><Kicker>{T.s2}</Kicker></div>
@@ -684,12 +663,12 @@ const S_Simulator = ({ lang, prog, profile }) => {
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", gap: 14, alignItems: "center", background: "linear-gradient(135deg, rgba(255,47,146,0.08), rgba(0,150,255,0.06))", border: `1.5px solid ${AF.pink}`, borderRadius: 12, padding: "14px 20px", marginBottom: 12 }}>
             <div><div style={{ fontSize: 10, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.vol}</div><div style={{ fontSize: 34, fontWeight: 800, color: AF.pink, lineHeight: 1.1 }}>{tokens >= 1000 ? (tokens / 1000).toFixed(0) + "K" : fmtN(tokens)} <span style={{ fontSize: 15, fontWeight: 700 }}>{T.volu}</span></div></div>
-            <div style={{ marginLeft: "auto", fontSize: 10.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.6 }}>{fmtN(people)} {T.people}<br />{perPerson.toFixed(1)} {T.perPerson}</div>
+            <div style={{ marginLeft: "auto", fontSize: 10.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.6 }}>{fmtN(people)} {T.people}<br />{perPerson.toFixed(1)} {T.perPerson} · {fmtN(perProject)} {T.perProject}</div>
           </div>
           <Kicker>{T.s3}</Kicker>
           <div style={{ display: "flex", gap: 18, alignItems: "center", marginBottom: 10, flexWrap: "wrap" }}>
             <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.commit}</span><Seg value={months} onChange={setMonths} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></span>
-            {over && <span style={{ fontSize: 10.5, color: "#B54708", background: "#FFF6E6", borderRadius: 8, padding: "4px 9px" }}>{T.custom}</span>}
+            <span><span style={{ fontSize: 11, color: AF.grayMid, marginRight: 8 }}>{T.size}</span><Seg value={sz} onChange={(v) => { setSz(v); setResale(null); }} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} /></span>
           </div>
           <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden", marginBottom: 12 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr .8fr 1fr 1fr .8fr", padding: "8px 12px", background: AF.grayLight, fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.tCols.map((c) => <span key={c}>{c}</span>)}</div>
@@ -698,15 +677,14 @@ const S_Simulator = ({ lang, prog, profile }) => {
                 <span><b>{row.n}</b>{on && <span style={{ fontSize: 8.5, fontWeight: 800, color: "#fff", background: AF.pink, borderRadius: 8, padding: "2px 7px", marginLeft: 6, textTransform: "uppercase" }}>{T.best}</span>}</span><span>−{row.disc}%</span><span>{fmt(row.cost)}</span><b style={{ color: AF.pink }}>{fmt(pr)}</b><span>{revenue > 0 ? (pr / revenue * 100).toFixed(0) : "—"}%</span>
               </div>); })}
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, flexWrap: "wrap" }}>
             <span style={{ fontSize: 11.5, color: AF.grayMid }}>{T.resale}</span>
-            <Seg value={resale !== null ? "custom" : rmode} onChange={(v) => { if (v === "custom") setResale(rs); else { setRmode(v); setResale(null); } }} options={T.rmodes} />
+            <Seg value={resale !== null ? "custom" : "public"} onChange={(v) => { if (v === "custom") setResale(rs); else setResale(null); }} options={T.rmodes} />
             <input type="number" step={0.01} min={0.1} value={Number((rs * r).toFixed(2))} onChange={(e) => setResale(Number(e.target.value) / r)} style={{ width: 70, fontSize: 12, fontWeight: 700, color: AF.black, border: `1px solid ${AF.pink}`, borderRadius: 6, padding: "4px 6px", textAlign: "center", fontFamily: AF.font }} />
             <span style={{ fontSize: 11, color: AF.grayMid }}>{sym}</span>
-            {resale !== null && <span onClick={() => setResale(null)} style={{ fontSize: 10.5, color: AF.pink, cursor: "pointer" }}>↺</span>}
           </div>
           <p style={{ fontSize: 10, color: "#98A2AE", margin: "0 0 10px", lineHeight: 1.45 }}>{T.resaleHint}</p>
-          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{tokens ? T.how(resale !== null ? "custom" : rmode, sym + (rs * r).toFixed(2), sym + (act.cost / tokens * r).toFixed(2), fmtN(poolTk), act.disc) : T.none}</div>
+          <div style={{ fontSize: 11, color: AF.black, background: AF.grayLight, borderRadius: 8, padding: "8px 12px", marginBottom: 12, lineHeight: 1.5 }}>{tokens ? T.how(resale !== null, sym + (rs * r).toFixed(2), sym + (act.cost / tokens * r).toFixed(2), act.disc, fmtN(perProject)) : T.none}</div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 12 }}>
             {[[T.kpis[0], fmt(revenue)], [T.kpis[1] + " · " + act.n, fmt(act.cost)], [T.kpis[2], fmt(profit)], [T.kpis[3], margin.toFixed(0) + "%"]].map(([t, v]) => <div key={t} style={{ background: "#FDF7FB", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "11px 13px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 19, fontWeight: 800, color: AF.pink, marginTop: 2 }}>{v}</div></div>)}
           </div>
@@ -761,14 +739,13 @@ const S_Call = ({ lang, restart }) => {
 const STEPS = [
   { act: 0, label: "Welcome", C: S_Welcome },
   { act: 1, label: "The HR market", C: S_Market },
-  { act: 1, label: "Partners who own clients", C: S_Own },
+  { act: 1, label: "Your edge", C: S_Own },
   { act: 2, label: "Reseller or Distributor", C: S_Programme },
   { act: 2, label: "Tiers & MDF", C: S_Tiers },
   { act: 3, label: "Six tools, one token", C: S_Products },
   { act: 3, label: "Your margin", C: S_Margin },
-  { act: 4, label: "Deployer back-office", C: S_BackOffice },
-  { act: 5, label: "Two ways to order", C: S_Modes },
-  { act: 5, label: "Two clocks", C: S_Clocks },
+  { act: 4, label: "Partner back-office", C: S_BackOffice },
+  { act: 5, label: "How you order", C: S_Modes },
   { act: 5, label: "Public price grid", C: S_Grid },
   { act: 6, label: "Simulator", C: S_Simulator },
   { act: 7, label: "First 90 days", C: S_Roadmap },
