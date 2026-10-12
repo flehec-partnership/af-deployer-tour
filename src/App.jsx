@@ -619,8 +619,9 @@ L.fr.proof = {
 };
 const S_Proof = ({ lang }) => {
   const T = L[lang].proof;
-  const Card = ({ c, real }) => (
-    <div style={{ border: real ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, borderRadius: 12, padding: "18px 20px", background: real ? "#FFF5FA" : "#fff" }}>
+  const [sel, setSel] = useState(0);
+  const Card = ({ c, real, onClick }) => (
+    <div onClick={onClick} style={{ border: real ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, borderRadius: 12, padding: "18px 20px", background: "#fff", cursor: "pointer", opacity: real ? 1 : 0.78, transition: "opacity .2s, border-color .2s" }}>
       <div style={{ fontSize: 9.5, fontWeight: 800, color: real ? "#fff" : AF.grayMid, background: real ? AF.pink : AF.grayLight, borderRadius: 8, padding: "3px 9px", textTransform: "uppercase", display: "inline-block", marginBottom: 10 }}>{c.tag}</div>
       <div style={{ fontSize: 18, fontWeight: 700, color: AF.black }}>{c.name}</div><div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 12 }}>{c.sub}</div>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8, marginBottom: 12 }}>{c.stats.map(([v, l]) => <div key={l} style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 8, padding: "8px 10px" }}><div style={{ fontSize: 18, fontWeight: 800, color: real ? AF.pink : AF.black }}>{v}</div><div style={{ fontSize: 9.5, color: AF.grayMid, lineHeight: 1.3 }}>{l}</div></div>)}</div>
@@ -628,7 +629,7 @@ const S_Proof = ({ lang }) => {
       <div style={{ fontSize: 11, color: AF.grayMid, fontStyle: "italic", marginTop: 10 }}>{c.quote}</div>
     </div>);
   return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}><Card c={T.real} real /><Card c={T.illus} real /></div>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}><Card c={T.real} real={sel === 0} onClick={() => setSel(0)} /><Card c={T.illus} real={sel === 1} onClick={() => setSel(1)} /></div>
   </Frame>);
 };
 
@@ -822,7 +823,7 @@ const STEPS = [
   { act: 2, label: "Reseller or Distributor", C: S_Programme },
   { act: 2, label: "Tiers & MDF", C: S_Tiers },
   { act: 2, label: "Portal & rules", C: S_Portal },
-  { act: 3, label: "Six tools, one token", C: S_Products },
+  { act: 3, label: "Seven tools, one token", C: S_Products },
   { act: 3, label: "Your margin", C: S_Margin },
   { act: 4, label: "Partner back-office", C: S_BackOffice },
   { act: 5, label: "How you order", C: S_Modes },
