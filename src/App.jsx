@@ -110,13 +110,13 @@ const L = {
 en: {
   nav: { back: "← Back", next: "Next →", restart: "Restart", intro: "Introduction", act: "Act" },
   hdr: { title: "partner journey", sub: "How you resell and deploy predictive assessment across your own clients — from programme to margin.",
-    acts: { 0: "Welcome", 1: "Why now", 2: "Your programme", 3: "What you sell", 4: "Your back-office", 5: "How you order", 6: "Your year with AssessFirst", 7: "Your first 90 days" } },
-  profiles: [["rpo", "RPO & staffing", "Volume hiring, pre-qualification, quality of hire"], ["recruit", "Recruitment firm", "Shortlists, time-to-hire, candidate experience"], ["consult", "HR consulting", "Assessment centres, mobility, development"]],
+    acts: { 0: "Welcome", 1: "Your programme", 2: "What you sell", 3: "How it works", 4: "What you earn", 5: "What comes next" } },
+  profiles: [["rpo", "RPO & outsourcing", "Volume hiring operated at your clients"], ["recruit", "Recruitment & staffing", "Search, selection, placement"], ["consult", "HR consulting & training", "Assessment, mobility, development"], ["media", "Media, creator & community", "Audience of HR decision-makers"]],
   welcome: {
-    h: "Add a talent intelligence layer to everything you deliver for your clients.",
-    p: "AssessFirst helps organisations understand people at work and make better decisions. Behavioural science and AI build a complete picture of each person — personality, motivations, reasoning, skills, languages, job fit. As a partner, you deploy it across your own clients, run it from your own back-office and turn it into a recurring revenue line.",
-    pickT: "Choose your profile", pickSub: "The journey is the same for everyone; your choice adapts the use cases in “Why now”, the client data in the back-office demo and the default assumptions of the simulator.",
-    chapters: [["Why now", "The HR market shifts, what your clients see — and why partners who own clients win."], ["Your programme", "Reseller or Distributor: who does what, tiers, MDF, partner portal and deal protection."], ["What you sell", "Seven tools, one token. Your margin: token resale plus your own services."], ["Your back-office", "Request client accounts, manage users, follow consumption and renewals — without waiting for us."], ["How you order", "Per-client orders, the public price grid, your partner price and margin."], ["Your year", "Your projects × tokens: annual cost, revenue and margin at each tier."], ["Your first 90 days", "A real partner year, the 90-day plan — and how to book a call."]],
+    h: "Four ways to earn with AssessFirst. One journey to find yours.",
+    p: "AssessFirst helps organisations understand people at work and make better decisions: personality, motivations, reasoning, skills, languages, job fit — one profile, seven tools, used by 3,500+ companies. Whether you introduce us, co-sell with us, resell us or distribute us, there is a programme with a clear role, a clear reward and the tools to deliver. This journey shows you which one fits, and what a year looks like.",
+    pickT: "Who are you?", pickSub: "Your profile adapts the examples: the use cases, the demo data and the simulator defaults. The programme you pick next adapts everything else.",
+    chapters: [["Your programme", "Referral, Affiliate, Advisory, Reseller or Distributor: pick your role, see your reward, your portal and the rules."], ["What you sell", "Seven tools, one token — and what they change in your missions."], ["How it works", "Your back-office or your portal: leads, commissions, client accounts."], ["What you earn", "Commission calculator or price grid, then your year in numbers."], ["What comes next", "A partner year, the first 90 days — and how to book a call."]],
     start: "Start the journey →", skip: "Skip to the simulator →",
   },
   why: {
@@ -124,12 +124,13 @@ en: {
     cols: [["What's happening", [["CVs have real limits", "Less than 15% predictive validity, yet most decisions still rely on them."], ["Mistakes are expensive", "A bad hire costs ~1.5× annual salary; a failed promotion costs a team."], ["Regulation is tightening", "The EU AI Act requires transparency and fairness in AI-based decisions."]]],
       ["The AssessFirst approach", [["A complete view of each person", "Personality, motivations, reasoning, skills and languages: one profile, seven tools."], ["AI where it saves time", "SCAN and VOICE automate pre-qualification and skills interviews."], ["Built for compliance", "Auditable models, bias-tested, GDPR-ready, aligned with the EU AI Act."]]],
       ["What clients see", [["-30%", "hiring mistakes within 6 months"], ["+25%", "performance on key roles within 12 months"], ["4.9/5", "candidate & employee experience · 2,700+ Google reviews"], ["39", "languages · 3,500+ clients in 40+ countries"]]]],
-    h2: "Your edge: you already have the clients.",
-    p2: "We built this programme for firms that already have the trust of HR leaders. No cold prospecting required: you add AssessFirst to what you already deliver.",
+    h2: "What AssessFirst changes in your missions",
+    p2: "Three concrete situations where the tools earn their place — and where the margin comes from.",
     use: {
       rpo: [["Pre-qualification at scale", "SCAN calls every applicant and validates the key criteria — your recruiters only handle qualified profiles."], ["Volume hiring, secured", "SWIPE, DRIVE and BRAIN on every shortlist: objective fit, fewer early departures."], ["Prove quality of hire", "Consumption and fit data per client — the KPI your account managers need in reviews."]],
       recruit: [["Sharper shortlists", "Objective data on personality, motivation and reasoning, before the client interview."], ["Faster time-to-hire", "Pre-qualification and skills interviews run without a recruiter on the line."], ["A candidate experience clients remember", "Every candidate receives their own profile — a signature of your firm."]],
       consult: [["Assessment centres, scaled", "The same scientific backbone for every candidate, in 39 languages, in days rather than weeks."], ["Internal mobility & development", "Match people to target roles; feed reviews, coaching and career conversations."], ["Leadership & outplacement", "Complete profiles as the starting point of every individual programme."]],
+      media: [["Content your audience acts on", "Predictive hiring, AI in recruitment, EU AI Act: topics HR leaders search for — with data and demos to back them."], ["A product people can try", "Your audience experiences SWIPE or DRIVE in five minutes; the demo sells itself."], ["Leads you can measure", "Every registration, demo and signature is tracked in the partner portal — you see what your content generates."]],
     },
     pts: [["Sell to your existing base", "An immediate add-on to your services, not a new sales motion."], ["You set the resale price", "Buy at partner price, resell at yours — and bill your services around it."], ["No competition on your accounts", "You own the relationship. Our team supports you and never sells around you."]],
   },
@@ -158,13 +159,13 @@ en: {
 fr: {
   nav: { back: "← Retour", next: "Suivant →", restart: "Recommencer", intro: "Introduction", act: "Acte" },
   hdr: { title: "parcours partenaire", sub: "Comment vous revendez et déployez l'évaluation prédictive chez vos propres clients — du programme à la marge.",
-    acts: { 0: "Bienvenue", 1: "Pourquoi maintenant", 2: "Votre programme", 3: "Ce que vous vendez", 4: "Votre back-office", 5: "Comment vous commandez", 6: "Votre année avec AssessFirst", 7: "Vos 90 premiers jours" } },
-  profiles: [["rpo", "RPO & staffing", "Recrutement en volume, préqualification, qualité d'embauche"], ["recruit", "Cabinet de recrutement", "Shortlists, time-to-hire, expérience candidat"], ["consult", "Conseil RH", "Assessment centers, mobilité, développement"]],
+    acts: { 0: "Bienvenue", 1: "Votre programme", 2: "Ce que vous vendez", 3: "Comment ça marche", 4: "Ce que vous gagnez", 5: "Et ensuite" } },
+  profiles: [["rpo", "RPO & externalisation", "Recrutement en volume opéré chez vos clients"], ["recruit", "Recrutement & staffing", "Recherche, sélection, placement"], ["consult", "Conseil RH & formation", "Assessment, mobilité, développement"], ["media", "Média, créateur & communauté", "Une audience de décideurs RH"]],
   welcome: {
-    h: "Ajoutez une couche d'intelligence des talents à toutes les prestations que vous délivrez à vos clients.",
-    p: "AssessFirst aide les organisations à comprendre les personnes au travail et à prendre de meilleures décisions. Sciences comportementales et IA construisent une compréhension complète de chaque individu — personnalité, motivations, raisonnement, compétences, langues, adéquation au poste. En tant que partenaire, vous la déployez chez vos propres clients, la pilotez depuis votre back-office et en faites une ligne de revenus récurrents.",
-    pickT: "Choisissez votre profil", pickSub: "Le parcours est le même pour tous ; votre choix adapte les cas d'usage de « Pourquoi maintenant », les données clients de la démo back-office et les hypothèses par défaut du simulateur.",
-    chapters: [["Pourquoi maintenant", "Le marché RH bouge, ce que voient vos clients — et pourquoi les partenaires qui possèdent leurs clients gagnent."], ["Votre programme", "Revendeur ou Distributeur : qui fait quoi, tiers, MDF, portail partenaire et protection des deals."], ["Ce que vous vendez", "Sept outils, un token. Votre marge : revente des tokens plus vos propres services."], ["Votre back-office", "Demander des comptes clients, gérer les utilisateurs, suivre consommation et renouvellements — sans nous attendre."], ["Comment vous commandez", "La commande par client, la grille tarifaire publique, votre prix partenaire et votre marge."], ["Votre année", "Vos projets × tokens : coût, revenu et marge annuels à chaque tier."], ["Vos 90 premiers jours", "Une année de partenaire réelle, le plan à 90 jours — et comment prendre rendez-vous."]],
+    h: "Quatre façons de gagner avec AssessFirst. Un parcours pour trouver la vôtre.",
+    p: "AssessFirst aide les organisations à comprendre les personnes au travail et à prendre de meilleures décisions : personnalité, motivations, raisonnement, compétences, langues, adéquation au poste — un profil, sept outils, utilisés par 3 500+ entreprises. Que vous nous présentiez, vendiez avec nous, nous revendiez ou nous distribuiez, il existe un programme avec un rôle clair, une rémunération claire et les outils pour délivrer. Ce parcours vous montre lequel vous correspond, et à quoi ressemble une année.",
+    pickT: "Qui êtes-vous ?", pickSub: "Votre profil adapte les exemples : cas d'usage, données de démo et hypothèses du simulateur. Le programme que vous choisirez ensuite adapte tout le reste.",
+    chapters: [["Votre programme", "Referral, Affiliation, Advisory, Revendeur ou Distributeur : choisissez votre rôle, voyez votre rémunération, votre portail et les règles."], ["Ce que vous vendez", "Sept outils, un token — et ce qu'ils changent dans vos missions."], ["Comment ça marche", "Votre back-office ou votre portail : leads, commissions, comptes clients."], ["Ce que vous gagnez", "Calculateur de commission ou grille tarifaire, puis votre année en chiffres."], ["Et ensuite", "Une année de partenaire, les 90 premiers jours — et comment prendre rendez-vous."]],
     start: "Démarrer le parcours →", skip: "Aller au simulateur →",
   },
   why: {
@@ -172,12 +173,13 @@ fr: {
     cols: [["Le constat", [["Le CV ne suffit plus", "Moins de 15 % de validité prédictive, et pourtant la plupart des décisions reposent encore dessus."], ["Une erreur de recrutement coûte cher", "En moyenne 1,5 fois le salaire annuel ; une promotion ratée, c'est une équipe entière qui décroche."], ["La réglementation se durcit", "L'EU AI Act impose transparence et équité dans toute décision assistée par l'IA."]]],
       ["La réponse AssessFirst", [["Une vision complète de chaque personne", "Personnalité, motivations, raisonnement, compétences et langues : un seul profil, sept outils."], ["L'IA pour gagner du temps", "SCAN et VOICE automatisent la préqualification et les entretiens de compétences."], ["Conforme par conception", "Modèles auditables, testés contre les biais, conformes au RGPD et à l'EU AI Act."]]],
       ["Les résultats chez nos clients", [["-30 %", "d'erreurs de recrutement en 6 mois"], ["+25 %", "de performance sur les postes clés en 12 mois"], ["4,9/5", "satisfaction candidats et collaborateurs · 2 700+ avis Google"], ["39", "langues · 3 500+ clients dans plus de 40 pays"]]]],
-    h2: "Votre atout : vous avez déjà les clients.",
-    p2: "Ce programme est conçu pour les cabinets qui ont déjà la confiance des directions RH. Aucune prospection à froid : vous ajoutez AssessFirst aux prestations que vous délivrez déjà.",
+    h2: "Ce qu'AssessFirst change dans vos missions",
+    p2: "Trois situations concrètes où les outils gagnent leur place — et d'où vient la marge.",
     use: {
       rpo: [["Préqualification à grande échelle", "SCAN appelle chaque candidat et valide les critères clés — vos recruteurs ne traitent que des profils qualifiés."], ["Recrutement en volume, sécurisé", "SWIPE, DRIVE et BRAIN sur chaque shortlist : adéquation objective, moins de départs précoces."], ["Prouvez la qualité des embauches", "Données de consommation et d'adéquation par client — le KPI qu'attendent vos account managers en revue."]],
       recruit: [["Des shortlists plus justes", "Des données objectives sur la personnalité, la motivation et le raisonnement, avant l'entretien client."], ["Un time-to-hire plus court", "Préqualification et entretiens de compétences sans recruteur au téléphone."], ["Une expérience candidat mémorable", "Chaque candidat reçoit son propre profil — une signature de votre cabinet."]],
       consult: [["Des assessment centers à l'échelle", "Le même socle scientifique pour chaque candidat, en 39 langues, en jours plutôt qu'en semaines."], ["Mobilité interne & développement", "Rapprochez les personnes des postes cibles ; alimentez revues, coaching et entretiens de carrière."], ["Leadership & outplacement", "Des profils complets comme point de départ de chaque programme individuel."]],
+      media: [["Des contenus qui font agir", "Recrutement prédictif, IA et recrutement, EU AI Act : les sujets que cherchent les DRH — avec des données et des démos pour les étayer."], ["Un produit qu'on peut essayer", "Votre audience découvre SWIPE ou DRIVE en cinq minutes ; la démo se vend seule."], ["Des leads mesurables", "Chaque inscription, démo et signature est suivie dans le portail partenaire — vous voyez ce que vos contenus génèrent."]],
     },
     pts: [["Vendez à vos clients existants", "Un complément immédiat à vos prestations, pas un nouveau cycle de vente à construire."], ["Vous fixez le prix de revente", "Achetez au prix partenaire, revendez au vôtre — et facturez vos services autour."], ["Aucune concurrence sur vos comptes", "La relation client est la vôtre. Notre équipe vous appuie et ne vend jamais à votre place."]],
   },
@@ -205,6 +207,64 @@ fr: {
 },
 };
 
+
+/* ============ PROGRAMMES ============ */
+const PROGS = ["referral", "affiliate", "advisory", "reseller", "distributor"];
+const isResell = (p) => p === "reseller" || p === "distributor";
+const isComm = (p) => p === "referral" || p === "advisory";
+const COMM = { referral: [20, 0], advisory: [25, 15] }; // % year 1, % renewals
+const AFF = { meeting: 200, win: 500 }; // € per qualified meeting, € bonus per signed client — pilot, to validate
+
+L.en.pg = {
+  h: "Pick your programme", p: "One programme at a time, five clear roles. Choose the one that matches how you work with your clients today — you can move up later.",
+  pilot: "Pilot", pick: "This is my programme",
+  cards: {
+    referral: ["Referral", "You introduce a qualified contact; AssessFirst runs the sale.", "20 % of year-1 revenue", ["Introduce by email, register the lead", "No demo, no contract, no support on your side", "AssessFirst sells, onboards and renews"], "Consultants, networks, HR influencers"],
+    affiliate: ["Affiliate", "You bring visibility and qualified meetings to AssessFirst.", "Fee per qualified meeting + bonus per signed client", ["Content, campaigns, webinars to your audience", "Tracked links and forms in the portal", "No introduction, no sales involvement"], "Media, creators, communities"],
+    advisory: ["Advisory", "You co-sell with AssessFirst, using your expertise and client trust.", "25 % of year 1 + 15 % on renewals", ["You qualify, join demos and influence the decision", "AssessFirst contracts, onboards, supports and renews", "Your commission continues on renewals"], "HR consultancies, transformation firms"],
+    reseller: ["Reseller", "You sell and renew AssessFirst subscriptions to your clients.", "30 → 40 % off the public grid", ["You own the sale, the renewal and the upsell", "AssessFirst trains and onboards your client", "Your partner back-office to manage client accounts"], "Recruitment firms, staffing, consultancies"],
+    distributor: ["Distributor", "You run the full client lifecycle on your market.", "40 → 50 % off the public grid", ["Sale, onboarding, training, level-1 support", "AssessFirst on level-2 support only", "Tiers, MDF and local co-marketing"], "RPOs, HR service groups, country distributors"],
+  },
+  pathT: "Your path", path: "Partners move up, never sideways: Referral → Advisory or Reseller, Reseller → Distributor. One programme at a time; the switch is agreed with your Partner Manager at the annual review.",
+  detailT: "How it works, in practice",
+  rows: ["Lead generation", "Demo & closing", "Renewals & upsell", "Client onboarding & training", "Customer success", "Level-1 support", "Level-2 support", "Who contracts with the client", "Your reward", "Paid", "Minimum activity", "Tiers & MDF"],
+  m: {
+    referral: ["You", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "20 % commission on year-1 revenue", "Quarterly, on invoiced revenue", "None", "No — incentives instead"],
+    affiliate: ["You (audience)", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "€200 per qualified meeting + €500 per signed client (pilot)", "Monthly", "None", "No"],
+    advisory: ["You", "You with AssessFirst", "AssessFirst, you contribute", "AssessFirst", "AssessFirst", "Shared", "AssessFirst", "AssessFirst", "25 % of year 1 + 15 % on renewals", "Quarterly, on invoiced revenue", "None", "No — incentives instead"],
+    reseller: ["You", "You", "You", "AssessFirst", "AssessFirst", "Shared", "AssessFirst", "You", "30–40 % discount on the public grid", "You invoice your client", "1 new client per year", "3 tiers · MDF from Premier"],
+    distributor: ["You", "You", "You", "You", "You", "You", "AssessFirst", "You", "40–50 % discount on the public grid", "You invoice your client", "1 new client per year", "3 tiers · MDF from Premier"],
+  },
+  you: "You", af: "AssessFirst",
+  incT: "Incentives", inc: "Referral and Advisory partners are eligible to the gift incentive plan: rewards for first lead, first signature, and volume milestones — on top of commission.",
+  pilotNote: "Affiliate is a pilot programme: fee levels shown here are indicative and confirmed in your agreement.",
+};
+L.fr.pg = {
+  h: "Choisissez votre programme", p: "Un programme à la fois, cinq rôles clairs. Choisissez celui qui correspond à votre façon de travailler avec vos clients aujourd'hui — vous pourrez évoluer ensuite.",
+  pilot: "Pilote", pick: "C'est mon programme",
+  cards: {
+    referral: ["Referral", "Vous présentez un contact qualifié ; AssessFirst mène la vente.", "20 % du chiffre d'affaires de l'année 1", ["Mise en relation par email, lead enregistré", "Ni démo, ni contrat, ni support de votre côté", "AssessFirst vend, onboarde et renouvelle"], "Consultants, réseaux, influenceurs RH"],
+    affiliate: ["Affiliation", "Vous apportez de la visibilité et des rendez-vous qualifiés à AssessFirst.", "Rémunération par rendez-vous qualifié + prime par client signé", ["Contenus, campagnes, webinaires auprès de votre audience", "Liens et formulaires trackés dans le portail", "Pas de mise en relation, pas d'implication dans la vente"], "Médias, créateurs, communautés"],
+    advisory: ["Advisory", "Vous vendez avec AssessFirst, grâce à votre expertise et à la confiance de vos clients.", "25 % de l'année 1 + 15 % sur les renouvellements", ["Vous qualifiez, participez aux démos et influencez la décision", "AssessFirst contractualise, onboarde, supporte et renouvelle", "Votre commission continue sur les renouvellements"], "Cabinets de conseil RH, cabinets de transformation"],
+    reseller: ["Revendeur", "Vous vendez et renouvelez les abonnements AssessFirst de vos clients.", "30 → 40 % sur la grille publique", ["Vous portez la vente, le renouvellement et l'upsell", "AssessFirst forme et accompagne votre client au démarrage", "Votre back-office partenaire pour gérer les comptes clients"], "Cabinets de recrutement, staffing, conseil"],
+    distributor: ["Distributeur", "Vous prenez en charge tout le cycle client sur votre marché.", "40 → 50 % sur la grille publique", ["Vente, démarrage, formation, support de niveau 1", "AssessFirst en support de niveau 2 uniquement", "Tiers, MDF et co-marketing local"], "RPO, groupes de services RH, distributeurs pays"],
+  },
+  pathT: "Votre trajectoire", path: "Les partenaires montent, jamais de côté : Referral → Advisory ou Revendeur, Revendeur → Distributeur. Un programme à la fois ; le changement se décide avec votre Partner Manager à la revue annuelle.",
+  detailT: "Concrètement, comment ça marche",
+  rows: ["Génération de leads", "Démo & signature", "Renouvellements & upsell", "Démarrage & formation du client", "Suivi de la satisfaction client", "Support de niveau 1", "Support de niveau 2", "Qui contractualise avec le client", "Votre rémunération", "Paiement", "Activité minimale", "Tiers & MDF"],
+  m: {
+    referral: ["Vous", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "20 % de commission sur le CA de l'année 1", "Trimestriel, sur le CA facturé", "Aucune", "Non — incentives à la place"],
+    affiliate: ["Vous (audience)", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "AssessFirst", "200 € par rendez-vous qualifié + 500 € par client signé (pilote)", "Mensuel", "Aucune", "Non"],
+    advisory: ["Vous", "Vous avec AssessFirst", "AssessFirst, vous contribuez", "AssessFirst", "AssessFirst", "Partagé", "AssessFirst", "AssessFirst", "25 % de l'année 1 + 15 % sur les renouvellements", "Trimestriel, sur le CA facturé", "Aucune", "Non — incentives à la place"],
+    reseller: ["Vous", "Vous", "Vous", "AssessFirst", "AssessFirst", "Partagé", "AssessFirst", "Vous", "30–40 % de remise sur la grille publique", "Vous facturez votre client", "1 nouveau client par an", "3 tiers · MDF dès Premier"],
+    distributor: ["Vous", "Vous", "Vous", "Vous", "Vous", "Vous", "AssessFirst", "Vous", "40–50 % de remise sur la grille publique", "Vous facturez votre client", "1 nouveau client par an", "3 tiers · MDF dès Premier"],
+  },
+  you: "Vous", af: "AssessFirst",
+  incT: "Incentives", inc: "Les partenaires Referral et Advisory sont éligibles au plan d'incentives : récompenses au premier lead, à la première signature et aux paliers de volume — en plus de la commission.",
+  pilotNote: "L'Affiliation est un programme pilote : les montants affichés sont indicatifs et confirmés dans votre contrat.",
+};
+const pgName = (lang, p) => L[lang].pg.cards[p][0];
+
 /* ============ ACT 0 — WELCOME ============ */
 const S_Welcome = ({ goto, lang, profile, setProfile, steps }) => {
   const T = L[lang].welcome;
@@ -213,95 +273,295 @@ const S_Welcome = ({ goto, lang, profile, setProfile, steps }) => {
       <AfMark size={54} />
       <div style={{ height: 4, width: 120, background: AF.gradient, borderRadius: 2, margin: "16px 0" }} />
       <h2 style={{ fontSize: 26, fontWeight: 700, color: AF.black, letterSpacing: "-0.02em", margin: "0 0 10px", maxWidth: 680 }}>{T.h}</h2>
-      <p style={{ fontSize: 13, color: AF.grayMid, lineHeight: 1.65, margin: "0 0 28px", maxWidth: 740 }}>{T.p}</p>
+      <p style={{ fontSize: 13, color: AF.grayMid, lineHeight: 1.65, margin: "0 0 28px", maxWidth: 760 }}>{T.p}</p>
       <div style={{ borderTop: `1px solid ${AF.border}`, paddingTop: 22, marginBottom: 6 }}><Kicker>{T.pickT}</Kicker></div>
       <p style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5, margin: "0 0 12px", maxWidth: 740 }}>{T.pickSub}</p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10, maxWidth: 740, marginBottom: 28 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 28 }}>
         {L[lang].profiles.map(([id, t, d]) => { const on = profile === id; return (
           <div key={id} onClick={() => setProfile(id)} style={{ border: on ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", borderRadius: 12, padding: "12px 15px", cursor: "pointer" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ width: 15, height: 15, borderRadius: "50%", border: on ? `5px solid ${AF.pink}` : `2px solid ${AF.border}`, flexShrink: 0 }} /><b style={{ fontSize: 13.5, color: AF.black }}>{t}</b></div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ width: 15, height: 15, borderRadius: "50%", border: on ? `5px solid ${AF.pink}` : `2px solid ${AF.border}`, flexShrink: 0 }} /><b style={{ fontSize: 13, color: AF.black }}>{t}</b></div>
             <p style={{ fontSize: 10.5, color: AF.grayMid, margin: "6px 0 0 23px", lineHeight: 1.45 }}>{d}</p>
           </div>); })}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(7,1fr)", gap: 8, marginBottom: 26 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 8, marginBottom: 26 }}>
         {T.chapters.map(([t, d], k) => (
           <div key={t} onClick={() => goto(steps.findIndex((st) => st.act === k + 1))} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: 12, cursor: "pointer" }}>
             <span style={{ width: 22, height: 22, borderRadius: "50%", background: AF.pink, color: "#fff", fontSize: 11, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", marginBottom: 8 }}>{k + 1}</span>
-            <div style={{ fontSize: 11.5, fontWeight: 700, color: AF.black, lineHeight: 1.3, marginBottom: 5 }}>{t}</div>
-            <div style={{ fontSize: 9.5, color: AF.grayMid, lineHeight: 1.4 }}>{d}</div>
+            <div style={{ fontSize: 12, fontWeight: 700, color: AF.black, lineHeight: 1.3, marginBottom: 5 }}>{t}</div>
+            <div style={{ fontSize: 10, color: AF.grayMid, lineHeight: 1.4 }}>{d}</div>
           </div>))}
       </div>
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        <AfCta onClick={() => goto(1)}>{T.start}</AfCta>
-        <span onClick={() => goto(steps.findIndex((st) => st.label === "Simulator"))} style={{ fontSize: 12, fontWeight: 600, color: AF.pink, cursor: "pointer" }}>{T.skip}</span>
-      </div>
+      <AfCta onClick={() => goto(1)}>{T.start}</AfCta>
     </Frame>
   );
 };
 
-/* ============ ACT 1 — WHY NOW ============ */
-const S_Market = ({ lang }) => {
-  const T = L[lang].why;
-  return (
-    <Frame><Bar /><H2>{T.h}</H2><div style={{ height: 10 }} />
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
-        {T.cols.map(([h, items], ci) => (
-          <div key={h}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: ci === 1 ? AF.pink : AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em", paddingBottom: 8, borderBottom: `2px solid ${ci === 1 ? AF.pink : AF.border}`, marginBottom: 10 }}>{h}</div>
-            {items.map(([a, b]) => (
-              <div key={a} style={{ background: AF.grayLight, borderRadius: 10, padding: "12px 14px", marginBottom: 8 }}>
-                <div style={{ fontSize: ci === 2 ? 24 : 13.5, fontWeight: 700, color: ci === 2 ? AF.pink : AF.black, marginBottom: 3 }}>{a}</div>
-                <div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.45 }}>{b}</div>
-              </div>))}
-          </div>))}
-      </div>
-    </Frame>
-  );
+/* ============ ACT 1 — PROGRAMME ============ */
+const S_Choose = ({ lang, prog, setProg, next }) => {
+  const T = L[lang].pg;
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 10, marginBottom: 16 }}>
+      {PROGS.map((id) => { const [n, d, reward, pts, who] = T.cards[id]; const on = prog === id; return (
+        <div key={id} onClick={() => setProg(id)} style={{ border: on ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", borderRadius: 12, padding: "14px 14px", cursor: "pointer", display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}><b style={{ fontSize: 15, color: AF.black }}>{n}</b>{id === "affiliate" && <span style={{ fontSize: 8.5, fontWeight: 800, color: AF.grayMid, background: AF.grayLight, borderRadius: 7, padding: "2px 6px", textTransform: "uppercase" }}>{T.pilot}</span>}</div>
+          <div style={{ fontSize: 11.5, color: AF.black, lineHeight: 1.45, marginBottom: 8, minHeight: 50 }}>{d}</div>
+          <div style={{ fontSize: 11, fontWeight: 700, color: AF.pink, marginBottom: 8, minHeight: 32 }}>{reward}</div>
+          {pts.map((p) => <div key={p} style={{ fontSize: 10, color: AF.grayMid, lineHeight: 1.4, padding: "4px 0", borderTop: `1px solid ${AF.border}` }}>{p}</div>)}
+          <div style={{ fontSize: 9.5, color: AF.grayMid, marginTop: "auto", paddingTop: 8, fontStyle: "italic" }}>{who}</div>
+        </div>); })}
+    </div>
+    <div style={{ display: "flex", gap: 14, alignItems: "center", background: AF.grayLight, borderRadius: 12, padding: "12px 16px" }}>
+      <div style={{ flex: 1 }}><div style={{ fontSize: 11, fontWeight: 700, color: AF.black, marginBottom: 3 }}>{T.pathT}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{T.path}</div></div>
+      <AfCta small onClick={next}>{T.pick} → {pgName(lang, prog)}</AfCta>
+    </div>
+  </Frame>);
 };
-const S_Own = ({ lang, profile, next }) => {
-  const T = L[lang].why;
-  return (
-    <Frame><Bar /><H2>{T.h2}</H2><P>{T.p2}</P>
-      <Kicker>{L[lang].profiles.find((p) => p[0] === profile)[1]}</Kicker>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginBottom: 20 }}>
-        {T.use[profile].map(([a, b]) => <div key={a} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "14px 16px" }}><div style={{ fontSize: 14, fontWeight: 700, color: AF.black, marginBottom: 6 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div>)}
+const S_Detail = ({ lang, prog }) => {
+  const T = L[lang].pg;
+  const col = (v) => v.startsWith(T.you) ? AF.pink : v.startsWith(T.af) ? "#0096FF" : AF.black;
+  const [n, d, reward] = T.cards[prog];
+  return (<Frame><Bar /><H2>{n} — {T.detailT}</H2><P>{d}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 16, alignItems: "start" }}>
+      <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, overflow: "hidden" }}>
+        {T.rows.map((r, i) => <div key={r} style={{ display: "grid", gridTemplateColumns: "1.1fr 1.4fr", columnGap: 20, padding: "8px 14px", borderTop: i ? `1px solid ${AF.border}` : "none", fontSize: 12, lineHeight: 1.4, alignItems: "center", background: i >= 8 ? "#FAFAFA" : "#fff" }}><span style={{ color: AF.grayMid }}>{r}</span><span style={{ fontWeight: 600, color: i >= 8 ? AF.black : col(T.m[prog][i]) }}>{T.m[prog][i]}</span></div>)}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginBottom: 22 }}>
-        {T.pts.map(([a, b], k) => <div key={a} style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 16px" }}><div style={{ fontSize: 11, color: AF.pink, fontWeight: 700, marginBottom: 6 }}>0{k + 1}</div><div style={{ fontSize: 14, fontWeight: 700, color: AF.black, marginBottom: 6 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div>)}
+      <div>
+        <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 12, padding: "16px 18px", background: "#FFF5FA", marginBottom: 10 }}><div style={{ fontSize: 10, color: AF.pink, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6 }}>{T.rows[8]}</div><div style={{ fontSize: 17, fontWeight: 700, color: AF.black, lineHeight: 1.3 }}>{reward}</div></div>
+        {isComm(prog) && <div style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 16px" }}><div style={{ fontSize: 11, fontWeight: 700, color: AF.black, marginBottom: 4 }}>{T.incT}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{T.inc}</div></div>}
+        {prog === "affiliate" && <div style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 16px", fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{T.pilotNote}</div>}
       </div>
-      <AfCta onClick={next}>{L[lang].hdr.acts[2]} →</AfCta>
-    </Frame>
-  );
+    </div>
+  </Frame>);
 };
 
-/* ============ ACT 2 — YOUR PROGRAMME ============ */
-const S_Programme = ({ lang, prog, setProg }) => {
-  const T = L[lang].prog;
-  const [open, setOpen] = useState(true);
-  const col = (v) => v.startsWith(T.you) ? AF.pink : v.startsWith(T.af) ? "#0096FF" : AF.grayMid;
-  return (
-    <Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 16 }}>
-        {Object.entries(T.cards).map(([id, [n, d, who, disc]]) => { const on = prog === id; return (
-          <div key={id} onClick={() => { setProg(id); setOpen(true); }} style={{ border: on ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, background: on ? "#FFF5FA" : "#fff", borderRadius: 12, padding: "16px 18px", cursor: "pointer" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}><b style={{ fontSize: 17, color: AF.black }}>{n}</b><span style={{ fontSize: 10.5, fontWeight: 700, color: AF.pink, background: "#fff", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "3px 9px" }}>{disc}</span></div>
-            <div style={{ fontSize: 12.5, color: AF.black, lineHeight: 1.5, marginBottom: 6 }}>{d}</div><div style={{ fontSize: 11, color: AF.grayMid }}>{who}</div>
-          </div>); })}
+/* ============ ACT 2b — WHAT IT CHANGES (per profile) ============ */
+const S_Fit = ({ lang, profile }) => {
+  const T = L[lang].why;
+  return (<Frame><Bar /><H2>{T.h2}</H2><P>{T.p2}</P>
+    <Kicker>{L[lang].profiles.find((p) => p[0] === profile)[1]}</Kicker>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12, marginBottom: 20 }}>
+      {T.use[profile].map(([a, b]) => <div key={a} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "16px 18px" }}><div style={{ fontSize: 15, fontWeight: 700, color: AF.black, marginBottom: 8 }}>{a}</div><div style={{ fontSize: 12, color: AF.grayMid, lineHeight: 1.55 }}>{b}</div></div>)}
+    </div>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10 }}>{T.cols[2][1].map(([v, l]) => <div key={l} style={{ background: AF.grayLight, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 22, fontWeight: 800, color: AF.pink }}>{v}</div><div style={{ fontSize: 10.5, color: AF.grayMid, lineHeight: 1.4 }}>{l}</div></div>)}</div>
+  </Frame>);
+};
+
+/* ============ ACT 2c — YOUR REWARD (per programme) ============ */
+L.en.earn = {
+  resell: null,
+  referral: { h: "Your reward: 20 % of what your introduction becomes", p: "You introduce a qualified contact by email and register the lead in the portal. AssessFirst sells, contracts and onboards. You receive 20 % of the revenue invoiced in year 1, paid quarterly.", a: ["A warm introduction, not a cold lead", "Commission on the full year-1 contract, whatever the size", "Incentives on top: first lead, first signature, milestones"], b: ["Nothing to deliver, nothing to support", "No minimum activity", "Move up to Advisory or Reseller when you want more"] },
+  affiliate: { h: "Your reward: paid for every qualified meeting", p: "You create visibility — content, campaigns, webinars — and your audience books demos through your tracked links. Every meeting that qualifies (HR decision-maker, 50+ employees, held) earns a fee; every signature earns a bonus.", a: ["€200 per qualified meeting held", "€500 per client signed within 6 months of the meeting", "Paid monthly from the portal"], b: ["No introduction to make, no sales involvement", "Tracked links, forms and UTM in your portal", "Pilot programme — levels confirmed in your agreement"] },
+  advisory: { h: "Your reward: 25 % in year 1, 15 % on every renewal", p: "You qualify the need, join the demos and influence the decision with your expertise. AssessFirst contracts, onboards and supports. You earn on the first contract and on each renewal, as long as the client stays.", a: ["25 % of year-1 revenue", "15 % of each renewal — recurring, without reselling", "Incentives on top of commission"], b: ["No contract, no support, no billing on your side", "Co-sell: an AssessFirst expert joins when you ask", "Move up to Reseller when you want the client relationship"] },
+};
+L.fr.earn = {
+  resell: null,
+  referral: { h: "Votre rémunération : 20 % de ce que devient votre mise en relation", p: "Vous présentez un contact qualifié par email et enregistrez le lead dans le portail. AssessFirst vend, contractualise et onboarde. Vous recevez 20 % du chiffre d'affaires facturé l'année 1, versés chaque trimestre.", a: ["Une mise en relation chaude, pas un lead froid", "Commission sur tout le contrat de l'année 1, quelle que soit sa taille", "Incentives en plus : premier lead, première signature, paliers"], b: ["Rien à délivrer, rien à supporter", "Aucune activité minimale", "Passez Advisory ou Revendeur quand vous voulez plus"] },
+  affiliate: { h: "Votre rémunération : payé à chaque rendez-vous qualifié", p: "Vous créez de la visibilité — contenus, campagnes, webinaires — et votre audience réserve des démos via vos liens trackés. Chaque rendez-vous qualifié (décideur RH, 50+ salariés, tenu) est rémunéré ; chaque signature déclenche une prime.", a: ["200 € par rendez-vous qualifié tenu", "500 € par client signé dans les 6 mois suivant le rendez-vous", "Versement mensuel depuis le portail"], b: ["Pas de mise en relation, pas d'implication dans la vente", "Liens trackés, formulaires et UTM dans votre portail", "Programme pilote — montants confirmés dans votre contrat"] },
+  advisory: { h: "Votre rémunération : 25 % l'année 1, 15 % à chaque renouvellement", p: "Vous qualifiez le besoin, participez aux démos et influencez la décision grâce à votre expertise. AssessFirst contractualise, onboarde et supporte. Vous gagnez sur le premier contrat et sur chaque renouvellement, tant que le client reste.", a: ["25 % du chiffre d'affaires de l'année 1", "15 % de chaque renouvellement — récurrent, sans revendre", "Incentives en plus de la commission"], b: ["Ni contrat, ni support, ni facturation de votre côté", "Co-vente : un expert AssessFirst vous rejoint à la demande", "Passez Revendeur quand vous voulez la relation client"] },
+};
+const S_Reward = ({ lang, prog }) => {
+  const T = L[lang].earn[prog];
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+      <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 12, padding: "18px 20px", background: "#FFF5FA" }}>{T.a.map((t) => <div key={t} style={{ display: "flex", gap: 8, fontSize: 12.5, color: AF.black, marginBottom: 10, lineHeight: 1.45 }}><Check size={15} />{t}</div>)}</div>
+      <div style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "18px 20px" }}>{T.b.map((t) => <div key={t} style={{ display: "flex", gap: 8, fontSize: 12.5, color: AF.black, marginBottom: 10, lineHeight: 1.45 }}><span style={{ color: AF.pink }}>·</span>{t}</div>)}</div>
+    </div>
+  </Frame>);
+};
+
+/* ============ ACT 3b — LEADS & COMMISSIONS IN THE PORTAL (referral / advisory / affiliate) ============ */
+L.en.leads = {
+  h: "Your leads and your commissions, in the portal", p: "No back-office to run: you register, you follow, you get paid. Every lead you register is protected for 12 months and visible to your Partner Manager. The demo below is interactive.",
+  hAff: "Your campaigns and your meetings, in the portal", pAff: "Every tracked link, form and webinar feeds the portal. You see registrations, qualified meetings and signatures as they happen — and the fees they trigger. The demo below is interactive.",
+  tabs: ["Leads", "Deals", "Win", "Dashboard"], tabsAff: ["Campaigns", "Meetings", "Win", "Dashboard"],
+  cols: ["Company", "Contact", "Registered", "Stage", "Est. year-1 ARR", "Your commission"], colsAff: ["Campaign", "Period", "Registrations", "Qualified meetings", "Signed", "Your fees"],
+  stages: ["Registered", "Qualified", "Demo", "Proposal", "Won"], register: "Register a lead", newCamp: "New campaign",
+  kpi: ["Open leads", "Won this year", "Commission earned", "Next payout"], kpiAff: ["Live campaigns", "Qualified meetings", "Signed clients", "Next payout"],
+  note: "Commission = 20 % of year-1 revenue (Referral) · 25 % + 15 % on renewals (Advisory). Paid quarterly on invoiced revenue.", noteAff: "€200 per qualified meeting held · €500 per client signed within 6 months. Paid monthly.",
+  registered: "Lead registered — protected for 12 months.",
+};
+L.fr.leads = {
+  h: "Vos leads et vos commissions, dans le portail", p: "Aucun back-office à gérer : vous enregistrez, vous suivez, vous êtes payé. Chaque lead enregistré est protégé 12 mois et visible par votre Partner Manager. La démo ci-dessous est interactive.",
+  hAff: "Vos campagnes et vos rendez-vous, dans le portail", pAff: "Chaque lien tracké, formulaire et webinaire alimente le portail. Vous voyez les inscriptions, les rendez-vous qualifiés et les signatures au fil de l'eau — et les rémunérations qu'ils déclenchent. La démo ci-dessous est interactive.",
+  tabs: ["Leads", "Deals", "Win", "Dashboard"], tabsAff: ["Campagnes", "Rendez-vous", "Win", "Dashboard"],
+  cols: ["Entreprise", "Contact", "Enregistré le", "Étape", "ARR année 1 estimé", "Votre commission"], colsAff: ["Campagne", "Période", "Inscriptions", "RDV qualifiés", "Signés", "Vos rémunérations"],
+  stages: ["Enregistré", "Qualifié", "Démo", "Proposition", "Gagné"], register: "Enregistrer un lead", newCamp: "Nouvelle campagne",
+  kpi: ["Leads ouverts", "Gagnés cette année", "Commission acquise", "Prochain versement"], kpiAff: ["Campagnes actives", "RDV qualifiés", "Clients signés", "Prochain versement"],
+  note: "Commission = 20 % du CA année 1 (Referral) · 25 % + 15 % sur renouvellements (Advisory). Versée chaque trimestre sur le CA facturé.", noteAff: "200 € par rendez-vous qualifié tenu · 500 € par client signé dans les 6 mois. Versement mensuel.",
+  registered: "Lead enregistré — protégé 12 mois.",
+};
+const LEADS = [["Nordwind Retail", "C. Martin, CHRO", "2026-09-02", 4, 14400], ["Helix Biotech", "A. Rossi, TA Lead", "2026-09-18", 3, 9000], ["Solano Energy", "M. Diaz, HRD", "2026-10-01", 2, 21600], ["Orbis Consulting", "J. Dupont, CEO", "2026-10-09", 1, 7200], ["Lumen Insurance", "P. Weber, HR Ops", "2026-10-13", 0, 10800]];
+const CAMPS = [["Newsletter · AI in hiring", "Sep", 142, 9, 2], ["Webinar · EU AI Act & recruitment", "Sep–Oct", 88, 11, 1], ["LinkedIn series · 5 hiring myths", "Oct", 210, 6, 0]];
+const S_Leads = ({ lang, prog }) => {
+  const T = L[lang].leads; const aff = prog === "affiliate";
+  const [leads, setLeads] = useState(LEADS); const [msg, setMsg] = useState(""); const [tab, setTab] = useState(0);
+  const rate = aff ? null : COMM[prog][0] / 100;
+  const won = leads.filter((l) => l[3] === 4), commEarned = won.reduce((s, l) => s + l[4] * rate, 0);
+  const aMeet = CAMPS.reduce((s, c) => s + c[3], 0), aWin = CAMPS.reduce((s, c) => s + c[4], 0), aFees = aMeet * AFF.meeting + aWin * AFF.win;
+  const flash = (m) => { setMsg(m); setTimeout(() => setMsg(""), 3500); };
+  const kpis = aff ? [[T.kpiAff[0], CAMPS.length], [T.kpiAff[1], aMeet], [T.kpiAff[2], aWin], [T.kpiAff[3], "€" + fmtN(aFees)]] : [[T.kpi[0], leads.filter((l) => l[3] < 4).length], [T.kpi[1], won.length], [T.kpi[2], "€" + fmtN(commEarned)], [T.kpi[3], "2027-01-15"]];
+  return (<Frame gray><H2>{aff ? T.hAff : T.h}</H2><P>{aff ? T.pAff : T.p}</P>
+    <div style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 12, overflow: "hidden" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "0 14px", height: 46, borderBottom: `1px solid ${AF.border}` }}>
+        <AfMark size={22} />{(aff ? T.tabsAff : T.tabs).map((n, i) => <span key={n} onClick={() => setTab(i)} style={{ fontSize: 11, padding: "6px 10px", borderRadius: 7, cursor: "pointer", color: tab === i ? "#fff" : AF.black, background: tab === i ? "#3B7BFF" : "transparent", marginLeft: i === 0 ? 8 : 0 }}>{n}</span>)}
+        <span style={{ marginLeft: "auto", fontSize: 9.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.2 }}>Partner tier<br /><b style={{ fontSize: 12, color: AF.black }}>{pgName(lang, prog)}</b></span><span style={{ width: 24, height: 24, borderRadius: 12, background: AF.gradient, marginLeft: 10 }} />
       </div>
-      <div onClick={() => setOpen(!open)} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", cursor: "pointer", padding: "10px 14px", background: AF.grayLight, borderRadius: open ? "10px 10px 0 0" : 10 }}>
-        <b style={{ fontSize: 12.5, color: AF.black }}>{T.compareT} — {T.cards[prog][0]}</b><span style={{ fontSize: 12, color: AF.grayMid }}>{open ? "▴" : "▾"}</span>
+      <div style={{ padding: 14 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 10, marginBottom: 12 }}>{kpis.map(([k, v]) => <Kpi key={k} t={k} v={v} />)}</div>
+        {aff ? <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr .8fr .9fr 1fr .7fr 1fr", padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase" }}>{T.colsAff.map((c) => <span key={c}>{c}</span>)}</div>
+          {CAMPS.map(([n, p, reg, mt, w]) => <div key={n} style={{ display: "grid", gridTemplateColumns: "2fr .8fr .9fr 1fr .7fr 1fr", padding: "9px 14px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center" }}><b>{n}</b><span style={{ color: AF.grayMid }}>{p}</span><span>{reg}</span><span>{mt}</span><span>{w}</span><b style={{ color: AF.pink }}>€{fmtN(mt * AFF.meeting + w * AFF.win)}</b></div>)}
+        </div> : <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, overflow: "hidden" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.5fr 1.3fr .9fr 1.6fr 1fr 1fr", padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase" }}>{T.cols.map((c) => <span key={c}>{c}</span>)}</div>
+          {leads.map(([n, ct, d, st, arr], i) => <div key={n + i} style={{ display: "grid", gridTemplateColumns: "1.5fr 1.3fr .9fr 1.6fr 1fr 1fr", padding: "9px 14px", borderTop: `1px solid ${AF.border}`, fontSize: 12, alignItems: "center" }}><b>{n}</b><span style={{ color: AF.grayMid }}>{ct}</span><span style={{ color: AF.grayMid }}>{d}</span><span style={{ display: "flex", gap: 3 }}>{T.stages.map((s, k) => <span key={s} title={s} style={{ height: 6, flex: 1, borderRadius: 3, background: k <= st ? (st === 4 ? "#12B76A" : AF.pink) : AF.grayLight }} />)}</span><span>€{fmtN(arr)}</span><b style={{ color: st === 4 ? "#12B76A" : AF.grayMid }}>€{fmtN(arr * rate)}{st < 4 ? " ·" : ""}</b></div>)}
+        </div>}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 12, gap: 12 }}>
+          <span style={{ fontSize: 10.5, color: AF.grayMid, lineHeight: 1.5 }}>{aff ? T.noteAff : T.note}</span>
+          <BoBtn primary onClick={() => { if (!aff) { setLeads([["Acme Group", "S. Leroy, CHRO", "2026-10-15", 0, 12000], ...leads]); } flash(aff ? "Campaign created — tracked link ready." : T.registered); }}>{aff ? T.newCamp : T.register}</BoBtn>
+        </div>
       </div>
-      {open && <div style={{ border: `1px solid ${AF.border}`, borderTop: "none", borderRadius: "0 0 10px 10px", overflow: "hidden" }}>
-        {T.rows.map((r, i) => { const a = T.m.reseller[i], b = T.m.distributor[i]; return (
-          <div key={r} style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", columnGap: 24, padding: "9px 14px", borderTop: i ? `1px solid ${AF.border}` : "none", fontSize: 12, lineHeight: 1.4, alignItems: "center" }}>
-            <span style={{ color: AF.grayMid }}>{r}</span>
-            <span style={{ fontWeight: 600, color: col(a), opacity: prog === "reseller" ? 1 : 0.45 }}>{a}</span>
-            <span style={{ fontWeight: 600, color: col(b), opacity: prog === "distributor" ? 1 : 0.45 }}>{b}</span>
-          </div>); })}
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", columnGap: 24, padding: "6px 14px", background: AF.grayLight, fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}><span /><span>{T.cards.reseller[0]}</span><span>{T.cards.distributor[0]}</span></div>
-      </div>}
-    </Frame>
-  );
+      {msg && <div style={{ margin: "0 14px 14px", background: AF.black, color: "#fff", borderRadius: 8, padding: "9px 14px", fontSize: 12 }}>{msg}</div>}
+    </div>
+  </Frame>);
+};
+
+/* ============ ACT 4b — COMMISSION CALCULATOR & YEAR (referral / advisory / affiliate) ============ */
+L.en.calc = {
+  h: "What one client earns you", p: "Pick what your client would buy. The public grid gives the year-1 revenue; your commission follows.", h2: "Your year", p2: "Introductions, conversion, average deal — every figure is yours to change.",
+  tokens: "Tokens", commit: "Commitment", size: "Client size", pub: "Year-1 revenue (public grid)", c1: "Your commission, year 1", cr: "Your commission, each renewal", none: "—",
+  intros: "Introductions per year", conv: "Conversion to signed client", avg: "Average year-1 ARR", renew: "Clients still active in year 2", out: ["Clients signed", "Year-1 commission", "Renewal commission / year", "Total over 3 years"],
+  hAff: "Your year as an affiliate", pAff: "Campaigns, qualified meetings, signatures — and the fees they trigger. Indicative pilot levels.",
+  camps: "Campaigns per year", meet: "Qualified meetings per campaign", winr: "Signed within 6 months", outAff: ["Qualified meetings", "Meeting fees", "Signature bonuses", "Total for the year"],
+  feeNote: "€200 per qualified meeting held · €500 per client signed within 6 months of the meeting.",
+  cta: "Discuss this business case",
+};
+L.fr.calc = {
+  h: "Ce qu'un client vous rapporte", p: "Choisissez ce que votre client achèterait. La grille publique donne le chiffre d'affaires de l'année 1 ; votre commission en découle.", h2: "Votre année", p2: "Mises en relation, conversion, panier moyen — chaque chiffre est modifiable.",
+  tokens: "Tokens", commit: "Engagement", size: "Taille du client", pub: "CA année 1 (grille publique)", c1: "Votre commission, année 1", cr: "Votre commission, à chaque renouvellement", none: "—",
+  intros: "Mises en relation par an", conv: "Conversion en client signé", avg: "ARR moyen année 1", renew: "Clients encore actifs en année 2", out: ["Clients signés", "Commission année 1", "Commission renouvellements / an", "Total sur 3 ans"],
+  hAff: "Votre année en affiliation", pAff: "Campagnes, rendez-vous qualifiés, signatures — et les rémunérations déclenchées. Montants pilotes indicatifs.",
+  camps: "Campagnes par an", meet: "Rendez-vous qualifiés par campagne", winr: "Signés dans les 6 mois", outAff: ["Rendez-vous qualifiés", "Rémunération des rendez-vous", "Primes de signature", "Total sur l'année"],
+  feeNote: "200 € par rendez-vous qualifié tenu · 500 € par client signé dans les 6 mois suivant le rendez-vous.",
+  cta: "Discuter de ce business case",
+};
+const S_Commission = ({ lang, prog }) => {
+  const T = L[lang].calc; const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
+  const [i, setI] = useState(2), [m, setM] = useState(12), [sz, setSz] = useState("250-1000");
+  const tk = PRICE[i][0], pub = publicPrice(tk, m, sz) / (m / 12), [c1, cr] = COMM[prog];
+  const money = (n) => sym + fmtN(n * r);
+  return (<Frame><Bar /><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><H2>{T.h}</H2><CurSwitch cur={cur} setCur={setCur} /></div><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div style={{ background: AF.grayLight, borderRadius: 12, padding: "16px 18px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11.5, marginBottom: 4 }}><span style={{ color: AF.grayMid }}>{T.tokens}</span><b>{fmtN(tk)} tk</b></div>
+        <input type="range" min={0} max={14} value={i} onChange={(e) => setI(Number(e.target.value))} style={{ width: "100%", accentColor: AF.pink, marginBottom: 14 }} />
+        <div style={{ fontSize: 11, color: AF.grayMid, marginBottom: 6 }}>{T.commit}</div><div style={{ marginBottom: 12 }}><Seg value={m} onChange={setM} options={[[12, "12 m"], [24, "24 m"], [36, "36 m"], [48, "48 m"]]} /></div>
+        <div style={{ fontSize: 11, color: AF.grayMid, marginBottom: 6 }}>{T.size}</div><Seg value={sz} onChange={setSz} options={[["<250", "< 250"], ["250-1000", "250–1,000"], [">1000", "> 1,000"]]} />
+      </div>
+      <div style={{ display: "grid", gap: 10 }}>
+        <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 16px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.pub}</div><div style={{ fontSize: 24, fontWeight: 800 }}>{money(pub)}</div></div>
+        <div style={{ border: `2px solid ${AF.pink}`, borderRadius: 10, padding: "12px 16px", background: "#FFF5FA" }}><div style={{ fontSize: 10, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.c1} · {c1} %</div><div style={{ fontSize: 28, fontWeight: 800, color: AF.pink }}>{money(pub * c1 / 100)}</div></div>
+        <div style={{ border: `1px solid ${AF.border}`, borderRadius: 10, padding: "12px 16px" }}><div style={{ fontSize: 10, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.05em" }}>{T.cr} {cr ? `· ${cr} %` : ""}</div><div style={{ fontSize: 24, fontWeight: 800, color: cr ? AF.black : AF.grayMid }}>{cr ? money(pub * cr / 100) : T.none}</div></div>
+      </div>
+    </div>
+  </Frame>);
+};
+const S_YearComm = ({ lang, prog }) => {
+  const T = L[lang].calc; const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
+  const [intros, setIntros] = useState(prog === "referral" ? 10 : 8), [conv, setConv] = useState(prog === "referral" ? 30 : 40), [avg, setAvg] = useState(12000), [ren, setRen] = useState(80);
+  const [c1, cr] = COMM[prog]; const signed = Math.round(intros * conv / 100); const y1 = signed * avg * c1 / 100; const yr = signed * avg * (ren / 100) * cr / 100; const total = y1 + yr * 2;
+  const fmt = (n) => sym + fmtN(n * r);
+  return (<Frame><Bar /><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><H2>{T.h2}</H2><CurSwitch cur={cur} setCur={setCur} /></div><P>{T.p2}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 22 }}>
+      <div style={{ background: AF.grayLight, borderRadius: 12, padding: "16px 18px" }}>
+        <Slider label={T.intros} value={intros} onChange={setIntros} min={1} max={50} />
+        <Slider label={T.conv} value={conv} onChange={setConv} min={10} max={80} step={5} suffix=" %" />
+        <Slider label={T.avg + " (" + sym + ")"} value={Math.round(avg * r)} onChange={(v) => setAvg(v / r)} min={5000} max={60000} step={1000} />
+        {cr > 0 && <Slider label={T.renew} value={ren} onChange={setRen} min={50} max={100} step={5} suffix=" %" />}
+      </div>
+      <div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 14 }}>{[[T.out[0], signed], [T.out[1], fmt(y1)], [T.out[2], cr ? fmt(yr) : T.none], [T.out[3], fmt(total)]].map(([t, v], k) => <div key={t} style={{ background: k === 3 ? "#FDF7FB" : "#fff", border: `1px solid ${k === 3 ? AF.pink : AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 20, fontWeight: 800, color: k === 3 ? AF.pink : AF.black, marginTop: 2 }}>{v}</div></div>)}</div>
+        <div style={{ display: "flex", gap: 6, alignItems: "flex-end", height: 110, padding: "0 6px" }}>{[y1, yr, yr].map((v, k) => <div key={k} style={{ flex: 1, textAlign: "center" }}><div style={{ fontSize: 11, fontWeight: 700 }}>{fmt(v)}</div><div style={{ height: Math.max(4, v / Math.max(y1, 1) * 70), background: k === 0 ? AF.pink : "#0096FF", borderRadius: "6px 6px 0 0" }} /><div style={{ fontSize: 10, color: AF.grayMid, marginTop: 4 }}>{["Y1", "Y2", "Y3"][k]}</div></div>)}</div>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 14 }}><AfCta small href={BOOKING_URL}>{T.cta}</AfCta></div>
+      </div>
+    </div>
+  </Frame>);
+};
+const S_YearAff = ({ lang }) => {
+  const T = L[lang].calc; const [cur, setCur] = useState("EUR"); const { s: sym, r } = CUR[cur];
+  const [camps, setCamps] = useState(4), [meet, setMeet] = useState(8), [winr, setWinr] = useState(25);
+  const meetings = camps * meet, wins = Math.round(meetings * winr / 100), fees = meetings * AFF.meeting, bonus = wins * AFF.win;
+  const fmt = (n) => sym + fmtN(n * r);
+  return (<Frame><Bar /><div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}><H2>{T.hAff}</H2><CurSwitch cur={cur} setCur={setCur} /></div><P>{T.pAff}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "300px 1fr", gap: 22 }}>
+      <div style={{ background: AF.grayLight, borderRadius: 12, padding: "16px 18px" }}><Slider label={T.camps} value={camps} onChange={setCamps} min={1} max={12} /><Slider label={T.meet} value={meet} onChange={setMeet} min={1} max={30} /><Slider label={T.winr} value={winr} onChange={setWinr} min={5} max={60} step={5} suffix=" %" /><p style={{ fontSize: 10.5, color: AF.grayMid, lineHeight: 1.5, margin: 0 }}>{T.feeNote}</p></div>
+      <div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 8, marginBottom: 14 }}>{[[T.outAff[0], meetings], [T.outAff[1], fmt(fees)], [T.outAff[2], fmt(bonus)], [T.outAff[3], fmt(fees + bonus)]].map(([t, v], k) => <div key={t} style={{ background: k === 3 ? "#FDF7FB" : "#fff", border: `1px solid ${k === 3 ? AF.pink : AF.border}`, borderRadius: 10, padding: "12px 14px" }}><div style={{ fontSize: 9.5, fontWeight: 700, color: AF.grayMid, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t}</div><div style={{ fontSize: 20, fontWeight: 800, color: k === 3 ? AF.pink : AF.black, marginTop: 2 }}>{v}</div></div>)}</div>
+        <div style={{ display: "flex", gap: 8, alignItems: "flex-end", height: 110, padding: "0 6px" }}>{Array.from({ length: camps }).map((_, k) => <div key={k} style={{ flex: 1, textAlign: "center" }}><div style={{ fontSize: 10, fontWeight: 700 }}>{fmt(meet * AFF.meeting)}</div><div style={{ height: 60, background: AF.pink, borderRadius: "6px 6px 0 0" }} /><div style={{ fontSize: 10, color: AF.grayMid, marginTop: 4 }}>#{k + 1}</div></div>)}</div>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 14 }}><AfCta small href={BOOKING_URL}>{T.cta}</AfCta></div>
+      </div>
+    </div>
+  </Frame>);
+};
+
+/* ============ ACT 5 — PROOF (one card per programme) ============ */
+L.en.proof2 = {
+  h: "What a partner year looks like", p: "Five programmes, five first years. The one you chose is highlighted; click any card to compare.",
+  cards: {
+    referral: ["Referral · Year 1", "An HR consultant, solo", [["5", "introductions"], ["3", "clients signed"], ["€7.2K", "commission earned"]], ["Three clients from their own network, average contract €12K.", "Zero delivery, zero support — one email and a registration each time.", "Moved to Advisory in year 2 to earn on renewals."]],
+    affiliate: ["Affiliate · Year 1 (pilot)", "A newsletter on recruitment, 9,000 subscribers", [["4", "campaigns"], ["32", "qualified meetings"], ["€8.4K", "fees and bonuses"]], ["One webinar and three newsletter features over the year.", "32 meetings held with HR decision-makers, 4 signed within 6 months.", "Indicative pilot figures."]],
+    advisory: ["Advisory · Year 1", "An HR transformation consultancy, 6 partners", [["4", "clients co-sold"], ["€60K", "year-1 ARR influenced"], ["€15K + €9K/yr", "commission, then renewals"]], ["Qualified the need in their own missions, joined every demo.", "AssessFirst contracted and onboarded; they kept the advisory role.", "15 % on renewals turned four deals into a recurring line."]],
+    reseller: ["Reseller · Year 1", "A recruitment firm, 10 consultants, 2 champions", [["6", "client accounts"], ["€90K", "ARR generated"], ["×2", "services billed on top"]], ["Pitch rehearsed on three current clients, first order from the back-office.", "AssessFirst trained the recruiters; the firm ran and billed the debriefs.", "A shortlist with predictive profiles won a competitive tender."]],
+    distributor: ["Distributor · Year 1", "An HR services group, 40 consultants, 3 countries", [["13", "client accounts"], ["€400K+", "ARR generated"], ["Elite", "tier reached in 12 months"]], ["Certified in month 1, first accounts from the existing client base.", "Onboarding and level-1 support run by their own team.", "Co-branded webinar at month 6, MDF unlocked for year 2."]],
+  },
+};
+L.fr.proof2 = {
+  h: "À quoi ressemble une année de partenaire", p: "Cinq programmes, cinq premières années. Celui que vous avez choisi est mis en avant ; cliquez sur une carte pour comparer.",
+  cards: {
+    referral: ["Referral · An 1", "Un consultant RH indépendant", [["5", "mises en relation"], ["3", "clients signés"], ["7,2 K€", "de commission"]], ["Trois clients issus de son propre réseau, contrat moyen 12 K€.", "Aucune prestation, aucun support — un email et un enregistrement à chaque fois.", "Passé Advisory en année 2 pour gagner sur les renouvellements."]],
+    affiliate: ["Affiliation · An 1 (pilote)", "Une newsletter recrutement, 9 000 abonnés", [["4", "campagnes"], ["32", "rendez-vous qualifiés"], ["8,4 K€", "de rémunérations et primes"]], ["Un webinaire et trois mises en avant newsletter sur l'année.", "32 rendez-vous tenus avec des décideurs RH, 4 signés dans les 6 mois.", "Chiffres pilotes indicatifs."]],
+    advisory: ["Advisory · An 1", "Un cabinet de transformation RH, 6 associés", [["4", "clients co-vendus"], ["60 K€", "d'ARR année 1 influencé"], ["15 K€ + 9 K€/an", "de commission, puis renouvellements"]], ["Besoin qualifié dans leurs propres missions, présents à chaque démo.", "AssessFirst a contractualisé et onboardé ; ils ont gardé le rôle de conseil.", "15 % sur les renouvellements ont transformé quatre deals en revenu récurrent."]],
+    reseller: ["Revendeur · An 1", "Un cabinet de recrutement, 10 consultants, 2 champions", [["6", "comptes clients"], ["90 K€", "d'ARR générés"], ["×2", "services facturés en plus"]], ["Pitch répété sur trois clients actuels, première commande depuis le back-office.", "AssessFirst a formé les recruteurs ; le cabinet a animé et facturé les restitutions.", "Une shortlist avec profils prédictifs a remporté un appel d'offres."]],
+    distributor: ["Distributeur · An 1", "Un groupe de services RH, 40 consultants, 3 pays", [["13", "comptes clients"], ["400 K€+", "d'ARR générés"], ["Elite", "tier atteint en 12 mois"]], ["Certifiés le premier mois, premiers comptes issus de la base existante.", "Démarrage et support de niveau 1 assurés par leur équipe.", "Webinaire co-brandé au mois 6, MDF débloqués pour l'année 2."]],
+  },
+};
+const S_Proof = ({ lang, prog }) => {
+  const T = L[lang].proof2; const [sel, setSel] = useState(prog);
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 8, marginBottom: 14 }}>{PROGS.map((id) => { const on = sel === id; const [t, sub, stats] = T.cards[id]; return (
+      <div key={id} onClick={() => setSel(id)} style={{ border: on ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, borderRadius: 12, padding: "12px 12px", cursor: "pointer", opacity: on ? 1 : 0.75, background: "#fff" }}>
+        <div style={{ fontSize: 10, fontWeight: 800, color: on ? AF.pink : AF.grayMid, textTransform: "uppercase", marginBottom: 4 }}>{t}</div><div style={{ fontSize: 11, color: AF.black, lineHeight: 1.35, minHeight: 30 }}>{sub}</div>
+        <div style={{ marginTop: 8 }}>{stats.map(([v, l]) => <div key={l} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderTop: `1px solid ${AF.border}`, padding: "5px 0" }}><b style={{ fontSize: 14, color: on ? AF.pink : AF.black }}>{v}</b><span style={{ fontSize: 9.5, color: AF.grayMid, textAlign: "right", maxWidth: "60%" }}>{l}</span></div>)}</div>
+      </div>); })}</div>
+    <div style={{ background: AF.grayLight, borderRadius: 12, padding: "14px 18px" }}><div style={{ fontSize: 11, fontWeight: 700, color: AF.pink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>{T.cards[sel][0]} — {T.cards[sel][1]}</div>{T.cards[sel][3].map((s) => <div key={s} style={{ fontSize: 12, color: AF.black, lineHeight: 1.5, padding: "5px 0" }}>· {s}</div>)}</div>
+  </Frame>);
+};
+
+/* ============ ACT 5b — ROADMAP (variants) ============ */
+L.en.road2 = {
+  comm: [["Day 0", "Contract signed", "Programme confirmed, portal account opened.", "Partner Manager assigned, welcome kit, incentive plan explained."], ["Day 7", "Kick-off", "You map the first ten accounts you could introduce.", "Pitch, one-pager and introduction email template handed over."], ["Day 14", "Certified", "Product & sales certification on the portal.", "Deal registration unlocked; first incentive on first lead."], ["Day 30", "First lead registered", "First warm introduction by email, lead registered in the portal.", "AE takes the lead within 48 h and keeps you informed at each stage."], ["Day 60", "First demo", "Advisory: you join the demo. Referral: you receive the status update.", "AssessFirst runs demo, proposal and contract."], ["Day 90", "First signature", "First commission computed in the portal.", "Quarterly payout scheduled; review of the next ten accounts."]],
+  aff: [["Day 0", "Contract signed", "Pilot agreement, portal account opened.", "Tracked links, forms and UTM set up with you."], ["Day 7", "Kick-off", "Editorial calendar: one campaign per quarter at least.", "Content kit: data, visuals, demo access, speaker for webinars."], ["Day 14", "First campaign live", "Newsletter, post series or webinar published.", "Registrations visible in your portal within the hour."], ["Day 30", "First qualified meetings", "Meetings booked by your audience and held by AssessFirst.", "Qualification confirmed in the portal; fees accrued."], ["Day 60", "First payout", "Monthly statement: meetings held × fee.", "Feedback on which content converts best."], ["Day 90", "First signature", "First client signed within 6 months of a meeting.", "Bonus credited; campaign plan for the next quarter."]],
+};
+L.fr.road2 = {
+  comm: [["Jour 0", "Contrat signé", "Programme confirmé, compte portail ouvert.", "Partner Manager assigné, kit de bienvenue, plan d'incentives expliqué."], ["Jour 7", "Kick-off", "Vous cartographiez les dix premiers comptes que vous pourriez présenter.", "Pitch, one-pager et modèle d'email de mise en relation remis."], ["Jour 14", "Certifié", "Certification produit & vente sur le portail.", "Enregistrement des deals débloqué ; premier incentive au premier lead."], ["Jour 30", "Premier lead enregistré", "Première mise en relation par email, lead enregistré dans le portail.", "Un AE prend le lead sous 48 h et vous informe à chaque étape."], ["Jour 60", "Première démo", "Advisory : vous participez à la démo. Referral : vous recevez le suivi.", "AssessFirst mène démo, proposition et contrat."], ["Jour 90", "Première signature", "Première commission calculée dans le portail.", "Versement trimestriel planifié ; revue des dix comptes suivants."]],
+  aff: [["Jour 0", "Contrat signé", "Accord pilote, compte portail ouvert.", "Liens trackés, formulaires et UTM configurés avec vous."], ["Jour 7", "Kick-off", "Calendrier éditorial : au moins une campagne par trimestre.", "Kit de contenu : données, visuels, accès démo, intervenant pour les webinaires."], ["Jour 14", "1re campagne live", "Newsletter, série de posts ou webinaire publiés.", "Inscriptions visibles dans votre portail dans l'heure."], ["Jour 30", "Premiers RDV qualifiés", "Rendez-vous réservés par votre audience et tenus par AssessFirst.", "Qualification confirmée dans le portail ; rémunérations acquises."], ["Jour 60", "Premier versement", "Relevé mensuel : rendez-vous tenus × rémunération.", "Retour sur les contenus qui convertissent le mieux."], ["Jour 90", "Première signature", "Premier client signé dans les 6 mois d'un rendez-vous.", "Prime créditée ; plan de campagnes du trimestre suivant."]],
+};
+const S_Roadmap = ({ lang, prog }) => {
+  const T = L[lang].road; const ms = isResell(prog) ? T.ms : prog === "affiliate" ? L[lang].road2.aff : L[lang].road2.comm;
+  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
+    <div style={{ position: "relative", margin: "26px 0 8px" }}>
+      <div style={{ position: "absolute", left: "8%", right: "8%", top: 19, height: 3, background: AF.gradient, borderRadius: 2, zIndex: 0 }} />
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 8, position: "relative", zIndex: 1 }}>
+        {ms.map(([d, t, you, af], k) => (
+          <div key={t}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}><span style={{ width: 34, height: 34, borderRadius: "50%", background: k === 5 ? AF.black : AF.pink, color: "#fff", fontSize: 10, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: `0 0 0 1px ${AF.border}`, boxSizing: "content-box" }}>{d.split(" ")[1]}</span></div>
+            <div style={{ textAlign: "center", fontSize: 10, color: AF.pink, fontWeight: 700 }}>{d}</div>
+            <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 700, color: AF.black, margin: "2px 0 10px", lineHeight: 1.3, minHeight: 34, display: "flex", alignItems: "flex-start", justifyContent: "center" }}>{t}</div>
+            <div style={{ background: "#FFF5FA", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "9px 10px", marginBottom: 6, minHeight: 78 }}><div style={{ fontSize: 9, color: AF.pink, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.you}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{you}</div></div>
+            <div style={{ background: AF.grayLight, borderRadius: 10, padding: "9px 10px", minHeight: 78 }}><div style={{ fontSize: 9, color: AF.grayMid, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.af}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{af}</div></div>
+          </div>))}
+      </div>
+    </div>
+  </Frame>);
 };
 const S_Tiers = ({ lang, prog }) => {
   const T = L[lang].prog;
@@ -320,7 +580,6 @@ const S_Tiers = ({ lang, prog }) => {
   );
 };
 
-/* ============ ACT 3 — WHAT YOU SELL ============ */
 const S_Products = ({ lang }) => {
   const T = L[lang].sell;
   return (
@@ -360,6 +619,7 @@ const SEED_BY_PROFILE = {
   recruit: [["Maison Verdier", "FR", 5000, 3100, "2026-02-03", 3, "<250"], ["Orbis Consulting", "BE", 5000, 4300, "2025-10-20", 2, "<250"], ["Helix Biotech", "CH", 7500, 2600, "2026-06-15", 4, "250-1000"], ["Northgate Real Estate", "UK", 5000, 1400, "2026-08-01", 1, "<250"], ["Solano Energy", "ES", 10000, 1200, "2026-08-20", 3, ">1000"]],
   consult: [["Groupe Amarante", "FR", 10000, 6400, "2026-01-20", 5, ">1000"], ["Steinberg Industries", "DE", 7500, 7100, "2025-11-05", 4, "250-1000"], ["Lumen Insurance", "NL", 5000, 1900, "2026-05-12", 3, "250-1000"], ["Vantage Public Sector", "UK", 12500, 4300, "2026-04-01", 6, ">1000"], ["Aurora Pharma", "IT", 5000, 800, "2026-08-25", 2, "<250"]],
 };
+SEED_BY_PROFILE.media = SEED_BY_PROFILE.recruit;
 const addYear = (d) => { const x = new Date(d); x.setFullYear(x.getFullYear() + 1); return x.toISOString().slice(0, 10); };
 const daysTo = (d) => Math.round((new Date(d) - new Date("2026-10-12")) / 86400000);
 const MIX = [0.05, 0.18, 0.07, 0.28, 0.14, 0.14, 0.14];
@@ -555,7 +815,7 @@ L.en.portal = {
   topics: [["Deal protection", [["Register, you're protected", "A registered opportunity is yours for 12 months: AssessFirst does not sell there, direct or through another partner."], ["Conflicts are arbitrated, not ignored", "If two parties claim an account, your Partner Manager decides on the registration date — in writing, within 5 days."], ["Your clients stay yours", "Accounts you have signed are never approached by our sales team. Renewals and upsell go through you."]]],
     ["Data & compliance", [["Your client owns its data", "Candidate and employee data sit in the client's own account, hosted in the EU. You access it only through delegated access the client can revoke."], ["Built for the EU AI Act", "Auditable models, bias-tested, documented methodology — the compliance file your clients' legal teams will ask for is ready."], ["Your delivery, our science", "You can brand the service you deliver; the assessments, reports and scoring stay AssessFirst's and are never altered."]]],
     ["Co-selling & marketing", [["Co-sell on demand", "On a strategic deal, an AssessFirst expert joins your demo or pitch — you lead, we support, the deal stays yours."], ["Co-branded content", "Case studies, webinars and local campaigns built together; market development funds co-finance them from Premier tier."], ["Visibility", "Listed on AssessFirst's partner page and introduced to inbound leads in your territory and sector."]]],
-    ["What if…", [["…I don't reach my tier?", "Nothing is taken back: the tier is reviewed once a year, upwards. You keep your discount and your clients."], ["…a client leaves?", "The subscription ends at term; your remaining clients and your tier are unaffected. No penalty, no claw-back."], ["…I want to stop?", "No exclusivity, no minimum volume after year 1. Your clients keep their subscriptions and choose who serves them next."]]]],
+    ["What if…", [["…I don't reach my tier?", "Nothing is taken back: the tier is reviewed once a year, upwards. You keep your discount and your clients."], ["…a client leaves?", "The subscription ends at term; your remaining clients and your tier are unaffected. No penalty, no claw-back."], ["…I want to stop?", "No exclusivity, no volume quota — one new client a year keeps a Reseller or Distributor active, nothing for Referral and Advisory. Your clients keep their subscriptions."]]]],
 };
 L.fr.portal = {
   h: "Votre portail partenaire — et les règles du jeu", p: "Tout ce qu'il faut pour vendre, au même endroit, dès le premier jour. En dessous, les engagements de chaque côté — changez de sujet d'un clic.",
@@ -564,7 +824,7 @@ L.fr.portal = {
   topics: [["Protection des deals", [["Enregistré, donc protégé", "Une opportunité enregistrée vous appartient 12 mois : AssessFirst n'y vend pas, ni en direct, ni via un autre partenaire."], ["Les conflits sont arbitrés, pas ignorés", "Si deux parties revendiquent un compte, votre Partner Manager tranche sur la date d'enregistrement — par écrit, sous 5 jours."], ["Vos clients restent les vôtres", "Les comptes que vous avez signés ne sont jamais approchés par notre équipe commerciale. Renouvellements et ventes additionnelles passent par vous."]]],
     ["Données & conformité", [["Votre client est propriétaire de ses données", "Les données candidats et collaborateurs restent dans le compte du client, hébergées dans l'UE. Vous y accédez par un accès délégué que le client peut révoquer."], ["Conçu pour l'EU AI Act", "Modèles auditables, testés contre les biais, méthodologie documentée — le dossier de conformité que demanderont les juristes de vos clients est prêt."], ["Votre prestation, notre science", "Vous pouvez signer la prestation que vous délivrez ; les évaluations, rapports et scores restent ceux d'AssessFirst et ne sont jamais modifiés."]]],
     ["Co-vente & marketing", [["Co-vente à la demande", "Sur un deal stratégique, un expert AssessFirst rejoint votre démo ou votre soutenance — vous menez, nous appuyons, le deal reste le vôtre."], ["Contenus co-brandés", "Cas clients, webinaires et campagnes locales construits ensemble ; les fonds de développement marché les cofinancent dès le tier Premier."], ["Visibilité", "Référencement sur la page partenaires d'AssessFirst et mise en relation avec les leads entrants de votre territoire et de votre secteur."]]],
-    ["Et si…", [["…je n'atteins pas mon tier ?", "Rien n'est repris : le tier est revu une fois par an, à la hausse. Vous gardez votre remise et vos clients."], ["…un client part ?", "L'abonnement s'arrête à son terme ; vos autres clients et votre tier ne bougent pas. Ni pénalité, ni reprise."], ["…je veux arrêter ?", "Pas d'exclusivité, pas de volume minimum après la première année. Vos clients conservent leurs abonnements et choisissent qui les accompagne ensuite."]]]],
+    ["Et si…", [["…je n'atteins pas mon tier ?", "Rien n'est repris : le tier est revu une fois par an, à la hausse. Vous gardez votre remise et vos clients."], ["…un client part ?", "L'abonnement s'arrête à son terme ; vos autres clients et votre tier ne bougent pas. Ni pénalité, ni reprise."], ["…je veux arrêter ?", "Pas d'exclusivité, pas de quota de volume — un nouveau client par an maintient un Revendeur ou un Distributeur actif, rien pour Referral et Advisory. Vos clients conservent leurs abonnements."]]]],
 };
 const S_Portal = ({ lang, prog }) => {
   const T = L[lang].portal, M = T.mock;
@@ -575,7 +835,7 @@ const S_Portal = ({ lang, prog }) => {
       <div style={{ display: "flex", alignItems: "center", gap: 4, padding: "0 14px", height: 46, borderBottom: `1px solid ${AF.border}` }}>
         <AfMark size={22} />
         {M.nav.map((n, i) => <span key={n} style={{ fontSize: 11, padding: "6px 10px", borderRadius: 7, color: i === 0 ? "#fff" : AF.black, background: i === 0 ? "#3B7BFF" : "transparent", marginLeft: i === 0 ? 8 : 0 }}>{n}</span>)}
-        <span style={{ marginLeft: "auto", fontSize: 9.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.2 }}>{M.tier}<br /><b style={{ fontSize: 12, color: AF.black }}>{L[lang].prog.cards[prog][0]}</b></span>
+        <span style={{ marginLeft: "auto", fontSize: 9.5, color: AF.grayMid, textAlign: "right", lineHeight: 1.2 }}>{M.tier}<br /><b style={{ fontSize: 12, color: AF.black }}>{pgName(lang, prog)}</b></span>
         <span style={{ width: 24, height: 24, borderRadius: 12, background: AF.gradient, marginLeft: 10 }} />
       </div>
       <div style={{ padding: 14, display: "grid", gridTemplateColumns: "1fr 2.2fr", gap: 14, alignItems: "start" }}>
@@ -591,45 +851,6 @@ const S_Portal = ({ lang, prog }) => {
     <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
       {T.topics[topic][1].map(([a, b], i) => <div key={a} style={{ border: `1px solid ${AF.border}`, borderRadius: 12, padding: "14px 16px" }}><div style={{ display: "flex", gap: 10, alignItems: "baseline" }}><span style={{ width: 22, height: 22, borderRadius: 11, background: AF.pink, color: "#fff", fontSize: 11, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span><div><div style={{ fontSize: 13, fontWeight: 700, color: AF.black, marginBottom: 4 }}>{a}</div><div style={{ fontSize: 11.5, color: AF.grayMid, lineHeight: 1.5 }}>{b}</div></div></div></div>)}
     </div>
-  </Frame>);
-};
-
-/* ============ ACT 7a — PROOF ============ */
-L.en.proof = {
-  h: "What a partner year looks like", p: "Two partners, two programmes, twelve months in.",
-  real: { tag: "Distributor · Latin America · Year 1", name: "An HR services group", sub: "Signed 12 months ago — 40 consultants, 3 countries",
-    stats: [["13", "client accounts opened"], ["400K+", "ARR generated in year 1"], ["12", "months from contract to Elite tier"]],
-    story: ["Month 1 — certification on the portal, first three accounts registered from the existing client base, first demos led by their own consultants.", "Month 3 — first two clients signed, onboarded by their team; AssessFirst on escalation only.", "Month 6 — eight accounts, recurring monthly business review, first co-branded webinar for the local market.", "Month 12 — thirteen clients, renewals running, tier upgraded, market development funds unlocked for 2027."],
-    quote: "They did not add AssessFirst to their catalogue; they built an assessment practice around it." },
-  illus: { tag: "Reseller · Western Europe · Year 1", name: "A recruitment firm", sub: "Signed 14 months ago — 10 consultants, 2 internal champions, one country",
-    stats: [["6", "client accounts opened"], ["90K", "ARR generated in year 1"], ["×2", "services billed on top of tokens"]],
-    story: ["Month 1 — certification, pitch rehearsed on three current clients, first order placed from the back-office.", "Month 4 — three clients live; AssessFirst trains the recruiters, the firm runs the debriefs and bills them.", "Month 8 — a shortlist delivered with predictive profiles wins a competitive tender.", "Month 12 — six clients, first renewals, Premier tier within reach."],
-    quote: "They sold assessment as part of every search — the debrief became their signature." },
-};
-L.fr.proof = {
-  h: "À quoi ressemble une année de partenaire", p: "Deux partenaires, deux programmes, douze mois plus tard.",
-  real: { tag: "Distributeur · Amérique latine · An 1", name: "Un groupe de services RH", sub: "Signé il y a 12 mois — 40 consultants, 3 pays",
-    stats: [["13", "comptes clients ouverts"], ["400 K+", "d'ARR générés la première année"], ["12", "mois du contrat au tier Elite"]],
-    story: ["Mois 1 — certification sur le portail, trois premiers comptes enregistrés depuis la base clients existante, premières démos menées par leurs propres consultants.", "Mois 3 — deux premiers clients signés, onboardés par leur équipe ; AssessFirst en escalade uniquement.", "Mois 6 — huit comptes, revue mensuelle installée, premier webinaire co-brandé pour le marché local.", "Mois 12 — treize clients, renouvellements en cours, tier revu à la hausse, fonds de développement marché débloqués pour 2027."],
-    quote: "Ils n'ont pas ajouté AssessFirst à leur catalogue ; ils ont bâti une pratique d'évaluation autour." },
-  illus: { tag: "Revendeur · Europe de l'Ouest · An 1", name: "Un cabinet de recrutement", sub: "Signé il y a 14 mois — 10 consultants, 2 champions internes, un pays",
-    stats: [["6", "comptes clients ouverts"], ["90 K", "d'ARR générés la première année"], ["×2", "services facturés en plus des tokens"]],
-    story: ["Mois 1 — certification, pitch répété sur trois clients actuels, première commande passée depuis le back-office.", "Mois 4 — trois clients actifs ; AssessFirst forme les recruteurs, le cabinet anime les restitutions et les facture.", "Mois 8 — une shortlist livrée avec profils prédictifs remporte un appel d'offres concurrentiel.", "Mois 12 — six clients, premiers renouvellements, tier Premier à portée."],
-    quote: "Ils ont vendu l'évaluation dans chaque mission — la restitution est devenue leur signature." },
-};
-const S_Proof = ({ lang }) => {
-  const T = L[lang].proof;
-  const [sel, setSel] = useState(0);
-  const Card = ({ c, real, onClick }) => (
-    <div onClick={onClick} style={{ border: real ? `2px solid ${AF.pink}` : `1px solid ${AF.border}`, borderRadius: 12, padding: "18px 20px", background: "#fff", cursor: "pointer", opacity: real ? 1 : 0.78, transition: "opacity .2s, border-color .2s" }}>
-      <div style={{ fontSize: 9.5, fontWeight: 800, color: real ? "#fff" : AF.grayMid, background: real ? AF.pink : AF.grayLight, borderRadius: 8, padding: "3px 9px", textTransform: "uppercase", display: "inline-block", marginBottom: 10 }}>{c.tag}</div>
-      <div style={{ fontSize: 18, fontWeight: 700, color: AF.black }}>{c.name}</div><div style={{ fontSize: 11.5, color: AF.grayMid, marginBottom: 12 }}>{c.sub}</div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 8, marginBottom: 12 }}>{c.stats.map(([v, l]) => <div key={l} style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 8, padding: "8px 10px" }}><div style={{ fontSize: 18, fontWeight: 800, color: real ? AF.pink : AF.black }}>{v}</div><div style={{ fontSize: 9.5, color: AF.grayMid, lineHeight: 1.3 }}>{l}</div></div>)}</div>
-      {c.story.map((s) => <div key={s} style={{ fontSize: 11.5, color: AF.black, lineHeight: 1.5, padding: "6px 0", borderTop: `1px solid ${AF.border}` }}>{s}</div>)}
-      <div style={{ fontSize: 11, color: AF.grayMid, fontStyle: "italic", marginTop: 10 }}>{c.quote}</div>
-    </div>);
-  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}><Card c={T.real} real={sel === 0} onClick={() => setSel(0)} /><Card c={T.illus} real={sel === 1} onClick={() => setSel(1)} /></div>
   </Frame>);
 };
 
@@ -700,7 +921,7 @@ const S_Grid = ({ lang, prog }) => {
 };
 
 /* ============ ACT 6 — ANNUAL BUSINESS CASE ============ */
-const SIM_DEF = { rpo: { clients: 10, camps: 8, cands: 150 }, recruit: { clients: 6, camps: 6, cands: 40 }, consult: { clients: 4, camps: 3, cands: 60 } };
+const SIM_DEF = { rpo: { clients: 10, camps: 8, cands: 150 }, recruit: { clients: 6, camps: 6, cands: 40 }, consult: { clients: 4, camps: 3, cands: 60 }, media: { clients: 3, camps: 4, cands: 60 } };
 const MIX_DEF = { CVS: [false, 100], SCAN: [false, 100], SCANT: [false, 100], SWIPE: [false, 30], DRIVE: [false, 30], BRAIN: [false, 30], VOICE: [false, 15] };
 const S_Simulator = ({ lang, prog, profile }) => {
   const T = L[lang].sim;
@@ -778,25 +999,6 @@ const S_Simulator = ({ lang, prog, profile }) => {
   );
 };
 
-/* ============ ACT 7 — FIRST 90 DAYS & CALL ============ */
-const S_Roadmap = ({ lang }) => {
-  const T = L[lang].road;
-  return (<Frame><Bar /><H2>{T.h}</H2><P>{T.p}</P>
-    <div style={{ position: "relative", margin: "26px 0 8px" }}>
-      <div style={{ position: "absolute", left: "8%", right: "8%", top: 19, height: 3, background: AF.gradient, borderRadius: 2, zIndex: 0 }} />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(6,1fr)", gap: 8, position: "relative", zIndex: 1 }}>
-        {T.ms.map(([d, t, you, af], k) => (
-          <div key={t}>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom: 6 }}><span style={{ width: 34, height: 34, borderRadius: "50%", background: k === 5 ? AF.black : AF.pink, color: "#fff", fontSize: 10, fontWeight: 800, display: "inline-flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff", boxShadow: `0 0 0 1px ${AF.border}`, boxSizing: "content-box" }}>{d.split(" ")[1]}</span></div>
-            <div style={{ textAlign: "center", fontSize: 10, color: AF.pink, fontWeight: 700 }}>{d}</div>
-            <div style={{ textAlign: "center", fontSize: 12.5, fontWeight: 700, color: AF.black, margin: "2px 0 10px", lineHeight: 1.3, minHeight: 34, display: "flex", alignItems: "flex-start", justifyContent: "center" }}>{t}</div>
-            <div style={{ background: "#FFF5FA", border: `1px solid ${AF.pink}`, borderRadius: 10, padding: "9px 10px", marginBottom: 6, minHeight: 78 }}><div style={{ fontSize: 9, color: AF.pink, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.you}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{you}</div></div>
-            <div style={{ background: AF.grayLight, borderRadius: 10, padding: "9px 10px", minHeight: 78 }}><div style={{ fontSize: 9, color: AF.grayMid, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 3 }}>{T.af}</div><div style={{ fontSize: 10.5, color: AF.black, lineHeight: 1.45 }}>{af}</div></div>
-          </div>))}
-      </div>
-    </div>
-  </Frame>);
-};
 const S_Call = ({ lang, restart }) => {
   const T = L[lang].road;
   return (<Frame dark>
@@ -815,24 +1017,30 @@ const S_Call = ({ lang, restart }) => {
   </Frame>);
 };
 
+
 /* ============ TOUR SHELL ============ */
-const STEPS = [
-  { act: 0, label: "Welcome", C: S_Welcome },
-  { act: 1, label: "The HR market", C: S_Market },
-  { act: 1, label: "Your edge", C: S_Own },
-  { act: 2, label: "Reseller or Distributor", C: S_Programme },
-  { act: 2, label: "Tiers & MDF", C: S_Tiers },
-  { act: 2, label: "Portal & rules", C: S_Portal },
-  { act: 3, label: "Seven tools, one token", C: S_Products },
-  { act: 3, label: "Your margin", C: S_Margin },
-  { act: 4, label: "Partner back-office", C: S_BackOffice },
-  { act: 5, label: "How you order", C: S_Modes },
-  { act: 5, label: "Public price grid", C: S_Grid },
-  { act: 6, label: "Simulator", C: S_Simulator },
-  { act: 7, label: "A partner year", C: S_Proof },
-  { act: 7, label: "First 90 days", C: S_Roadmap },
-  { act: 7, label: "Book a call", C: S_Call },
-];
+const buildSteps = (prog) => {
+  const resell = isResell(prog), aff = prog === "affiliate";
+  return [
+    { act: 0, label: "Welcome", C: S_Welcome },
+    { act: 1, label: "Pick your programme", C: S_Choose },
+    { act: 1, label: "How it works", C: S_Detail },
+    ...(resell ? [{ act: 1, label: "Tiers & MDF", C: S_Tiers }] : [{ act: 1, label: "Your reward", C: S_Reward }]),
+    { act: 1, label: "Portal & rules", C: S_Portal },
+    { act: 2, label: "Seven tools, one token", C: S_Products },
+    { act: 2, label: "In your missions", C: S_Fit },
+    ...(resell ? [{ act: 2, label: "Your margin", C: S_Margin }] : []),
+    { act: 3, label: resell ? "Partner back-office" : aff ? "Campaigns & meetings" : "Leads & commissions", C: resell ? S_BackOffice : S_Leads },
+    ...(resell ? [{ act: 4, label: "How you order", C: S_Modes }, { act: 4, label: "Public price grid", C: S_Grid }, { act: 4, label: "Your year", C: S_Simulator }]
+      : aff ? [{ act: 4, label: "Your year", C: S_YearAff }]
+      : [{ act: 4, label: "Commission calculator", C: S_Commission }, { act: 4, label: "Your year", C: S_YearComm }]),
+    { act: 5, label: "A partner year", C: S_Proof },
+    { act: 5, label: "First 90 days", C: S_Roadmap },
+    { act: 5, label: "Book a call", C: S_Call },
+  ];
+};
+const SUGGEST = { rpo: "distributor", recruit: "reseller", consult: "advisory", media: "affiliate" };
+const urlProg = () => { try { const m = window.location.search.match(/prog=(\w+)/); return m && PROGS.includes(m[1]) ? m[1] : null; } catch { return null; } };
 const store = { get: (k) => { try { return sessionStorage.getItem(k); } catch { return null; } }, set: (k, v) => { try { sessionStorage.setItem(k, v); } catch {} } };
 const isInternal = () => { try { return /mode=internal|#internal/.test(window.location.href); } catch { return false; } };
 const PinGate = ({ onOk }) => {
@@ -852,17 +1060,20 @@ const PinGate = ({ onOk }) => {
   );
 };
 
+
 export default function App() {
   const [authed, setAuthed] = useState(() => store.get("af_rd_auth") === "1");
   const [lang, setLang] = useState("en");
-  const [profile, setProfile] = useState("rpo");
-  const [prog, setProg] = useState("distributor");
+  const [profile, setProfileRaw] = useState("recruit");
+  const [prog, setProg] = useState(() => urlProg() || "reseller");
   const [hov, setHov] = useState(null);
   const [i, setI] = useState(0);
   const internal = useMemo(isInternal, []);
+  const STEPS = useMemo(() => buildSteps(prog), [prog]);
+  const setProfile = (p) => { setProfileRaw(p); if (!urlProg()) setProg(SUGGEST[p]); };
   if (!authed) return <PinGate onOk={() => setAuthed(true)} />;
   const N = L[lang].nav, H = L[lang].hdr;
-  const step = STEPS[Math.min(i, STEPS.length - 1)];
+  const idx = Math.min(i, STEPS.length - 1), step = STEPS[idx];
   const Screen = step.C;
   const next = () => setI((v) => Math.min(v + 1, STEPS.length - 1));
   const prev = () => setI((v) => Math.max(v - 1, 0));
@@ -879,22 +1090,22 @@ export default function App() {
             <p style={{ fontSize: 13, color: AF.grayMid, margin: 0 }}>{H.sub}</p>
           </div>
           <div style={{ textAlign: "right", fontSize: 12, color: AF.grayMid }}>
-            <div style={{ marginBottom: 6, display: "flex", gap: 6, justifyContent: "flex-end", alignItems: "center" }}>{internal && <span style={{ fontSize: 9.5, fontWeight: 700, color: "#fff", background: AF.black, borderRadius: 8, padding: "3px 8px", textTransform: "uppercase" }}>internal</span>}<LangSwitch lang={lang} setLang={setLang} /></div>
-            {step.act > 0 ? `${N.act} ${step.act} / 7` : N.intro}<br /><b style={{ color: AF.black }}>{H.acts[step.act]}</b>
+            <div style={{ marginBottom: 6, display: "flex", gap: 6, justifyContent: "flex-end", alignItems: "center" }}>{internal && <span style={{ fontSize: 9.5, fontWeight: 700, color: "#fff", background: AF.black, borderRadius: 8, padding: "3px 8px", textTransform: "uppercase" }}>internal</span>}<span style={{ fontSize: 10.5, fontWeight: 700, color: AF.pink, background: "#FFF5FA", border: `1px solid ${AF.pink}`, borderRadius: 8, padding: "3px 9px" }}>{pgName(lang, prog)}</span><LangSwitch lang={lang} setLang={setLang} /></div>
+            {step.act > 0 ? `${N.act} ${step.act} / 5` : N.intro}<br /><b style={{ color: AF.black }}>{H.acts[step.act]}</b>
           </div>
         </div>
         <div style={{ display: "flex", gap: 4, margin: "18px 0 16px" }}>
           {STEPS.map((s, k) => (
             <div key={k} onClick={() => setI(k)} onMouseEnter={() => setHov(k)} onMouseLeave={() => setHov(null)} style={{ flex: 1, position: "relative", padding: "6px 0", marginLeft: k > 0 && s.act !== STEPS[k - 1].act ? 8 : 0, cursor: "pointer" }}>
-              <div style={{ height: 6, borderRadius: 3, background: k <= i ? AF.pink : AF.grayLight, opacity: k === i ? 1 : k < i ? 0.55 : 1, transform: hov === k ? "scaleY(1.5)" : "none", transition: "background .3s, transform .15s" }} />
+              <div style={{ height: 6, borderRadius: 3, background: k <= idx ? AF.pink : AF.grayLight, opacity: k === idx ? 1 : k < idx ? 0.55 : 1, transform: hov === k ? "scaleY(1.5)" : "none", transition: "background .3s, transform .15s" }} />
               {hov === k && <div style={{ position: "absolute", bottom: "calc(100% + 2px)", left: "50%", transform: "translateX(-50%)", background: AF.black, color: "#fff", fontSize: 10.5, fontWeight: 600, borderRadius: 7, padding: "5px 10px", whiteSpace: "nowrap", zIndex: 20, pointerEvents: "none", boxShadow: "0 6px 18px rgba(0,0,0,0.22)" }}>{s.act > 0 ? `${s.act}.` : ""} {s.label}<span style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", border: "4px solid transparent", borderTopColor: AF.black }} /></div>}
             </div>))}
         </div>
         <Screen {...props} />
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 18 }}>
-          <button onClick={prev} disabled={i === 0} style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 8, padding: "10px 22px", fontFamily: AF.font, fontWeight: 400, textTransform: "uppercase", fontSize: 12, letterSpacing: "0.06em", color: AF.black, cursor: i === 0 ? "default" : "pointer", opacity: i === 0 ? 0.4 : 1 }}>{N.back}</button>
-          <span style={{ fontSize: 12, color: AF.grayMid }}>{i + 1} / {STEPS.length} — {step.label}</span>
-          {i < STEPS.length - 1 ? <AfCta onClick={next}>{N.next}</AfCta> : <AfCta onClick={restart}>{N.restart}</AfCta>}
+          <button onClick={prev} disabled={idx === 0} style={{ background: "#fff", border: `1px solid ${AF.border}`, borderRadius: 8, padding: "10px 22px", fontFamily: AF.font, fontWeight: 400, textTransform: "uppercase", fontSize: 12, letterSpacing: "0.06em", color: AF.black, cursor: idx === 0 ? "default" : "pointer", opacity: idx === 0 ? 0.4 : 1 }}>{N.back}</button>
+          <span style={{ fontSize: 12, color: AF.grayMid }}>{idx + 1} / {STEPS.length} — {step.label}</span>
+          {idx < STEPS.length - 1 ? <AfCta onClick={next}>{N.next}</AfCta> : <AfCta onClick={restart}>{N.restart}</AfCta>}
         </div>
       </div>
     </div>
